@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca8bu6oaovpaw"]
+
+[ext_resource type="Texture2D" uid="uid://7htmx1ae8i1d" path="res://assets/images/1x1_white.png" id="1_5gkvc"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="LeftWall" type="Sprite2D" parent="Walls"]
+position = Vector2(312, 552)
+scale = Vector2(16, 400)
+texture = ExtResource("1_5gkvc")
+
+[node name="Bottom" type="Sprite2D" parent="Walls"]
+position = Vector2(720, 760)
+scale = Vector2(800, 16)
+texture = ExtResource("1_5gkvc")
+
+[node name="RightWall" type="Sprite2D" parent="Walls"]
+position = Vector2(1128, 552)
+scale = Vector2(16, 400)
+texture = ExtResource("1_5gkvc")
+
+[node name="BLCorner" type="Sprite2D" parent="Walls"]
+position = Vector2(312, 760)
+scale = Vector2(16, 16)
+texture = ExtResource("1_5gkvc")
+
+[node name="BRCorner" type="Sprite2D" parent="Walls"]
+position = Vector2(1128, 760)
+scale = Vector2(16, 16)
+texture = ExtResource("1_5gkvc")
