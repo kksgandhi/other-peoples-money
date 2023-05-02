@@ -12,12 +12,12 @@ scale = Vector2(16, 400)
 texture = ExtResource("1_5gkvc")
 
 [node name="Bottom" type="Sprite2D" parent="Walls"]
-position = Vector2(720, 760)
-scale = Vector2(800, 16)
+position = Vector2(670, 760)
+scale = Vector2(700, 16)
 texture = ExtResource("1_5gkvc")
 
 [node name="RightWall" type="Sprite2D" parent="Walls"]
-position = Vector2(1128, 552)
+position = Vector2(1028, 552)
 scale = Vector2(16, 400)
 texture = ExtResource("1_5gkvc")
 
@@ -27,6 +27,6 @@ scale = Vector2(16, 16)
 texture = ExtResource("1_5gkvc")
 
 [node name="BRCorner" type="Sprite2D" parent="Walls"]
-position = Vector2(1128, 760)
+position = Vector2(1028, 760)
 scale = Vector2(16, 16)
 texture = ExtResource("1_5gkvc")
