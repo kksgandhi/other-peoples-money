@@ -2,34 +2,12 @@
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_3vnwj"]
 [ext_resource type="Texture2D" uid="uid://7htmx1ae8i1d" path="res://assets/images/1x1_white.png" id="1_5gkvc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_24lcr"]
-size = Vector2(1, 1)
+[ext_resource type="PackedScene" uid="uid://c7ehiibfu2wfs" path="res://scenes/walls/wall.tscn" id="3_r4ug3"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3vnwj")
 
 [node name="Walls" type="Node2D" parent="."]
-
-[node name="LeftWall" type="Sprite2D" parent="Walls"]
-position = Vector2(312, 552)
-scale = Vector2(16, 400)
-texture = ExtResource("1_5gkvc")
-
-[node name="Bottom" type="Sprite2D" parent="Walls"]
-position = Vector2(670, 760)
-scale = Vector2(700, 16)
-texture = ExtResource("1_5gkvc")
-
-[node name="Area2D" type="Area2D" parent="Walls/Bottom"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Bottom/Area2D"]
-shape = SubResource("RectangleShape2D_24lcr")
-
-[node name="RightWall" type="Sprite2D" parent="Walls"]
-position = Vector2(1028, 552)
-scale = Vector2(16, 400)
-texture = ExtResource("1_5gkvc")
 
 [node name="BLCorner" type="Sprite2D" parent="Walls"]
 position = Vector2(312, 760)
@@ -41,9 +19,21 @@ position = Vector2(1028, 760)
 scale = Vector2(16, 16)
 texture = ExtResource("1_5gkvc")
 
+[node name="RightWall" parent="Walls" instance=ExtResource("3_r4ug3")]
+position = Vector2(1028, 552)
+scale = Vector2(16, 400)
+
+[node name="Bottom" parent="Walls" instance=ExtResource("3_r4ug3")]
+position = Vector2(670, 760)
+scale = Vector2(700, 16)
+
+[node name="LeftWall" parent="Walls" instance=ExtResource("3_r4ug3")]
+position = Vector2(312, 552)
+scale = Vector2(16, 400)
+
 [node name="SpawnLocation" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(659, 226)
+position = Vector2(670, 226)
 
 [node name="tetrominos" type="Node2D" parent="."]
 unique_name_in_owner = true
