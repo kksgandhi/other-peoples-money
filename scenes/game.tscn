@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://ca8bu6oaovpaw"]
+[gd_scene load_steps=4 format=3 uid="uid://ca8bu6oaovpaw"]
 
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_3vnwj"]
 [ext_resource type="Texture2D" uid="uid://7htmx1ae8i1d" path="res://assets/images/1x1_white.png" id="1_5gkvc"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24lcr"]
+size = Vector2(1, 1)
+
 [node name="Game" type="Node2D"]
+script = ExtResource("1_3vnwj")
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -15,6 +20,11 @@ texture = ExtResource("1_5gkvc")
 position = Vector2(670, 760)
 scale = Vector2(700, 16)
 texture = ExtResource("1_5gkvc")
+
+[node name="Area2D" type="Area2D" parent="Walls/Bottom"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Bottom/Area2D"]
+shape = SubResource("RectangleShape2D_24lcr")
 
 [node name="RightWall" type="Sprite2D" parent="Walls"]
 position = Vector2(1028, 552)
@@ -30,3 +40,10 @@ texture = ExtResource("1_5gkvc")
 position = Vector2(1028, 760)
 scale = Vector2(16, 16)
 texture = ExtResource("1_5gkvc")
+
+[node name="SpawnLocation" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(659, 226)
+
+[node name="tetrominos" type="Node2D" parent="."]
+unique_name_in_owner = true
