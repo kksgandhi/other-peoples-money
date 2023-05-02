@@ -28,7 +28,7 @@ func handle_movement():
     # velocity is zero? We must have hit the ground
     # or the top of another tetromino
     # freeze this tetromino in place then
-    is_frozen = true
+    pass # is_frozen = true
 
 func handle_rotation():
   if Input.is_action_just_pressed("rotate"):

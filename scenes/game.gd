@@ -13,16 +13,30 @@ func _ready():
   file.close()
 
 func _input(event):
-  handle_spawn_tetromino(event)
+  # handle_spawn_tetromino(event)
+  add_tetro_ui_item(event)
 
-func handle_spawn_tetromino(event):
+var tetro_choice_item = preload("res://scenes/tetrominos/tetro_choice_item.tscn")
+func add_tetro_ui_item(event):
   if event.is_action_pressed("debug") and cost_information.size() > 0:
-    var tetromino_cost = float(cost_information.pop_at(rng.randi_range(0, cost_information.size() - 1)).cost)
-    var spawned_tetromino = tetromino_scene.instantiate()
-    %tetrominos.add_child(spawned_tetromino)
-    spawned_tetromino.position = %SpawnLocation.position
-    spawned_tetromino.scale = Vector2(sqrt(tetromino_cost), sqrt(tetromino_cost))
-    print(tetromino_cost)
+    var choice_item_instance = tetro_choice_item.instantiate()
+    %tetro_choices.add_child(choice_item_instance)
+    var tetromino_information = cost_information.pop_at(rng.randi_range(0, cost_information.size() - 1))
+    choice_item_instance.update_displayed_information(tetromino_information)
+    choice_item_instance.selected.connect(ui_item_selected)
+    
+func ui_item_selected(tetro_info, child):
+  if %tetrominos.get_children().all(func(child): return child.velocity.y == 0):
+    %tetrominos.get_children().map(func(child): child.is_frozen = true)
+    spawn_tetromino(tetro_info)
+    child.queue_free()
+
+
+func spawn_tetromino(tetro_info):
+  var spawned_tetromino = tetromino_scene.instantiate()
+  %tetrominos.add_child(spawned_tetromino)
+  spawned_tetromino.position = %SpawnLocation.position
+  spawned_tetromino.scale = Vector2(1, 1) * sqrt(tetro_info.cost)
 
 func _process(_delta):
   move_upwards_as_tetrominos_fall()

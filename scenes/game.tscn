@@ -55,3 +55,10 @@ position = Vector2(720, 405)
 [node name="OriginalCameraDestination" type="Marker2D" parent="CameraStuff"]
 unique_name_in_owner = true
 position = Vector2(720, 405)
+
+[node name="tetro_choices" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+offset_left = 1060.0
+offset_top = 24.0
+offset_right = 1412.0
+offset_bottom = 64.0
