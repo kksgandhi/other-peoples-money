@@ -2,15 +2,27 @@ extends Node2D
 
 const tetromino_scene = preload("res://scenes/tetrominos/tetromino_s.tscn")
 
+var cost_information
+
+var rng = RandomNumberGenerator.new()
+
+func _ready():
+  var file = FileAccess.open("res://assets/data/cost_information.json", FileAccess.READ)
+  var text = file.get_as_text()
+  cost_information = JSON.parse_string(text)
+  file.close()
+
 func _input(event):
   handle_spawn_tetromino(event)
 
 func handle_spawn_tetromino(event):
-  if event.is_action_pressed("debug"):
+  if event.is_action_pressed("debug") and cost_information.size() > 0:
+    var tetromino_cost = float(cost_information.pop_at(rng.randi_range(0, cost_information.size() - 1)).cost)
     var spawned_tetromino = tetromino_scene.instantiate()
     %tetrominos.add_child(spawned_tetromino)
     spawned_tetromino.position = %SpawnLocation.position
-    spawned_tetromino.scale = Vector2(32, 32)
+    spawned_tetromino.scale = Vector2(sqrt(tetromino_cost), sqrt(tetromino_cost))
+    print(tetromino_cost)
 
 func _process(_delta):
   move_upwards_as_tetrominos_fall()
