@@ -22,6 +22,7 @@ func handle_movement():
   if is_frozen: return
   calculate_down_velocity()
   calculate_strafe_velocity()
+  handle_rotation()
   move_and_slide()
   if velocity.y == 0:
     # velocity is zero? We must have hit the ground
@@ -29,3 +30,6 @@ func handle_movement():
     # freeze this tetromino in place then
     is_frozen = true
 
+func handle_rotation():
+  if Input.is_action_just_pressed("rotate"):
+    rotation_degrees += 90
