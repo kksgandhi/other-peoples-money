@@ -6,6 +6,8 @@
 [node name="Sprite2D" type="CharacterBody2D"]
 position = Vector2(0, 0.5)
 script = ExtResource("1_nyw3d")
+downspeed = 300
+strafespeed = 350
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, -1.5, 1, -1.5, 1, 0.5, 0, 0.5, 0, 1.5, -1, 1.5, -1, -0.5, 0, -0.5)

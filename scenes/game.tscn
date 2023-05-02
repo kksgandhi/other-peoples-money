@@ -20,20 +20,38 @@ scale = Vector2(16, 16)
 texture = ExtResource("1_5gkvc")
 
 [node name="RightWall" parent="Walls" instance=ExtResource("3_r4ug3")]
-position = Vector2(1028, 552)
-scale = Vector2(16, 400)
+position = Vector2(1028, -4248)
+scale = Vector2(16, 10000)
 
 [node name="Bottom" parent="Walls" instance=ExtResource("3_r4ug3")]
 position = Vector2(670, 760)
 scale = Vector2(700, 16)
 
 [node name="LeftWall" parent="Walls" instance=ExtResource("3_r4ug3")]
-position = Vector2(312, 552)
-scale = Vector2(16, 400)
+position = Vector2(312, -4248)
+scale = Vector2(16, 10000)
 
 [node name="SpawnLocation" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(670, 226)
 
+[node name="OriginalSpawnLocation" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(670, 226)
+
 [node name="tetrominos" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="CameraStuff" type="Node2D" parent="."]
+
+[node name="MainCamera" type="Camera2D" parent="CameraStuff"]
+unique_name_in_owner = true
+position = Vector2(720, 405)
+
+[node name="CameraDestination" type="Marker2D" parent="CameraStuff"]
+unique_name_in_owner = true
+position = Vector2(720, 405)
+
+[node name="OriginalCameraDestination" type="Marker2D" parent="CameraStuff"]
+unique_name_in_owner = true
+position = Vector2(720, 405)
