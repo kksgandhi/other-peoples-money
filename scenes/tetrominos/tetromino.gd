@@ -33,3 +33,6 @@ func handle_movement():
 func handle_rotation():
   if Input.is_action_just_pressed("rotate"):
     rotation_degrees += 90
+    
+func set_color(color):
+  %Sprite2D.modulate = Color(color)

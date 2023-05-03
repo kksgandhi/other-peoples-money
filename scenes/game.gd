@@ -37,7 +37,7 @@ func spawn_tetromino(tetro_info):
   %tetrominos.add_child(spawned_tetromino)
   spawned_tetromino.position = %SpawnLocation.position
   spawned_tetromino.scale = Vector2(1, 1) * sqrt(tetro_info.cost)
-  print(tetro_info)
+  spawned_tetromino.set_color(tetro_info.color)
 
 func _process(_delta):
   move_upwards_as_tetrominos_fall()
