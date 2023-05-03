@@ -38,6 +38,7 @@ func spawn_tetromino(tetro_info):
   spawned_tetromino.position = %SpawnLocation.position
   spawned_tetromino.scale = Vector2(1, 1) * sqrt(tetro_info.cost)
   spawned_tetromino.set_color(tetro_info.color)
+  spawned_tetromino.set_tooltips(tetro_info.title)
 
 func _process(_delta):
   move_upwards_as_tetrominos_fall()

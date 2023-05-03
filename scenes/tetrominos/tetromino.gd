@@ -36,3 +36,6 @@ func handle_rotation():
     
 func set_color(color):
   %Sprite2D.modulate = Color(color)
+  
+func set_tooltips(text):
+  $Tooltips.get_children().map(func(child): child.tooltip_text = text)

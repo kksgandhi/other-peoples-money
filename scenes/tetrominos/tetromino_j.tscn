@@ -16,3 +16,32 @@ texture = ExtResource("2_mhgcq")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0.5, -0.5)
 polygon = PackedVector2Array(-0.5, -1, 0.5, -1, 0.5, 2, -1.5, 2, -1.5, 1, -0.5, 1)
+
+[node name="Tooltips" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+tooltip_text = "arsvav a"
+
+[node name="Control" type="Control" parent="Tooltips"]
+anchors_preset = 0
+offset_top = -1.5
+offset_right = 1.0
+offset_bottom = -0.5
+
+[node name="Control2" type="Control" parent="Tooltips"]
+anchors_preset = 0
+offset_top = -0.5
+offset_right = 1.0
+offset_bottom = 0.5
+
+[node name="Control3" type="Control" parent="Tooltips"]
+anchors_preset = 0
+offset_top = 0.5
+offset_right = 1.0
+offset_bottom = 1.5
+
+[node name="Control4" type="Control" parent="Tooltips"]
+anchors_preset = 0
+offset_left = -1.0
+offset_top = 0.5
+offset_bottom = 1.5

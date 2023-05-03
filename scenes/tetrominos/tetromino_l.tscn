@@ -15,3 +15,20 @@ texture = ExtResource("2_f3u6p")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-1, -1.5, 0, -1.5, 0, 0.5, 1, 0.5, 1, 1.5, -1, 1.5)
+
+[node name="Tooltips" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+tooltip_text = "arsv astdars tarc "
+
+[node name="Control" type="Control" parent="Tooltips"]
+anchors_preset = 0
+offset_left = -1.0
+offset_top = -1.5
+offset_bottom = 1.5
+
+[node name="Control2" type="Control" parent="Tooltips"]
+anchors_preset = 0
+offset_top = 0.5
+offset_right = 1.0
+offset_bottom = 1.5

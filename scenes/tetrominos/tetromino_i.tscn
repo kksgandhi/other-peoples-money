@@ -15,3 +15,15 @@ texture = ExtResource("2_jnk36")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-0.5, -2, 0.5, -2, 0.5, 2, -0.5, 2)
+
+[node name="Tooltips" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+tooltip_text = "wstarts"
+
+[node name="Control" type="Control" parent="Tooltips"]
+anchors_preset = 0
+offset_left = -0.5
+offset_top = -2.0
+offset_right = 0.5
+offset_bottom = 2.0
