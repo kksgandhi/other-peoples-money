@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuxvwi2x6vjyt"]
+
+[ext_resource type="Script" path="res://scenes/tetrominos/tetromino.gd" id="1_2cw7u"]
+[ext_resource type="Texture2D" uid="uid://ck6p74iqvrius" path="res://assets/images/tetromino_j.png" id="2_mhgcq"]
+
+[node name="Sprite2D" type="CharacterBody2D"]
+position = Vector2(0.5, 0.5)
+script = ExtResource("1_2cw7u")
+downspeed = 300
+strafespeed = 350
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_mhgcq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0.5, -0.5)
+polygon = PackedVector2Array(-0.5, -1, 0.5, -1, 0.5, 2, -1.5, 2, -1.5, 1, -0.5, 1)
