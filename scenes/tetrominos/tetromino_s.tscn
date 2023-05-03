@@ -6,7 +6,6 @@
 [node name="Sprite2D" type="CharacterBody2D"]
 position = Vector2(0, 0.5)
 script = ExtResource("1_nyw3d")
-downspeed = 300
 strafespeed = 350
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

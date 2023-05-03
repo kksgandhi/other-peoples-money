@@ -35,10 +35,16 @@ func add_tetro_ui_item(event):
     choice_item_instance.selected.connect(ui_item_selected)
     
 func ui_item_selected(tetro_info, child):
-  if %tetrominos.get_children().all(func(child): return child.velocity.y == 0):
+  var all_tetrominos_bottomed_out = %tetrominos.get_children()\
+                                        .all(func(child): return child.velocity.y == 0)
+  if all_tetrominos_bottomed_out and not is_tetromino_topped_out():
     %tetrominos.get_children().map(func(child): child.is_frozen = true)
     spawn_tetromino(tetro_info)
     child.queue_free()
+
+func is_tetromino_topped_out():
+  return %Top.get_overlapping_bodies()\
+              .any(func(body): return not body.is_in_group('wall'))
 
 
 func spawn_tetromino(tetro_info):
@@ -64,6 +70,7 @@ func move_upwards_as_tetrominos_fall():
       highest_tetromino_y_position = tetromino.position.y
   if highest_tetromino_y_position < breaking_position:
     var desired_offset = highest_tetromino_y_position - game_movement_offset
+    desired_offset = max(desired_offset, %Top.position.y - %Top.scale.y / 2)
     %CameraDestination.position.y = %OriginalCameraDestination.position.y + desired_offset
     %SpawnLocation.position.y = %OriginalSpawnLocation.position.y + desired_offset
     %MainCamera.position = lerp(%MainCamera.position, %CameraDestination.position, camera_move_speed)

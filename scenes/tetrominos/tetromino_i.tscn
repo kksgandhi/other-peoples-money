@@ -6,8 +6,6 @@
 [node name="Sprite2D" type="CharacterBody2D"]
 position = Vector2(0.5, 1)
 script = ExtResource("1_7kilr")
-downspeed = 300
-strafespeed = 350
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
