@@ -18,6 +18,7 @@ func update_displayed_information(input_tetromino_information):
   var color_choice = colors[rng.randi() % colors.size()]
   %TetrominoIcon.modulate = Color(color_choice)
   tetromino_information.color = color_choice
+  $Button.tooltip_text = input_tetromino_information.more_information
 
 
 
