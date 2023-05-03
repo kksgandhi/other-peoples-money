@@ -35,12 +35,9 @@ func add_tetro_ui_item(event):
     choice_item_instance.selected.connect(ui_item_selected)
     
 func ui_item_selected(tetro_info, child):
-  var all_tetrominos_bottomed_out = %tetrominos.get_children()\
-                                        .all(func(child): return child.velocity.y == 0)
-  if all_tetrominos_bottomed_out and not is_tetromino_topped_out():
-    %tetrominos.get_children().map(func(child): child.is_frozen = true)
-    spawn_tetromino(tetro_info)
-    child.queue_free()
+  %tetrominos.get_children().map(func(child): child.is_frozen = true)
+  spawn_tetromino(tetro_info)
+  child.queue_free()
 
 func is_tetromino_topped_out():
   return %Top.get_overlapping_bodies()\
@@ -58,6 +55,13 @@ func spawn_tetromino(tetro_info):
 
 func _process(_delta):
   move_upwards_as_tetrominos_fall()
+  handle_disable_sidebar()
+
+func handle_disable_sidebar():
+  var all_tetrominos_bottomed_out = %tetrominos.get_children()\
+                                        .all(func(child): return child.velocity.y == 0)
+  var sidebar_disabled = is_tetromino_topped_out() or not all_tetrominos_bottomed_out
+  %tetro_choices.get_children().map(func(choice_item_child): choice_item_child.get_node("Button").disabled = sidebar_disabled)
 
 @export var breaking_position = 400
 @export var game_movement_offset = 500

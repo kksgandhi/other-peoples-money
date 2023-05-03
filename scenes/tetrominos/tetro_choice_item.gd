@@ -22,7 +22,8 @@ func update_displayed_information(input_tetromino_information):
   tetromino_information.color = color_choice
   $Button.tooltip_text = input_tetromino_information.more_information
 
-
-
 func _on_button_pressed():
   selected.emit(tetromino_information, self) # Replace with function body.
+  
+func set_disabled(is_disabled):
+  print(is_disabled)
