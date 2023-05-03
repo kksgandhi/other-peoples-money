@@ -4,19 +4,16 @@ var cost_information
 
 var rng = RandomNumberGenerator.new()
 
-@export var thousands_of_dollars_per_pixel = 1000
 
-@export var top_400_wealth = 4000000000000.0
-
-@onready var height_of_play_area = (top_400_wealth \
+@onready var height_of_play_area = (Globals.top_400_wealth \
                  / 1000 # since we're working in thousands of dollars\
-                 / thousands_of_dollars_per_pixel # divide by per pixel amount\
+                 / Globals.thousands_of_dollars_per_pixel # divide by per pixel amount\
                  / %Bottom.scale.x) # divide by size of area
                 
 func _ready():
   read_cost_information()
+  print(height_of_play_area)
   %Top.position.y = %Bottom.position.y - (height_of_play_area + 16)
-  print(%Top.position.y)
 
 func read_cost_information():
   var file = FileAccess.open("res://assets/data/cost_information.json", FileAccess.READ)
@@ -46,13 +43,12 @@ func ui_item_selected(tetro_info, child):
 
 func spawn_tetromino(tetro_info):
   # const tetromino_scene = preload("res://scenes/tetrominos/tetromino_s.tscn")
-  print(tetro_info)
   var spawned_tetromino = load("res://scenes/tetrominos/" + tetro_info.sprite + ".tscn").instantiate()
   %tetrominos.add_child(spawned_tetromino)
   spawned_tetromino.position = %SpawnLocation.position
-  spawned_tetromino.scale = Vector2(1, 1) * sqrt(tetro_info.cost)
+  spawned_tetromino.scale = Vector2(1, 1) * Globals.get_tetromino_scale(tetro_info.cost)
   spawned_tetromino.set_color(tetro_info.color)
-  spawned_tetromino.set_tooltips(tetro_info.title)
+  spawned_tetromino.set_tooltips(spawned_tetromino.scale)
 
 func _process(_delta):
   move_upwards_as_tetrominos_fall()
