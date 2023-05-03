@@ -6,6 +6,7 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3vnwj")
+camera_move_speed = 0.001
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -48,6 +49,24 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 position = Vector2(720, 405)
 
+[node name="TetroScroll" type="ScrollContainer" parent="CameraStuff/MainCamera"]
+unique_name_in_owner = true
+offset_left = 352.0
+offset_top = -379.0
+offset_right = 688.0
+offset_bottom = 373.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CameraStuff/MainCamera/TetroScroll"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="tetro_choices" type="VBoxContainer" parent="CameraStuff/MainCamera/TetroScroll/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="CameraDestination" type="Marker2D" parent="CameraStuff"]
 unique_name_in_owner = true
 position = Vector2(720, 405)
@@ -55,20 +74,3 @@ position = Vector2(720, 405)
 [node name="OriginalCameraDestination" type="Marker2D" parent="CameraStuff"]
 unique_name_in_owner = true
 position = Vector2(720, 405)
-
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
-offset_left = 1072.0
-offset_top = 26.0
-offset_right = 1408.0
-offset_bottom = 778.0
-
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="tetro_choices" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2

@@ -18,6 +18,7 @@ func calculate_strafe_velocity():
     velocity.x = 0
 
 var is_frozen := false
+var is_grounded := false
 func handle_movement():
   if is_frozen: return
   calculate_down_velocity()
@@ -28,7 +29,7 @@ func handle_movement():
     # velocity is zero? We must have hit the ground
     # or the top of another tetromino
     # freeze this tetromino in place then
-    pass # is_frozen = true
+    is_grounded = true
 
 func handle_rotation():
   if Input.is_action_just_pressed("rotate"):
