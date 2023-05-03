@@ -4,7 +4,21 @@ var cost_information
 
 var rng = RandomNumberGenerator.new()
 
+@export var thousands_of_dollars_per_pixel = 1000
+
+@export var top_400_wealth = 4000000000000.0
+
+@onready var height_of_play_area = (top_400_wealth \
+                 / 1000 # since we're working in thousands of dollars\
+                 / thousands_of_dollars_per_pixel # divide by per pixel amount\
+                 / %Bottom.scale.x) # divide by size of area
+                
 func _ready():
+  read_cost_information()
+  %Top.position.y = %Bottom.position.y - (height_of_play_area + 16)
+  print(%Top.position.y)
+
+func read_cost_information():
   var file = FileAccess.open("res://assets/data/cost_information.json", FileAccess.READ)
   var text = file.get_as_text()
   cost_information = JSON.parse_string(text)

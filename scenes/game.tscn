@@ -21,14 +21,28 @@ scale = Vector2(16, 16)
 texture = ExtResource("1_5gkvc")
 
 [node name="RightWall" parent="Walls" instance=ExtResource("3_r4ug3")]
+unique_name_in_owner = true
 position = Vector2(1028, -4190)
 scale = Vector2(16, 10000)
 
 [node name="Bottom" parent="Walls" instance=ExtResource("3_r4ug3")]
+unique_name_in_owner = true
 position = Vector2(670, 818)
 scale = Vector2(700, 16)
 
+[node name="Top" parent="Walls" instance=ExtResource("3_r4ug3")]
+unique_name_in_owner = true
+position = Vector2(670, 818)
+scale = Vector2(700, 16)
+
+[node name="Sprite2D" parent="Walls/Top" index="0"]
+modulate = Color(1, 0.427451, 0.356863, 1)
+
+[node name="CollisionShape2D" parent="Walls/Top" index="1"]
+disabled = true
+
 [node name="LeftWall" parent="Walls" instance=ExtResource("3_r4ug3")]
+unique_name_in_owner = true
 position = Vector2(312, -4190)
 scale = Vector2(16, 10000)
 
@@ -74,3 +88,5 @@ position = Vector2(720, 405)
 [node name="OriginalCameraDestination" type="Marker2D" parent="CameraStuff"]
 unique_name_in_owner = true
 position = Vector2(720, 405)
+
+[editable path="Walls/Top"]
