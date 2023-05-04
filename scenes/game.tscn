@@ -7,7 +7,6 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3vnwj")
-scroll_speed = null
 unlocked_camera_speed = 0.1
 breaking_position = 300
 game_movement_offset = 600

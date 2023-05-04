@@ -22,14 +22,15 @@ func read_cost_information():
   cost_information = raw_cost_information.map(func(info): info.cost = info.cost * 1000000; return info)
   file.close()
 
-func _input(event):
+func _unhandled_input(event):
   handle_scroll(event)
 
 @export var scroll_speed = 100
 @export var unlocked_camera_speed = 0.5
 var is_camera_locked = true
 func handle_scroll(event):
-  if event is InputEventMouseButton and event.is_pressed():
+  #TODO do not hard-code the next line
+  if event is InputEventMouseButton and event.is_pressed() and get_global_mouse_position().x < 1030:
     if event.button_index == MOUSE_BUTTON_WHEEL_UP:
       %CameraDestination.position.y = %MainCamera.position.y - scroll_speed
       is_camera_locked = false
@@ -112,5 +113,8 @@ func move_upwards_as_tetrominos_fall():
 @export var display_scroll_message_position = 0
 
 @onready var instructions_text = %LeftSideBarText.text
+var has_scroll_message_started_displaying = false
 func handle_left_sidebar_instructions():
-  pass
+  if not has_scroll_message_started_displaying and highest_tetromino_y_position < display_scroll_message_position:
+    has_scroll_message_started_displaying = true
+    %LeftSideBarText.text += "\n\n SCROLL"
