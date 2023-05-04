@@ -23,6 +23,8 @@ func read_cost_information():
   file.close()
 
 func _unhandled_input(event):
+  if event.is_action_pressed("debug"):
+    handle_debug()
   handle_scroll(event)
 
 @export var scroll_speed = 100
@@ -73,10 +75,12 @@ func spawn_tetromino(tetro_info):
   spawned_tetromino.set_color(tetro_info.color)
   spawned_tetromino.set_tooltips(tetro_info.title)
 
+  remaining_wealth -= tetro_info.cost * 1000
+
 func _process(_delta):
   move_upwards_as_tetrominos_fall()
   handle_disable_sidebar()
-  handle_left_sidebar_instructions()
+  handle_leftsidebar_end_message()
 
 func handle_disable_sidebar():
   var all_tetrominos_bottomed_out = %tetrominos.get_children()\
@@ -91,6 +95,7 @@ func handle_disable_sidebar():
 var highest_tetromino_y_position = 100000000
 var desired_offset := 0.0
 var is_broken := false
+var has_leftsidebar_animation_played = false
 func move_upwards_as_tetrominos_fall():
   # find the highest tetromino (by center)
   for tetromino in %tetrominos.get_children():
@@ -102,6 +107,9 @@ func move_upwards_as_tetrominos_fall():
     is_broken = true
     desired_offset = highest_tetromino_y_position - game_movement_offset
     desired_offset = max(desired_offset, %Top.position.y - %Top.scale.y / 2)
+    if not has_leftsidebar_animation_played and desired_offset == %Top.position.y - %Top.scale.y / 2:
+      %LeftSideBarAnimationPlayer.play("fade_left_texts")
+      has_leftsidebar_animation_played = true
 
     %SpawnLocation.position.y = %OriginalSpawnLocation.position.y + desired_offset
     if is_camera_locked:
@@ -110,11 +118,11 @@ func move_upwards_as_tetrominos_fall():
   var current_camera_move_speed = camera_move_speed if is_camera_locked else unlocked_camera_speed
   %MainCamera.position = lerp(%MainCamera.position, %CameraDestination.position, current_camera_move_speed)
 
-@export var display_scroll_message_position = 0
+@onready var remaining_wealth = Globals.top_400_wealth
+@onready var original_leftsidebar_end_text = %LeftSideBarEndText.text
+func handle_leftsidebar_end_message():
+  %LeftSideBarEndText.text = original_leftsidebar_end_text + " Each of our original 400 richest americans still has (on average) $" + Globals.comma_sep(remaining_wealth / 400) + " — an amount that would take the average American " + Globals.comma_sep(int(remaining_wealth / 400 / 1700000)) + " lifetimes to earn."
 
-@onready var instructions_text = %LeftSideBarText.text
-var has_scroll_message_started_displaying = false
-func handle_left_sidebar_instructions():
-  if not has_scroll_message_started_displaying and highest_tetromino_y_position < display_scroll_message_position:
-    has_scroll_message_started_displaying = true
-    %LeftSideBarText.text += "\n\n SCROLL"
+func handle_debug():
+  %LeftSideBarAnimationPlayer.play("fade_left_texts")
+  pass

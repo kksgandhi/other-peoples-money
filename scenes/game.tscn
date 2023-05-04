@@ -1,9 +1,70 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca8bu6oaovpaw"]
+[gd_scene load_steps=8 format=3 uid="uid://ca8bu6oaovpaw"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_3vnwj"]
 [ext_resource type="Texture2D" uid="uid://7htmx1ae8i1d" path="res://assets/images/1x1_white.png" id="1_5gkvc"]
 [ext_resource type="PackedScene" uid="uid://c7ehiibfu2wfs" path="res://scenes/walls/wall.tscn" id="3_r4ug3"]
 [ext_resource type="PackedScene" uid="uid://dcwfbqpcamdy7" path="res://scenes/walls/top.tscn" id="4_ut730"]
+
+[sub_resource type="Animation" id="Animation_iqrlk"]
+resource_name = "fade_left_texts"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.5, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../LeftSideBarText:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mhut5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../LeftSideBarText:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_twwo8"]
+_data = {
+"RESET": SubResource("Animation_mhut5"),
+"fade_left_texts": SubResource("Animation_iqrlk")
+}
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3vnwj")
@@ -79,20 +140,21 @@ theme_override_constants/margin_bottom = 10
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Panel" type="PanelContainer" parent="CameraStuff/MainCamera"]
+[node name="LeftSideBar" type="PanelContainer" parent="CameraStuff/MainCamera"]
+unique_name_in_owner = true
 offset_left = -683.0
 offset_top = -372.0
 offset_right = -463.0
 offset_bottom = 82.0
 
-[node name="MarginContainer" type="MarginContainer" parent="CameraStuff/MainCamera/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="CameraStuff/MainCamera/LeftSideBar"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="LeftSideBarText" type="RichTextLabel" parent="CameraStuff/MainCamera/Panel/MarginContainer"]
+[node name="LeftSideBarText" type="RichTextLabel" parent="CameraStuff/MainCamera/LeftSideBar/MarginContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -100,8 +162,27 @@ text = "The play area in the middle represents the wealth of 400 people. That's 
 
 The blocks on the right represent things you can spend their money on. 
 
-Click one, and it will fall into the space. Use Arrow Keys or WASD to move them around as they fall; use R to rotate them."
+Click one, and it will fall into the space. Use Arrow Keys or WASD to move them around as they fall; use R to rotate them.
+
+"
 fit_content = true
+
+[node name="LeftSideBarEndText" type="RichTextLabel" parent="CameraStuff/MainCamera/LeftSideBar/MarginContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "Well, you did it, you reached the top. You can use your scroll wheel to see lower parts of the game area.
+
+Though you haven't managed to spend [i]all[/i] their money. Think you can squeeze a bit more in?"
+fit_content = true
+
+[node name="LeftSideBarAnimationPlayer" type="AnimationPlayer" parent="CameraStuff/MainCamera/LeftSideBar/MarginContainer/LeftSideBarEndText"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_twwo8")
+}
 
 [node name="CameraDestination" type="Marker2D" parent="CameraStuff"]
 unique_name_in_owner = true
