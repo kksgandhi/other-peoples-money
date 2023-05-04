@@ -16,7 +16,7 @@ func update_displayed_information(input_tetromino_information):
   %TetrominoTitle.clear()
   %TetrominoTitle.append_text(tetromino_information.title)
   %TetrominoTitle.append_text("\n")
-  %TetrominoTitle.append_text(str(tetromino_information.cost))
+  %TetrominoTitle.append_text(Globals.comma_sep(tetromino_information.cost * 1000))
   var color_choice = colors[rng.randi() % colors.size()]
   %TetrominoIcon.modulate = Color(color_choice)
   tetromino_information.color = color_choice

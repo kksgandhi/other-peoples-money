@@ -1,132 +1,257 @@
 [
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 20,
+    "title": "End Homelessness",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 21,
+    "title": "Fund habitat for humanity for a decade",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 24,
+    "title": "Fund the Dana-Farber Cancer institute for a decade",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 22.4,
+    "title": "Pay 100,000 teacher salaries for 4 years",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 2,
+    "title": "Support 10,000 artists for 4 years",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 15.8,
+    "title": "Double every Amazon Employee's salary",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 0.6,
+    "title": "Build a thousand miles of fully protected bike lanes in New York City",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 15,
+    "title": "Build 1,000 new public libraries",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 0.06,
+    "title": "Reboot Mythbusters",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 5.76,
+    "title": "Pay off 100,000 graduate student loans",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 0.055,
+    "title": "Fix the Flint, Michigan water crisis",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 8.5,
+    "title": "Eradicate Malaria",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 27.9,
+    "title": "Pay for every American's cancer treatments",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 200,
+    "title": "Vaccinate every human against coronavirus",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 0.81,
+    "title": "Pay off the delinquent medical debt for all Americans",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 170,
+    "title": "Lift every American out of poverty",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 240,
+    "title": "Provide clean water and plumbing for every human",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 120,
+    "title": "Pay for parental leave for all Americans, for a decade",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 108.5,
+    "title": "Build a moon base and run it for a decade",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 10.1,
+    "title": "Fund every project proposed by the MBTA, including repairs and projects currently seeking funding.",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 238,
+    "title": "Reforest the world's degraded forests and agricultural land",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 2,
+    "title": "Recoup the costs of rebuilding from the last Haitian earthquake",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 3,
+    "title": "Recoup all of the costs of containing Chernobyl",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 15,
+    "title": "Clean up a future BP gulf oil spill",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 0.25,
+    "title": "Pay the pensions of the firefighters and officers killed on 9/11",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   },
   {
-    "cost": 100000000,
-    "title": "POTATO",
-    "more_information": "aaa"
+    "cost": 40,
+    "title": "Protect the world's threatened species for a decade",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 230,
+    "title": "Save the lives of a hundred million children in developing nations",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 35.6,
+    "title": "End HIV in America",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 96,
+    "title": "Double the American Red Cross's budget. Then double it again. And again. And again. And again. And again.",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 25,
+    "title": "End hunger in the United States",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 70,
+    "title": "Build a million miles of high speed internet infrastructure.",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 105,
+    "title": "Build high speed rail across California",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 100,
+    "title": "Provide a decade of student debt relief to Americans",
+    "more_information": "This refers specifically to Biden's proposed plan. Most estimates put that plan at 300 billion over 30 years, so 100 billion over 10 years is a ham-fisted estimate. One thing to note is that most of the costs would be up-front, so really this should say 'Fulfill a third of Biden's student debt relief plan', but that doesn't really roll off the tongue as well."
+  },
+  {
+    "cost": 155.7,
+    "title": "Fund the research and testing of a hundred new drugs",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 10,
+    "title": "Recoup the costs of the James Webb Space Telescope",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 31,
+    "title": "Support the international space station for a decade",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 12.5,
+    "title": "Fix the Texas power grid",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 64,
+    "title": "Clean up a thousand superfund hazardous waste sites",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 1,
+    "title": "Recoup the costs of training and testing GPT4 ",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 10,
+    "title": "Buy a thousand top of the line quantum computers",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 25,
+    "title": "Film a thousand documentaries on the order of 'Planet Earth'",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 23,
+    "title": "Fund the New York Times for a decade",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 231.4,
+    "title": "Do a year's worth of roadway repairs for all of the roads in America",
+    "more_information": "In order to keep existing roads in “acceptable repair” and fix the poor ones over a six-year period, it’s estimated that the country would need $231.4 billion per year."
+  },
+  {
+    "cost": 10,
+    "title": "Pay the tuition of every Harvard student for a century",
+    "more_information": "This is after other forms of aid."
+  },
+  {
+    "cost": 280.844,
+    "title": "Pay for every Pell Grant, for a decade",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 15,
+    "title": "Provide seed funding to a thousand tech startups",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 52.16,
+    "title": "Double the budget of Doctors Without Borders. Then double it again. And again. And again. And again. And again.",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 20,
+    "title": "Recoup the costs of cleaning up the Fukishima disaster",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 15,
+    "title": "Build ten desalination plants and run them for a decade",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 195,
+    "title": "Pay off all medical debt in America",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
+  },
+  {
+    "cost": 128,
+    "title": "Pay the tuitions of all medical school students, for a decade",
+    "more_information": "This is where a longer description should go, but I haven't fully researched all these numbers"
   }
 ]

@@ -12,22 +12,25 @@ var rng = RandomNumberGenerator.new()
                 
 func _ready():
   read_cost_information()
-  print(height_of_play_area)
+  add_tetro_ui_item(); add_tetro_ui_item(); add_tetro_ui_item()
   %Top.position.y = %Bottom.position.y - (height_of_play_area + 16)
 
 func read_cost_information():
   var file = FileAccess.open("res://assets/data/cost_information.json", FileAccess.READ)
   var text = file.get_as_text()
-  cost_information = JSON.parse_string(text)
+  var raw_cost_information = JSON.parse_string(text)
+  cost_information = raw_cost_information.map(func(info): info.cost = info.cost * 1000000; return info)
   file.close()
+  print(cost_information)
 
 func _input(event):
   # handle_spawn_tetromino(event)
-  add_tetro_ui_item(event)
+  # add_tetro_ui_item(event)
+  pass
 
 var tetro_choice_item = preload("res://scenes/tetrominos/tetro_choice_item.tscn")
-func add_tetro_ui_item(event):
-  if event.is_action_pressed("debug") and cost_information.size() > 0:
+func add_tetro_ui_item():
+  if cost_information.size() > 0:
     var choice_item_instance = tetro_choice_item.instantiate()
     %tetro_choices.add_child(choice_item_instance)
     var tetromino_information = cost_information.pop_at(rng.randi_range(0, cost_information.size() - 1))
@@ -38,6 +41,7 @@ func ui_item_selected(tetro_info, child):
   %tetrominos.get_children().map(func(child): child.is_frozen = true)
   spawn_tetromino(tetro_info)
   child.queue_free()
+  add_tetro_ui_item()
 
 func is_tetromino_topped_out():
   return %Top.get_overlapping_bodies()\
@@ -51,7 +55,7 @@ func spawn_tetromino(tetro_info):
   spawned_tetromino.position = %SpawnLocation.position
   spawned_tetromino.scale = Vector2(1, 1) * Globals.get_tetromino_scale(tetro_info.cost)
   spawned_tetromino.set_color(tetro_info.color)
-  spawned_tetromino.set_tooltips(spawned_tetromino.scale)
+  spawned_tetromino.set_tooltips(tetro_info.title)
 
 func _process(_delta):
   move_upwards_as_tetrominos_fall()
@@ -70,7 +74,7 @@ func handle_disable_sidebar():
 func move_upwards_as_tetrominos_fall():
   var highest_tetromino_y_position = 810
   for tetromino in %tetrominos.get_children():
-    if tetromino.is_grounded and tetromino.position.y < highest_tetromino_y_position:
+    if tetromino.is_frozen and tetromino.position.y < highest_tetromino_y_position:
       highest_tetromino_y_position = tetromino.position.y
   if highest_tetromino_y_position < breaking_position:
     var desired_offset = highest_tetromino_y_position - game_movement_offset

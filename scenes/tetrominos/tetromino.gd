@@ -4,7 +4,7 @@ extends CharacterBody2D
 func _process(delta):
   handle_movement()
 
-var downspeed := 10000
+var downspeed := 300
 func calculate_down_velocity():
   velocity.y = downspeed
 
