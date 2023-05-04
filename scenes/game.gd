@@ -21,12 +21,27 @@ func read_cost_information():
   var raw_cost_information = JSON.parse_string(text)
   cost_information = raw_cost_information.map(func(info): info.cost = info.cost * 1000000; return info)
   file.close()
-  print(cost_information)
 
 func _input(event):
-  # handle_spawn_tetromino(event)
-  # add_tetro_ui_item(event)
-  pass
+  handle_scroll(event)
+
+@export var scroll_speed = 100
+@export var unlocked_camera_speed = 0.5
+var is_camera_locked = true
+func handle_scroll(event):
+  if event is InputEventMouseButton and event.is_pressed():
+    if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+      %CameraDestination.position.y = %MainCamera.position.y - scroll_speed
+      is_camera_locked = false
+    if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+      %CameraDestination.position.y = %MainCamera.position.y + scroll_speed
+      is_camera_locked = false
+  %CameraDestination.position.y = clamp(%CameraDestination.position.y,
+                                        %OriginalCameraDestination.position.y + desired_offset,
+                                        %OriginalCameraDestination.position.y)
+  if %CameraDestination.position.y == %OriginalCameraDestination.position.y + desired_offset:
+    is_camera_locked = true
+  
 
 var tetro_choice_item = preload("res://scenes/tetrominos/tetro_choice_item.tscn")
 func add_tetro_ui_item():
@@ -60,6 +75,7 @@ func spawn_tetromino(tetro_info):
 func _process(_delta):
   move_upwards_as_tetrominos_fall()
   handle_disable_sidebar()
+  handle_left_sidebar_instructions()
 
 func handle_disable_sidebar():
   var all_tetrominos_bottomed_out = %tetrominos.get_children()\
@@ -71,14 +87,30 @@ func handle_disable_sidebar():
 @export var game_movement_offset = 500
 @export var camera_move_speed := 0.1
 
+var highest_tetromino_y_position = 100000000
+var desired_offset := 0.0
+var is_broken := false
 func move_upwards_as_tetrominos_fall():
-  var highest_tetromino_y_position = 810
+  # find the highest tetromino (by center)
   for tetromino in %tetrominos.get_children():
     if tetromino.is_frozen and tetromino.position.y < highest_tetromino_y_position:
       highest_tetromino_y_position = tetromino.position.y
+
+  # if this position is higher than the breaking position, start moving the camera
   if highest_tetromino_y_position < breaking_position:
-    var desired_offset = highest_tetromino_y_position - game_movement_offset
+    is_broken = true
+    desired_offset = highest_tetromino_y_position - game_movement_offset
     desired_offset = max(desired_offset, %Top.position.y - %Top.scale.y / 2)
-    %CameraDestination.position.y = %OriginalCameraDestination.position.y + desired_offset
+
     %SpawnLocation.position.y = %OriginalSpawnLocation.position.y + desired_offset
-    %MainCamera.position = lerp(%MainCamera.position, %CameraDestination.position, camera_move_speed)
+    if is_camera_locked:
+      %CameraDestination.position.y = %OriginalCameraDestination.position.y + desired_offset
+
+  var current_camera_move_speed = camera_move_speed if is_camera_locked else unlocked_camera_speed
+  %MainCamera.position = lerp(%MainCamera.position, %CameraDestination.position, current_camera_move_speed)
+
+@export var display_scroll_message_position = 0
+
+@onready var instructions_text = %LeftSideBarText.text
+func handle_left_sidebar_instructions():
+  pass

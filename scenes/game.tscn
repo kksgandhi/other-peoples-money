@@ -7,8 +7,11 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3vnwj")
-breaking_position = 200
+scroll_speed = null
+unlocked_camera_speed = 0.1
+breaking_position = 300
 game_movement_offset = 600
+camera_move_speed = 0.001
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -76,6 +79,30 @@ theme_override_constants/margin_bottom = 10
 [node name="tetro_choices" type="VBoxContainer" parent="CameraStuff/MainCamera/TetroScroll/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="CameraStuff/MainCamera"]
+offset_left = -683.0
+offset_top = -372.0
+offset_right = -463.0
+offset_bottom = 82.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CameraStuff/MainCamera/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="LeftSideBarText" type="RichTextLabel" parent="CameraStuff/MainCamera/Panel/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+text = "The play area in the middle represents the wealth of 400 people. That's a little less than can fit in a typical Boeing 747. 
+
+The blocks on the right represent things you can spend their money on. 
+
+Click one, and it will fall into the space. Use Arrow Keys or WASD to move them around as they fall; use R to rotate them."
+fit_content = true
 
 [node name="CameraDestination" type="Marker2D" parent="CameraStuff"]
 unique_name_in_owner = true
