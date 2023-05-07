@@ -109,6 +109,7 @@ func move_upwards_as_tetrominos_fall():
     desired_offset = max(desired_offset, %Top.position.y - %Top.scale.y / 2)
     if not has_leftsidebar_animation_played and desired_offset == %Top.position.y - %Top.scale.y / 2:
       %LeftSideBarAnimationPlayer.play("fade_left_texts")
+      %LeftSideBarEndText.visible = true
       has_leftsidebar_animation_played = true
 
     %SpawnLocation.position.y = %OriginalSpawnLocation.position.y + desired_offset
@@ -124,5 +125,12 @@ func handle_leftsidebar_end_message():
   %LeftSideBarEndText.text = original_leftsidebar_end_text + " Each of our original 400 richest americans still has (on average) $" + Globals.comma_sep(remaining_wealth / 400) + " — an amount that would take the average American " + Globals.comma_sep(int(remaining_wealth / 400 / 1700000)) + " lifetimes to earn."
 
 func handle_debug():
+  %LeftSideBarEndText.visible = true
   %LeftSideBarAnimationPlayer.play("fade_left_texts")
+  # %LeftSideBarText.visible=true
   pass
+
+
+func _on_left_side_bar_text_meta_clicked(meta):
+  print(meta)
+  OS.shell_open(str(meta))
