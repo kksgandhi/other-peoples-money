@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca8bu6oaovpaw"]
+[gd_scene load_steps=9 format=3 uid="uid://ca8bu6oaovpaw"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_3vnwj"]
 [ext_resource type="Texture2D" uid="uid://7htmx1ae8i1d" path="res://assets/images/1x1_white.png" id="1_5gkvc"]
 [ext_resource type="PackedScene" uid="uid://c7ehiibfu2wfs" path="res://scenes/walls/wall.tscn" id="3_r4ug3"]
 [ext_resource type="PackedScene" uid="uid://dcwfbqpcamdy7" path="res://scenes/walls/top.tscn" id="4_ut730"]
+[ext_resource type="Texture2D" uid="uid://dkrf3loockfsj" path="res://assets/images/noise.png" id="5_gbuh6"]
 
 [sub_resource type="Animation" id="Animation_mhut5"]
 length = 0.001
@@ -142,10 +143,10 @@ layout_mode = 2
 
 [node name="LeftSideBar" type="PanelContainer" parent="CameraStuff/MainCamera"]
 unique_name_in_owner = true
-offset_left = -683.0
-offset_top = -372.0
-offset_right = -463.0
-offset_bottom = 82.0
+offset_left = -708.0
+offset_top = -391.0
+offset_right = -429.0
+offset_bottom = 310.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CameraStuff/MainCamera/LeftSideBar"]
 layout_mode = 2
@@ -163,11 +164,11 @@ text = "The area in the middle represents the wealth of the 400 richest American
 
 Spend their money — click on one of the blocks on the right. 
 
-Use Arrow Keys or WASD to move them around as they fall; use R to rotate them.
+Use Arrow Keys or WASD to move them around as they fall. Use R to rotate them. Hover over them to see what they represent.
 
 ------
 
-I put this game together in a week, which means that some of the numbers aren't as well researched as they could be. In addition, this game is a rip-off of [url=https://mkorostoff.github.io/1-pixel-wealth/]this game[/url], which is much more educational, and [url=https://direkris.itch.io/you-are-jeff-bezos]this game[/url], which is much funnier."
+I put this game together in a week, which means the numbers are, admittedly, not that well researched. In addition, this game is a rip-off of [url=https://mkorostoff.github.io/1-pixel-wealth/]this game[/url], which is much more educational, and [url=https://direkris.itch.io/you-are-jeff-bezos]this game[/url], which is much funnier."
 fit_content = true
 
 [node name="LeftSideBarEndText" type="RichTextLabel" parent="CameraStuff/MainCamera/LeftSideBar/MarginContainer"]
@@ -195,5 +196,15 @@ position = Vector2(720, 405)
 [node name="OriginalCameraDestination" type="Marker2D" parent="CameraStuff"]
 unique_name_in_owner = true
 position = Vector2(720, 405)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -3
+offset_left = -1421.0
+offset_top = -9780.0
+offset_right = 2339.0
+offset_bottom = 1862.0
+texture = ExtResource("5_gbuh6")
+expand_mode = 1
+stretch_mode = 1
 
 [connection signal="meta_clicked" from="CameraStuff/MainCamera/LeftSideBar/MarginContainer/LeftSideBarText" to="." method="_on_left_side_bar_text_meta_clicked"]
