@@ -89,17 +89,17 @@ texture = ExtResource("1_5gkvc")
 [node name="RightWall" parent="Walls" instance=ExtResource("3_r4ug3")]
 unique_name_in_owner = true
 position = Vector2(1028, -4190)
-scale = Vector2(16, 10000)
+scale = Vector2(2, 10000)
 
 [node name="Bottom" parent="Walls" instance=ExtResource("3_r4ug3")]
 unique_name_in_owner = true
 position = Vector2(670, 818)
-scale = Vector2(700, 16)
+scale = Vector2(700, 2)
 
 [node name="LeftWall" parent="Walls" instance=ExtResource("3_r4ug3")]
 unique_name_in_owner = true
 position = Vector2(312, -4190)
-scale = Vector2(16, 10000)
+scale = Vector2(2, 10000)
 
 [node name="Top" parent="Walls" instance=ExtResource("4_ut730")]
 unique_name_in_owner = true
@@ -203,6 +203,7 @@ offset_left = -1421.0
 offset_top = -9780.0
 offset_right = 2339.0
 offset_bottom = 1862.0
+mouse_filter = 2
 texture = ExtResource("5_gbuh6")
 expand_mode = 1
 stretch_mode = 1

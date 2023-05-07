@@ -1,15 +1,23 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7ehiibfu2wfs"]
 
-[ext_resource type="Texture2D" uid="uid://7htmx1ae8i1d" path="res://assets/images/1x1_white.png" id="1_bgima"]
+[ext_resource type="Texture2D" uid="uid://dyuagoy08xx5r" path="res://assets/images/white_carbon.png" id="1_ox3f1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76rpe"]
-size = Vector2(1, 1)
+size = Vector2(8, 8)
 
 [node name="wall" type="StaticBody2D" groups=["wall"]]
+texture_filter = 1
+texture_repeat = 2
 scale = Vector2(16, 16)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_bgima")
+[node name="Sprite2D" type="TextureRect" parent="."]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+texture = ExtResource("1_ox3f1")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_76rpe")
