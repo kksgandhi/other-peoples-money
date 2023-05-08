@@ -42,7 +42,7 @@ func handle_scroll(event):
   %CameraDestination.position.y = clamp(%CameraDestination.position.y,
                                         %OriginalCameraDestination.position.y + desired_offset,
                                         %OriginalCameraDestination.position.y)
-  if %CameraDestination.position.y == %OriginalCameraDestination.position.y + desired_offset:
+  if %CameraDestination.position.y == %OriginalCameraDestination.position.y + desired_offset and not has_leftsidebar_animation_played:
     is_camera_locked = true
   
 

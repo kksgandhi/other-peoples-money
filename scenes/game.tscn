@@ -310,7 +310,7 @@ layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("7_0lwrg")
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
-text = "Well, you did it, you reached the top. You can use your scroll wheel to see lower parts of the game area.
+text = "Well, you did it, you reached the top. You can scroll down to see lower parts of the game area.
 
 Though you haven't managed to spend all their money. Think you can squeeze a bit more in?"
 fit_content = true
