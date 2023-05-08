@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ca8bu6oaovpaw"]
+[gd_scene load_steps=18 format=3 uid="uid://ca8bu6oaovpaw"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_3vnwj"]
 [ext_resource type="Texture2D" uid="uid://7htmx1ae8i1d" path="res://assets/images/1x1_white.png" id="1_5gkvc"]
@@ -70,9 +70,94 @@ _data = {
 "fade_left_texts": SubResource("Animation_iqrlk")
 }
 
-[sub_resource type="Animation" id="Animation_ussvi"]
-resource_name = "splash_hide"
-length = 2.0
+[sub_resource type="Animation" id="Animation_tfus2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Labels/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Labels/Label2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Labels/Label3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ojmdf"]
+resource_name = "show_labels"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Labels/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Labels/Label2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Labels/Label3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cskx2"]
+_data = {
+"RESET": SubResource("Animation_tfus2"),
+"show_labels": SubResource("Animation_ojmdf")
+}
+
+[sub_resource type="Animation" id="Animation_cnlll"]
+resource_name = "hide_splash"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -80,13 +165,13 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_tfus2"]
+[sub_resource type="Animation" id="Animation_bfxbb"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -101,10 +186,10 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_cskx2"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_in24v"]
 _data = {
-"RESET": SubResource("Animation_tfus2"),
-"splash_hide": SubResource("Animation_ussvi")
+"RESET": SubResource("Animation_bfxbb"),
+"hide_splash": SubResource("Animation_cnlll")
 }
 
 [node name="Game" type="Node2D"]
@@ -245,7 +330,6 @@ unique_name_in_owner = true
 position = Vector2(720, 405)
 
 [node name="Splash" type="Node2D" parent="."]
-visible = false
 script = ExtResource("6_ybfi8")
 
 [node name="Noise" type="TextureRect" parent="Splash"]
@@ -256,11 +340,20 @@ offset_bottom = 1029.0
 texture = ExtResource("5_gbuh6")
 stretch_mode = 1
 
-[node name="Label" type="Label" parent="Splash"]
+[node name="ShowLabels" type="AnimationPlayer" parent="Splash"]
+autoplay = "show_labels"
+libraries = {
+"": SubResource("AnimationLibrary_cskx2")
+}
+
+[node name="Labels" type="Node2D" parent="Splash"]
+
+[node name="Label" type="Label" parent="Splash/Labels"]
+modulate = Color(1, 1, 1, 0)
 offset_left = 370.0
 offset_top = 100.0
 offset_right = 1070.0
-offset_bottom = 304.0
+offset_bottom = 348.0
 theme_override_fonts/font = ExtResource("8_xur25")
 theme_override_font_sizes/font_size = 48
 text = "\"The problem with socialism is that you eventually run out of other people's money.\"
@@ -269,7 +362,8 @@ text = "\"The problem with socialism is that you eventually run out of other peo
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Label2" type="Label" parent="Splash"]
+[node name="Label2" type="Label" parent="Splash/Labels"]
+modulate = Color(1, 1, 1, 0)
 offset_left = 120.0
 offset_top = 600.0
 offset_right = 1320.0
@@ -281,7 +375,8 @@ Let's run out of other people's money."
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Label3" type="Label" parent="Splash"]
+[node name="Label3" type="Label" parent="Splash/Labels"]
+modulate = Color(1, 1, 1, 0)
 offset_left = 120.0
 offset_top = 737.0
 offset_right = 1320.0
@@ -292,9 +387,9 @@ text = "(Click to continue)"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Splash"]
+[node name="HideSplash" type="AnimationPlayer" parent="Splash"]
 libraries = {
-"": SubResource("AnimationLibrary_cskx2")
+"": SubResource("AnimationLibrary_in24v")
 }
 
 [node name="SpawnLocations" type="Node2D" parent="."]
@@ -308,4 +403,4 @@ unique_name_in_owner = true
 position = Vector2(670, -50)
 
 [connection signal="meta_clicked" from="CameraAndUI/MainCamera/LeftSideBar/MarginContainer/LeftSideBarText" to="." method="_on_left_side_bar_text_meta_clicked"]
-[connection signal="animation_finished" from="Splash/AnimationPlayer" to="Splash" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="Splash/HideSplash" to="Splash" method="_on_hide_splash_animation_finished"]
