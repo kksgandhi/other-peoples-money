@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dkrf3loockfsj" path="res://assets/images/noise.png" id="5_gbuh6"]
 [ext_resource type="Script" path="res://scenes/Splash.gd" id="6_ybfi8"]
 [ext_resource type="FontFile" uid="uid://c4gwrk6vad2vk" path="res://assets/fonts/LibreBaskerville-Regular.ttf" id="7_0lwrg"]
-[ext_resource type="FontFile" uid="uid://d1b5h8eak7ut1" path="res://assets/fonts/Georgia Regular font.ttf" id="7_7v1fb"]
+[ext_resource type="FontFile" uid="uid://wlifu43k750l" path="res://assets/fonts/CormorantGaramond-Regular.ttf" id="8_xur25"]
 
 [sub_resource type="Animation" id="Animation_mhut5"]
 length = 0.001
@@ -261,7 +261,7 @@ offset_left = 370.0
 offset_top = 100.0
 offset_right = 1070.0
 offset_bottom = 304.0
-theme_override_fonts/font = ExtResource("7_7v1fb")
+theme_override_fonts/font = ExtResource("8_xur25")
 theme_override_font_sizes/font_size = 48
 text = "\"The problem with socialism is that you eventually run out of other people's money.\"
 

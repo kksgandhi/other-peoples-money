@@ -12,7 +12,7 @@ var rng = RandomNumberGenerator.new()
                 
 func _ready():
   read_cost_information()
-  add_tetro_ui_item(); add_tetro_ui_item(); add_tetro_ui_item()
+  add_tetro_ui_item(); add_tetro_ui_item(); add_tetro_ui_item(); add_tetro_ui_item(); add_tetro_ui_item()
   %Top.position.y = %Bottom.position.y - (height_of_play_area + 16)
 
 func read_cost_information():
