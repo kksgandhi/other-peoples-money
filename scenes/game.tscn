@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://ca8bu6oaovpaw"]
+[gd_scene load_steps=15 format=3 uid="uid://ca8bu6oaovpaw"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_3vnwj"]
 [ext_resource type="Texture2D" uid="uid://7htmx1ae8i1d" path="res://assets/images/1x1_white.png" id="1_5gkvc"]
 [ext_resource type="PackedScene" uid="uid://c7ehiibfu2wfs" path="res://scenes/walls/wall.tscn" id="3_r4ug3"]
 [ext_resource type="PackedScene" uid="uid://dcwfbqpcamdy7" path="res://scenes/walls/top.tscn" id="4_ut730"]
 [ext_resource type="Texture2D" uid="uid://dkrf3loockfsj" path="res://assets/images/noise.png" id="5_gbuh6"]
+[ext_resource type="Script" path="res://scenes/Splash.gd" id="6_ybfi8"]
+[ext_resource type="FontFile" uid="uid://c4gwrk6vad2vk" path="res://assets/fonts/LibreBaskerville-Regular.ttf" id="7_0lwrg"]
+[ext_resource type="FontFile" uid="uid://d1b5h8eak7ut1" path="res://assets/fonts/Georgia Regular font.ttf" id="7_7v1fb"]
 
 [sub_resource type="Animation" id="Animation_mhut5"]
 length = 0.001
@@ -67,6 +70,43 @@ _data = {
 "fade_left_texts": SubResource("Animation_iqrlk")
 }
 
+[sub_resource type="Animation" id="Animation_ussvi"]
+resource_name = "splash_hide"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tfus2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cskx2"]
+_data = {
+"RESET": SubResource("Animation_tfus2"),
+"splash_hide": SubResource("Animation_ussvi")
+}
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3vnwj")
 unlocked_camera_speed = 0.1
@@ -106,13 +146,16 @@ unique_name_in_owner = true
 position = Vector2(670, 818)
 scale = Vector2(700, 16)
 
-[node name="SpawnLocation" type="Marker2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(670, -50)
-
-[node name="OriginalSpawnLocation" type="Marker2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(670, -50)
+[node name="Background" type="TextureRect" parent="Walls"]
+z_index = -3
+offset_left = -1421.0
+offset_top = -9780.0
+offset_right = 2339.0
+offset_bottom = 1862.0
+mouse_filter = 2
+texture = ExtResource("5_gbuh6")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="tetrominos" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -197,15 +240,67 @@ position = Vector2(720, 405)
 unique_name_in_owner = true
 position = Vector2(720, 405)
 
-[node name="TextureRect" type="TextureRect" parent="."]
-z_index = -3
-offset_left = -1421.0
-offset_top = -9780.0
-offset_right = 2339.0
-offset_bottom = 1862.0
-mouse_filter = 2
+[node name="Splash" type="Node2D" parent="."]
+script = ExtResource("6_ybfi8")
+
+[node name="Noise" type="TextureRect" parent="Splash"]
+offset_left = -345.0
+offset_top = -155.0
+offset_right = 1852.0
+offset_bottom = 1029.0
 texture = ExtResource("5_gbuh6")
-expand_mode = 1
 stretch_mode = 1
 
+[node name="Label" type="Label" parent="Splash"]
+offset_left = 370.0
+offset_top = 100.0
+offset_right = 1070.0
+offset_bottom = 304.0
+theme_override_fonts/font = ExtResource("7_7v1fb")
+theme_override_font_sizes/font_size = 48
+text = "\"The problem with socialism is that you eventually run out of other people's money.\"
+
+— Margaret Thatcher"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="Splash"]
+offset_left = 120.0
+offset_top = 600.0
+offset_right = 1320.0
+offset_bottom = 940.0
+theme_override_fonts/font = ExtResource("7_0lwrg")
+theme_override_font_sizes/font_size = 48
+text = "So let's do that.
+Let's run out of other people's money."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="Splash"]
+offset_left = 120.0
+offset_top = 737.0
+offset_right = 1320.0
+offset_bottom = 1077.0
+theme_override_fonts/font = ExtResource("7_0lwrg")
+theme_override_font_sizes/font_size = 24
+text = "(Click to continue)"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Splash"]
+libraries = {
+"": SubResource("AnimationLibrary_cskx2")
+}
+
+[node name="SpawnLocations" type="Node2D" parent="."]
+
+[node name="SpawnLocation" type="Marker2D" parent="SpawnLocations"]
+unique_name_in_owner = true
+position = Vector2(670, -50)
+
+[node name="OriginalSpawnLocation" type="Marker2D" parent="SpawnLocations"]
+unique_name_in_owner = true
+position = Vector2(670, -50)
+
 [connection signal="meta_clicked" from="CameraStuff/MainCamera/LeftSideBar/MarginContainer/LeftSideBarText" to="." method="_on_left_side_bar_text_meta_clicked"]
+[connection signal="animation_finished" from="Splash/AnimationPlayer" to="Splash" method="_on_animation_player_animation_finished"]
