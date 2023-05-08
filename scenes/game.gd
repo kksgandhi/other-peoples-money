@@ -122,7 +122,7 @@ func move_upwards_as_tetrominos_fall():
 @onready var remaining_wealth = Globals.top_400_wealth
 @onready var original_leftsidebar_end_text = %LeftSideBarEndText.text
 func handle_leftsidebar_end_message():
-  %LeftSideBarEndText.text = original_leftsidebar_end_text + " Each of our original 400 richest americans still has (on average) $" + Globals.comma_sep(remaining_wealth / 400) + " — an amount that would take the average American " + Globals.comma_sep(int(remaining_wealth / 400 / 1700000)) + " lifetimes to earn.\n----------\nBefore you go, I just want to be clear: The idea that we could simply take money from billionaires and throw it at our problems is silly for a variety of reasons and certainly not the point of this game. I didn't mean to make a singular point, I just hope that I got you thinking. Thanks for playing."
+  %LeftSideBarEndText.text = original_leftsidebar_end_text + " Each of our original 400 richest americans still has (on average) $" + Globals.comma_sep(remaining_wealth / 400) + " — an amount that would take the average American " + Globals.comma_sep(int(remaining_wealth / 400 / 1700000)) + " lifetimes to earn.\n\n\nIt would be silly to think that we could just take money from billionaires and throw it at our problems, but this is just a game after all. Regardless, I hope this got you thinking about actual solutions. Thanks for playing."
 
 func handle_debug():
   %LeftSideBarEndText.visible = true

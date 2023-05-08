@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d055puxa3jh8x"]
+[gd_scene load_steps=6 format=3 uid="uid://d055puxa3jh8x"]
 
 [ext_resource type="Texture2D" uid="uid://beehqq0r8soe2" path="res://assets/images/tetromino_s.png" id="1_06jwx"]
 [ext_resource type="Script" path="res://scenes/tetrominos/tetro_choice_item.gd" id="1_coqgn"]
+[ext_resource type="FontFile" uid="uid://c4gwrk6vad2vk" path="res://assets/fonts/LibreBaskerville-Regular.ttf" id="2_bwm5c"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kp2v7"]
 
@@ -26,6 +27,8 @@ theme_override_constants/separation = 20
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_bwm5c")
+theme_override_font_sizes/normal_font_size = 20
 text = "Lorem Ipsum Dolor Est"
 fit_content = true
 
