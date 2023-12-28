@@ -341,10 +341,10 @@ texture = ExtResource("5_gbuh6")
 stretch_mode = 1
 
 [node name="ShowLabels" type="AnimationPlayer" parent="Splash"]
-autoplay = "show_labels"
 libraries = {
 "": SubResource("AnimationLibrary_cskx2")
 }
+autoplay = "show_labels"
 
 [node name="Labels" type="Node2D" parent="Splash"]
 

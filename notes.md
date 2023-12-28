@@ -4,3 +4,7 @@ in game I use 1000 dollars as the base currency which in retrospect was a stupid
 in the json the units are billions of dollars
 
 access to internet
+
+Ideas:
+
+ - add sliders for wealth disparity
