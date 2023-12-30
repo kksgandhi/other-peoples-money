@@ -1,15 +1,16 @@
+class_name Tetromino
 extends CharacterBody2D
 
 
-func _process(delta):
+func _process(delta: float) -> void:
   handle_movement()
 
 var downspeed := 300
-func calculate_down_velocity():
+func calculate_down_velocity() -> void:
   velocity.y = downspeed
 
 @export var strafespeed := 150
-func calculate_strafe_velocity():
+func calculate_strafe_velocity() -> void:
   if Input.is_action_pressed("left"):
     velocity.x = -strafespeed
   elif Input.is_action_pressed("right"):
@@ -19,7 +20,7 @@ func calculate_strafe_velocity():
 
 var is_frozen := false
 var is_grounded := false
-func handle_movement():
+func handle_movement() -> void:
   if is_frozen: return
   calculate_down_velocity()
   calculate_strafe_velocity()
@@ -31,12 +32,12 @@ func handle_movement():
     # freeze this tetromino in place then
     is_grounded = true
 
-func handle_rotation():
+func handle_rotation() -> void:
   if Input.is_action_just_pressed("rotate"):
     rotation_degrees += 90
     
-func set_color(color):
+func set_color(color: Color) -> void:
   %Sprite2D.modulate = Color(color)
   
-func set_tooltips(text):
-  $Tooltips.get_children().map(func(child): child.tooltip_text = str(text))
+func set_tooltips(text: String) -> void:
+  $Tooltips.get_children().map(func(child: Node) -> void: child.tooltip_text = str(text))
