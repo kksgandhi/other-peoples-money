@@ -92,7 +92,7 @@ func handle_disable_sidebar() -> void:
 @export var game_movement_offset := 500
 @export var camera_move_speed := 0.1
 
-var highest_tetromino_y_position := 100000000
+var highest_tetromino_y_position := 100_000_000
 var desired_offset := 0.0
 var is_broken := false
 var has_leftsidebar_animation_played := false
