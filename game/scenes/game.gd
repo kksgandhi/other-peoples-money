@@ -88,7 +88,7 @@ func handle_disable_sidebar() -> void:
   var sidebar_disabled := is_tetromino_topped_out() or not all_tetrominos_bottomed_out
   %tetro_choices.get_children().map(func(choice_item_child: TetroChoiceItem) -> void: choice_item_child.get_node("Button").disabled = sidebar_disabled)
 
-@export var breaking_position := 400
+@export var breaking_position := 200
 @export var game_movement_offset := 500
 @export var camera_move_speed := 0.1
 
