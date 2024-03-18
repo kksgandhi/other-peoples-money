@@ -245,45 +245,65 @@ stretch_mode = 1
 [node name="tetrominos" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="CameraAndUI" type="Node2D" parent="."]
+[node name="Camera" type="Node2D" parent="."]
 
-[node name="MainCamera" type="Camera2D" parent="CameraAndUI"]
+[node name="MainCamera" type="Camera2D" parent="Camera"]
 unique_name_in_owner = true
 position = Vector2(720, 405)
 
-[node name="TetroScroll" type="ScrollContainer" parent="CameraAndUI/MainCamera"]
+[node name="CameraDestination" type="Marker2D" parent="Camera"]
 unique_name_in_owner = true
-offset_left = 352.0
-offset_top = -379.0
-offset_right = 688.0
-offset_bottom = 373.0
+position = Vector2(720, 405)
 
-[node name="MarginContainer" type="MarginContainer" parent="CameraAndUI/MainCamera/TetroScroll"]
+[node name="OriginalCameraDestination" type="Marker2D" parent="Camera"]
+unique_name_in_owner = true
+position = Vector2(720, 405)
+
+[node name="SpawnLocations" type="Node2D" parent="."]
+
+[node name="SpawnLocation" type="Marker2D" parent="SpawnLocations"]
+unique_name_in_owner = true
+position = Vector2(670, -50)
+
+[node name="OriginalSpawnLocation" type="Marker2D" parent="SpawnLocations"]
+unique_name_in_owner = true
+position = Vector2(670, -50)
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="TetroScroll" type="ScrollContainer" parent="UILayer"]
+unique_name_in_owner = true
+offset_left = 1072.0
+offset_top = 26.0
+offset_right = 1408.0
+offset_bottom = 778.0
+
+[node name="MarginContainer" type="MarginContainer" parent="UILayer/TetroScroll"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="tetro_choices" type="VBoxContainer" parent="CameraAndUI/MainCamera/TetroScroll/MarginContainer"]
+[node name="tetro_choices" type="VBoxContainer" parent="UILayer/TetroScroll/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="LeftSideBar" type="PanelContainer" parent="CameraAndUI/MainCamera"]
+[node name="LeftSideBar" type="PanelContainer" parent="UILayer"]
 unique_name_in_owner = true
-offset_left = -708.0
-offset_top = -391.0
-offset_right = -429.0
-offset_bottom = 310.0
+offset_left = 12.0
+offset_top = 14.0
+offset_right = 291.0
+offset_bottom = 715.0
 
-[node name="MarginContainer" type="MarginContainer" parent="CameraAndUI/MainCamera/LeftSideBar"]
+[node name="MarginContainer" type="MarginContainer" parent="UILayer/LeftSideBar"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="LeftSideBarText" type="RichTextLabel" parent="CameraAndUI/MainCamera/LeftSideBar/MarginContainer"]
+[node name="LeftSideBarText" type="RichTextLabel" parent="UILayer/LeftSideBar/MarginContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -301,7 +321,7 @@ Use Arrow keys or WASD to move them around as they fall. Use R to rotate them. H
 I put this game together in a week, which means the numbers are, admittedly, not that well researched. In addition, this game is a rip-off of [url=https://mkorostoff.github.io/1-pixel-wealth/]this game[/url], which is much more educational, and [url=https://direkris.itch.io/you-are-jeff-bezos]this game[/url], which is much funnier."
 fit_content = true
 
-[node name="LeftSideBarEndText" type="RichTextLabel" parent="CameraAndUI/MainCamera/LeftSideBar/MarginContainer"]
+[node name="LeftSideBarEndText" type="RichTextLabel" parent="UILayer/LeftSideBar/MarginContainer"]
 unique_name_in_owner = true
 visible = false
 modulate = Color(1, 1, 1, 0)
@@ -315,24 +335,18 @@ text = "Well, you did it, you reached the top. You can scroll down to see lower 
 Though you haven't managed to spend all their money. Think you can squeeze a bit more in?"
 fit_content = true
 
-[node name="LeftSideBarAnimationPlayer" type="AnimationPlayer" parent="CameraAndUI/MainCamera/LeftSideBar/MarginContainer/LeftSideBarEndText"]
+[node name="LeftSideBarAnimationPlayer" type="AnimationPlayer" parent="UILayer/LeftSideBar/MarginContainer/LeftSideBarEndText"]
 unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_twwo8")
 }
 
-[node name="CameraDestination" type="Marker2D" parent="CameraAndUI"]
-unique_name_in_owner = true
-position = Vector2(720, 405)
+[node name="SplashLayer" type="CanvasLayer" parent="."]
 
-[node name="OriginalCameraDestination" type="Marker2D" parent="CameraAndUI"]
-unique_name_in_owner = true
-position = Vector2(720, 405)
-
-[node name="Splash" type="Node2D" parent="."]
+[node name="Splash" type="Node2D" parent="SplashLayer"]
 script = ExtResource("6_ybfi8")
 
-[node name="Noise" type="TextureRect" parent="Splash"]
+[node name="Noise" type="TextureRect" parent="SplashLayer/Splash"]
 offset_left = -345.0
 offset_top = -155.0
 offset_right = 1852.0
@@ -340,15 +354,15 @@ offset_bottom = 1029.0
 texture = ExtResource("5_gbuh6")
 stretch_mode = 1
 
-[node name="ShowLabels" type="AnimationPlayer" parent="Splash"]
+[node name="ShowLabels" type="AnimationPlayer" parent="SplashLayer/Splash"]
 libraries = {
 "": SubResource("AnimationLibrary_cskx2")
 }
 autoplay = "show_labels"
 
-[node name="Labels" type="Node2D" parent="Splash"]
+[node name="Labels" type="Node2D" parent="SplashLayer/Splash"]
 
-[node name="Label" type="Label" parent="Splash/Labels"]
+[node name="Label" type="Label" parent="SplashLayer/Splash/Labels"]
 modulate = Color(1, 1, 1, 0)
 offset_left = 370.0
 offset_top = 100.0
@@ -362,7 +376,7 @@ text = "\"The problem with socialism is that you eventually run out of other peo
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Label2" type="Label" parent="Splash/Labels"]
+[node name="Label2" type="Label" parent="SplashLayer/Splash/Labels"]
 modulate = Color(1, 1, 1, 0)
 offset_left = 120.0
 offset_top = 600.0
@@ -375,7 +389,7 @@ Let's run out of other people's money."
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Label3" type="Label" parent="Splash/Labels"]
+[node name="Label3" type="Label" parent="SplashLayer/Splash/Labels"]
 modulate = Color(1, 1, 1, 0)
 offset_left = 120.0
 offset_top = 737.0
@@ -387,20 +401,10 @@ text = "(Click to continue)"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="HideSplash" type="AnimationPlayer" parent="Splash"]
+[node name="HideSplash" type="AnimationPlayer" parent="SplashLayer/Splash"]
 libraries = {
 "": SubResource("AnimationLibrary_in24v")
 }
 
-[node name="SpawnLocations" type="Node2D" parent="."]
-
-[node name="SpawnLocation" type="Marker2D" parent="SpawnLocations"]
-unique_name_in_owner = true
-position = Vector2(670, -50)
-
-[node name="OriginalSpawnLocation" type="Marker2D" parent="SpawnLocations"]
-unique_name_in_owner = true
-position = Vector2(670, -50)
-
-[connection signal="meta_clicked" from="CameraAndUI/MainCamera/LeftSideBar/MarginContainer/LeftSideBarText" to="." method="_on_left_side_bar_text_meta_clicked"]
-[connection signal="animation_finished" from="Splash/HideSplash" to="Splash" method="_on_hide_splash_animation_finished"]
+[connection signal="meta_clicked" from="UILayer/LeftSideBar/MarginContainer/LeftSideBarText" to="." method="_on_left_side_bar_text_meta_clicked"]
+[connection signal="animation_finished" from="SplashLayer/Splash/HideSplash" to="SplashLayer/Splash" method="_on_hide_splash_animation_finished"]
