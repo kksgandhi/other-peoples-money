@@ -22,6 +22,16 @@ Design Notes
  - Text
    - One piece of relevant text at a time.
 
+Research Notes
+--------------
+
+Research Question: How does "explicit text" affect the reflective play experience — where "explicit text" is text that touches on (or even directly spells out) the reflective goals of the game. Does text serve as an anchor aiding in reflection, or does it irritate or distract players from reflection they would have done otherwise? This question is too broad to answer in one study, but this study will provide evidence in a specific context.
+
+Ideal transformations (reflective goals):
+
+ - Player has an increased awareness of income inequality, the differences between the costs of various projects, and the possibilities of increased program funding via taxation.
+ - Player is more willing to support taxation of wealthy Americans.
+
 Technical notes
 ---------------
 
