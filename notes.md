@@ -32,6 +32,26 @@ Ideal transformations (reflective goals):
  - Player has an increased awareness of income inequality, the differences between the costs of various projects, and the possibilities of increased program funding via taxation.
  - Player is more willing to support taxation of wealthy Americans.
 
+Version 1:
+
+ - Minimal instructions, e.g. this area represents the wealth, here are things you can spend their money on. 
+
+Version 2:
+
+ - Margaret Thatcher Quote
+ - Percent remaining
+ - average American
+ - can't just take the money and throw it at our problems
+ - during the pandemic, richest made...
+ - trickle down economics? Something about it??
+ - money per U.S. resident...
+ - 400 people is...
+ - Investment is an odd profession, it's the only one where the barrier to entry is having money previously
+ - If U.S. land was distributed like U.S. wealth?
+ - Of 108 countries ranked, there are only 27 with a higher inequality than the U.S.
+ - U.S. is 27th of 82 in social mobility
+
+
 Technical notes
 ---------------
 
