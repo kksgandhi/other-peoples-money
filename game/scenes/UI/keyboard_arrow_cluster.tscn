@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3eccsdtu0fop"]
+
+[ext_resource type="Texture2D" uid="uid://rhaud71sposm" path="res://assets/images/button_prompts/keyboard_arrow_down_outline.svg" id="1_burb1"]
+[ext_resource type="Texture2D" uid="uid://c4h7rgnnxatmn" path="res://assets/images/button_prompts/keyboard_arrow_left_outline.svg" id="2_ncl4f"]
+[ext_resource type="Texture2D" uid="uid://dxn3y5g5kkhm1" path="res://assets/images/button_prompts/keyboard_arrow_right_outline.svg" id="3_jicoa"]
+[ext_resource type="Texture2D" uid="uid://oxn2xbvgnk4o" path="res://assets/images/button_prompts/keyboard_arrow_up_outline.svg" id="4_t77ks"]
+
+[node name="KeyboardArrowCluster" type="Node2D"]
+
+[node name="KeyboardArrowDownOutline" type="Sprite2D" parent="."]
+position = Vector2(96, 96)
+texture = ExtResource("1_burb1")
+
+[node name="KeyboardArrowLeftOutline" type="Sprite2D" parent="."]
+position = Vector2(32, 96)
+texture = ExtResource("2_ncl4f")
+
+[node name="KeyboardArrowRightOutline" type="Sprite2D" parent="."]
+position = Vector2(160, 96)
+texture = ExtResource("3_jicoa")
+
+[node name="KeyboardArrowUpOutline" type="Sprite2D" parent="."]
+position = Vector2(96, 32)
+texture = ExtResource("4_t77ks")

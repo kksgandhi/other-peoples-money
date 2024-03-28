@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ca8bu6oaovpaw"]
+[gd_scene load_steps=23 format=3 uid="uid://ca8bu6oaovpaw"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_3vnwj"]
 [ext_resource type="Texture2D" uid="uid://7htmx1ae8i1d" path="res://assets/images/1x1_white.png" id="1_5gkvc"]
@@ -8,6 +8,10 @@
 [ext_resource type="Script" path="res://scenes/Splash.gd" id="6_ybfi8"]
 [ext_resource type="FontFile" uid="uid://c4gwrk6vad2vk" path="res://assets/fonts/LibreBaskerville-Regular.ttf" id="7_0lwrg"]
 [ext_resource type="FontFile" uid="uid://wlifu43k750l" path="res://assets/fonts/CormorantGaramond-Regular.ttf" id="8_xur25"]
+[ext_resource type="PackedScene" uid="uid://c3eccsdtu0fop" path="res://scenes/UI/keyboard_arrow_cluster.tscn" id="9_sbnu7"]
+[ext_resource type="Theme" uid="uid://yr4kjgxtyvuh" path="res://assets/themes/default.tres" id="10_ot3g2"]
+[ext_resource type="PackedScene" uid="uid://styu3vbul66p" path="res://scenes/UI/keyboard_wasd_cluster.tscn" id="11_p3715"]
+[ext_resource type="Texture2D" uid="uid://dph1rgxbgxdvp" path="res://assets/images/button_prompts/keyboard_r_outline.svg" id="12_jh5qb"]
 
 [sub_resource type="Animation" id="Animation_mhut5"]
 length = 0.001
@@ -192,10 +196,17 @@ _data = {
 "hide_splash": SubResource("Animation_cnlll")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7luns"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 0.941176)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3vnwj")
 unlocked_camera_speed = 0.1
-breaking_position = 300
+breaking_position = 600
 game_movement_offset = 600
 camera_move_speed = 0.001
 
@@ -228,7 +239,7 @@ scale = Vector2(2, 10000)
 
 [node name="Top" parent="Walls" instance=ExtResource("4_ut730")]
 unique_name_in_owner = true
-position = Vector2(670, 818)
+position = Vector2(670, -1483.7)
 scale = Vector2(700, 16)
 
 [node name="Background" type="TextureRect" parent="Walls"]
@@ -241,6 +252,7 @@ mouse_filter = 2
 texture = ExtResource("5_gbuh6")
 expand_mode = 1
 stretch_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="tetrominos" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -274,7 +286,7 @@ position = Vector2(670, -50)
 [node name="TetroScroll" type="ScrollContainer" parent="UILayer"]
 unique_name_in_owner = true
 offset_left = 1072.0
-offset_top = 26.0
+offset_top = 120.0
 offset_right = 1408.0
 offset_bottom = 778.0
 
@@ -291,6 +303,7 @@ layout_mode = 2
 
 [node name="LeftSideBar" type="PanelContainer" parent="UILayer"]
 unique_name_in_owner = true
+visible = false
 offset_left = 12.0
 offset_top = 14.0
 offset_right = 291.0
@@ -323,7 +336,6 @@ fit_content = true
 
 [node name="LeftSideBarEndText" type="RichTextLabel" parent="UILayer/LeftSideBar/MarginContainer"]
 unique_name_in_owner = true
-visible = false
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -341,9 +353,20 @@ libraries = {
 "": SubResource("AnimationLibrary_twwo8")
 }
 
+[node name="Label4" type="Label" parent="UILayer"]
+offset_left = 1072.0
+offset_top = 34.0
+offset_right = 1412.0
+offset_bottom = 99.0
+theme = ExtResource("10_ot3g2")
+text = "Click a topic to \"spend
+money\" and create a block."
+autowrap_mode = 3
+
 [node name="SplashLayer" type="CanvasLayer" parent="."]
 
 [node name="Splash" type="Node2D" parent="SplashLayer"]
+visible = false
 script = ExtResource("6_ybfi8")
 
 [node name="Noise" type="TextureRect" parent="SplashLayer/Splash"]
@@ -405,6 +428,66 @@ autowrap_mode = 3
 libraries = {
 "": SubResource("AnimationLibrary_in24v")
 }
+
+[node name="Sidebar" type="Node2D" parent="."]
+
+[node name="KeyboardArrowCluster" parent="Sidebar" instance=ExtResource("9_sbnu7")]
+position = Vector2(32, 325)
+scale = Vector2(0.5, 0.5)
+
+[node name="Label" type="Label" parent="Sidebar"]
+offset_left = 139.0
+offset_top = 338.0
+offset_right = 179.0
+offset_bottom = 369.0
+theme = ExtResource("10_ot3g2")
+text = "or"
+
+[node name="Label2" type="Label" parent="Sidebar"]
+offset_left = 64.0
+offset_top = 409.0
+offset_right = 251.0
+offset_bottom = 440.0
+theme = ExtResource("10_ot3g2")
+text = "to move blocks"
+
+[node name="Label3" type="Label" parent="Sidebar"]
+offset_left = 56.0
+offset_top = 576.0
+offset_right = 246.0
+offset_bottom = 607.0
+theme = ExtResource("10_ot3g2")
+text = "to rotate blocks"
+horizontal_alignment = 1
+
+[node name="keyboard_wasd_cluster" parent="Sidebar" instance=ExtResource("11_p3715")]
+position = Vector2(179, 327)
+scale = Vector2(0.5, 0.5)
+
+[node name="KeyboardROutline" type="Sprite2D" parent="Sidebar"]
+position = Vector2(151, 535)
+texture = ExtResource("12_jh5qb")
+
+[node name="PanelContainer" type="PanelContainer" parent="Sidebar"]
+offset_left = 446.0
+offset_top = 695.0
+offset_right = 901.0
+offset_bottom = 800.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7luns")
+
+[node name="MarginContainer" type="MarginContainer" parent="Sidebar/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="this_area_represents" type="Label" parent="Sidebar/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("10_ot3g2")
+text = "This area represents the wealth of
+the richest 400 Americans."
 
 [connection signal="meta_clicked" from="UILayer/LeftSideBar/MarginContainer/LeftSideBarText" to="." method="_on_left_side_bar_text_meta_clicked"]
 [connection signal="animation_finished" from="SplashLayer/Splash/HideSplash" to="SplashLayer/Splash" method="_on_hide_splash_animation_finished"]

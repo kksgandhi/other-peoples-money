@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://styu3vbul66p"]
+
+[ext_resource type="Texture2D" uid="uid://dgmybc4a81msy" path="res://assets/images/button_prompts/keyboard_a_outline.svg" id="1_emh1m"]
+[ext_resource type="Texture2D" uid="uid://vp6850aatvyf" path="res://assets/images/button_prompts/keyboard_d_outline.svg" id="2_n1y60"]
+[ext_resource type="Texture2D" uid="uid://6ql5o7wdga3" path="res://assets/images/button_prompts/keyboard_s_outline.svg" id="3_3ccsf"]
+[ext_resource type="Texture2D" uid="uid://c4lt1iyrcv2nh" path="res://assets/images/button_prompts/keyboard_w_outline.svg" id="4_f52vb"]
+
+[node name="keyboard_wasd_cluster" type="Node2D"]
+
+[node name="KeyboardAOutline" type="Sprite2D" parent="."]
+position = Vector2(32, 96)
+texture = ExtResource("1_emh1m")
+
+[node name="KeyboardDOutline" type="Sprite2D" parent="."]
+position = Vector2(160, 96)
+texture = ExtResource("2_n1y60")
+
+[node name="KeyboardSOutline" type="Sprite2D" parent="."]
+position = Vector2(96, 96)
+texture = ExtResource("3_3ccsf")
+
+[node name="KeyboardWOutline" type="Sprite2D" parent="."]
+position = Vector2(96, 32)
+texture = ExtResource("4_f52vb")
