@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ca8bu6oaovpaw"]
+[gd_scene load_steps=24 format=3 uid="uid://ca8bu6oaovpaw"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_3vnwj"]
 [ext_resource type="Texture2D" uid="uid://7htmx1ae8i1d" path="res://assets/images/1x1_white.png" id="1_5gkvc"]
@@ -12,6 +12,7 @@
 [ext_resource type="Theme" uid="uid://yr4kjgxtyvuh" path="res://assets/themes/default.tres" id="10_ot3g2"]
 [ext_resource type="PackedScene" uid="uid://styu3vbul66p" path="res://scenes/UI/keyboard_wasd_cluster.tscn" id="11_p3715"]
 [ext_resource type="Texture2D" uid="uid://dph1rgxbgxdvp" path="res://assets/images/button_prompts/keyboard_r_outline.svg" id="12_jh5qb"]
+[ext_resource type="PackedScene" uid="uid://xdh2mkgj0fgq" path="res://scenes/UI/fade_in_label.tscn" id="13_h02hp"]
 
 [sub_resource type="Animation" id="Animation_mhut5"]
 length = 0.001
@@ -489,5 +490,40 @@ theme = ExtResource("10_ot3g2")
 text = "This area represents the wealth of
 the richest 400 Americans."
 
+[node name="PanelContainer2" type="PanelContainer" parent="Sidebar"]
+offset_left = 512.0
+offset_top = -101.0
+offset_right = 804.0
+offset_bottom = -30.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7luns")
+
+[node name="MarginContainer" type="MarginContainer" parent="Sidebar/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="this_area_represents" type="Label" parent="Sidebar/PanelContainer2/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("10_ot3g2")
+text = "Yup, this whole area."
+horizontal_alignment = 1
+
+[node name="FadeInLabel" parent="Sidebar" instance=ExtResource("13_h02hp")]
+offset_left = 25.0
+offset_top = -16.0
+offset_right = 25.0
+offset_bottom = -16.0
+
+[node name="Label" parent="Sidebar/FadeInLabel" index="2"]
+offset_right = 266.0
+offset_bottom = 115.0
+text = "Hi
+Multiline amiwrite
+what's up"
+
 [connection signal="meta_clicked" from="UILayer/LeftSideBar/MarginContainer/LeftSideBarText" to="." method="_on_left_side_bar_text_meta_clicked"]
 [connection signal="animation_finished" from="SplashLayer/Splash/HideSplash" to="SplashLayer/Splash" method="_on_hide_splash_animation_finished"]
+
+[editable path="Sidebar/FadeInLabel"]

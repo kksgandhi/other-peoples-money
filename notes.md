@@ -1,5 +1,7 @@
 TODO:
 
+ - Changing the right sidebar to hide prices and sizes
+   - And adding that to the toolbar
  - Updating to Godot version 4.3 when it comes out, making sure the Mac / Safari issue isn't happening
  - Lower the loading time by loading the game during the intro cutscene (Maybe by using placeholders or background loading?)
  - Adding a lot of text (and making a version without all that text)
@@ -38,14 +40,14 @@ Version 1:
 
 Version 2:
 
- - Margaret Thatcher Quote
- - Percent remaining
- - average American
- - can't just take the money and throw it at our problems
+ - Include the Margaret Thatcher Quote at the beginning
+ - What percent of the area is remaining?
+ - Convert the money each billionaire has into the amount an American would need to make in a year
+ - No, you can't just take the money billionaires have, it's all tied up in stocks. Nor can you just throw money at your problems.
  - during the pandemic, richest made...
- - trickle down economics? Something about it??
- - money per U.S. resident...
- - 400 people is...
+ - Maybe some sort of fact about trickle-down economics?
+ - Bring up the money per U.S. resident of big spending items.
+ - 400 people is enough to fill a ballroom...
  - Investment is an odd profession, it's the only one where the barrier to entry is having money previously
  - If U.S. land was distributed like U.S. wealth?
  - Of 108 countries ranked, there are only 27 with a higher inequality than the U.S.

@@ -128,7 +128,6 @@ func handle_debug() -> void:
   #%LeftSideBarEndText.visible = true
   #%LeftSideBarAnimationPlayer.play("fade_left_texts")
   # %LeftSideBarText.visible=true
-  print(is_camera_locked)
   pass
 
 
