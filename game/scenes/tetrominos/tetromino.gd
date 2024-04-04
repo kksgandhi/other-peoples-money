@@ -20,6 +20,8 @@ func calculate_strafe_velocity() -> void:
 
 var is_frozen := false
 var is_grounded := false
+var tetro_info: TetroInfo
+
 func handle_movement() -> void:
   if is_frozen: return
   calculate_down_velocity()

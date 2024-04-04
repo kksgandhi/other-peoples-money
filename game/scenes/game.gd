@@ -14,6 +14,7 @@ var rng := RandomNumberGenerator.new()
 @onready var scroll_instructions_fader := %scroll_instructions_fader as AnimationPlayer
 @onready var tetro_choices := %tetro_choices as VBoxContainer
 @onready var tetrominos := %tetrominos as Node2D
+@onready var info_overlay := %InfoOverlay as Overlay
 
 var have_block_instructions_faded_in := false
 var have_scroll_instructions_faded_in := false
@@ -88,6 +89,7 @@ func spawn_tetromino(tetro_info: TetroInfo) -> void:
   spawned_tetromino.position = spawn_location.position
   spawned_tetromino.scale = Vector2(1, 1) * Globals.get_tetromino_scale(tetro_info.cost)
   spawned_tetromino.set_color(tetro_info.color)
+  spawned_tetromino.tetro_info = tetro_info
   var tooltip := tetro_info.title + " $" + Globals.comma_sep(tetro_info.cost) if Globals.hide_cost else tetro_info.title
   spawned_tetromino.set_tooltips(tooltip)
 
@@ -158,3 +160,7 @@ func handle_debug() -> void:
 func _on_left_side_bar_text_meta_clicked(meta: Variant) -> void:
   print(meta)
   OS.shell_open(str(meta))
+
+
+func _on_info_button_pressed() -> void:
+  info_overlay.fade_in()

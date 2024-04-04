@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ca8bu6oaovpaw"]
+[gd_scene load_steps=35 format=3 uid="uid://ca8bu6oaovpaw"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_3vnwj"]
 [ext_resource type="Texture2D" uid="uid://7htmx1ae8i1d" path="res://assets/images/1x1_white.png" id="1_5gkvc"]
@@ -13,7 +13,121 @@
 [ext_resource type="PackedScene" uid="uid://styu3vbul66p" path="res://scenes/UI/keyboard_wasd_cluster.tscn" id="11_p3715"]
 [ext_resource type="Texture2D" uid="uid://dph1rgxbgxdvp" path="res://assets/images/button_prompts/keyboard_r_outline.svg" id="12_jh5qb"]
 [ext_resource type="PackedScene" uid="uid://xdh2mkgj0fgq" path="res://scenes/UI/fade_in_label.tscn" id="13_h02hp"]
+[ext_resource type="Texture2D" uid="uid://brf7as8eunp3j" path="res://assets/images/info.png" id="13_xgknq"]
+[ext_resource type="PackedScene" uid="uid://dm2hjtjr0yr6e" path="res://scenes/UI/overlay.tscn" id="14_3pida"]
 [ext_resource type="Texture2D" uid="uid://b3uyomxlmgjes" path="res://assets/images/button_prompts/mouse_scroll_vertical.svg" id="14_as66l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7luns"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 0.819608)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id="Animation_26jns"]
+resource_name = "fade_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5aawt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l02r3"]
+resource_name = "init_hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qf3gq"]
+_data = {
+"RESET": SubResource("Animation_5aawt"),
+"fade_in": SubResource("Animation_26jns"),
+"init_hide": SubResource("Animation_l02r3")
+}
+
+[sub_resource type="Animation" id="Animation_jhx8k"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mrpbc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fu4ho"]
+resource_name = "init_hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y7i5j"]
+_data = {
+"RESET": SubResource("Animation_mrpbc"),
+"fade_in": SubResource("Animation_jhx8k"),
+"init_hide": SubResource("Animation_fu4ho")
+}
 
 [sub_resource type="Animation" id="Animation_mhut5"]
 length = 0.001
@@ -198,122 +312,10 @@ _data = {
 "hide_splash": SubResource("Animation_cnlll")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7luns"]
-bg_color = Color(0.145098, 0.145098, 0.145098, 0.819608)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="Animation" id="Animation_26jns"]
-resource_name = "fade_in"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_5aawt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_l02r3"]
-resource_name = "init_hide"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qf3gq"]
-_data = {
-"RESET": SubResource("Animation_5aawt"),
-"fade_in": SubResource("Animation_26jns"),
-"init_hide": SubResource("Animation_l02r3")
-}
-
-[sub_resource type="Animation" id="Animation_jhx8k"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_mrpbc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_fu4ho"]
-resource_name = "init_hide"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_y7i5j"]
-_data = {
-"RESET": SubResource("Animation_mrpbc"),
-"fade_in": SubResource("Animation_jhx8k"),
-"init_hide": SubResource("Animation_fu4ho")
-}
-
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3vnwj")
 unlocked_camera_speed = 0.1
-breaking_position = 600
+breaking_position = 500
 game_movement_offset = 600
 camera_move_speed = 0.001
 
@@ -363,6 +365,143 @@ metadata/_edit_lock_ = true
 
 [node name="tetrominos" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="Sidebar" type="Node2D" parent="."]
+position = Vector2(0, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="Sidebar"]
+offset_left = 446.0
+offset_top = 21.0
+offset_right = 901.0
+offset_bottom = 126.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7luns")
+
+[node name="MarginContainer" type="MarginContainer" parent="Sidebar/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="this_area_represents" type="Label" parent="Sidebar/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("10_ot3g2")
+text = "This area represents the wealth of
+the richest 400 Americans."
+
+[node name="PanelContainer2" type="PanelContainer" parent="Sidebar"]
+visible = false
+offset_left = 512.0
+offset_top = -101.0
+offset_right = 804.0
+offset_bottom = -30.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7luns")
+
+[node name="MarginContainer" type="MarginContainer" parent="Sidebar/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="this_area_represents" type="Label" parent="Sidebar/PanelContainer2/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("10_ot3g2")
+text = "Yup, this whole area."
+horizontal_alignment = 1
+
+[node name="FadeInLabel" parent="Sidebar" instance=ExtResource("13_h02hp")]
+offset_left = 25.0
+offset_top = -16.0
+offset_right = 25.0
+offset_bottom = -16.0
+
+[node name="Label" parent="Sidebar/FadeInLabel" index="2"]
+offset_right = 266.0
+offset_bottom = 115.0
+text = "Hi
+Multiline amiwrite
+what's up"
+
+[node name="block_instructions" type="Node2D" parent="Sidebar"]
+position = Vector2(0, 94)
+
+[node name="KeyboardArrowCluster" parent="Sidebar/block_instructions" instance=ExtResource("9_sbnu7")]
+position = Vector2(32, 383)
+scale = Vector2(0.5, 0.5)
+
+[node name="Label" type="Label" parent="Sidebar/block_instructions"]
+offset_left = 139.0
+offset_top = 396.0
+offset_right = 179.0
+offset_bottom = 427.0
+theme = ExtResource("10_ot3g2")
+text = "or"
+
+[node name="Label2" type="Label" parent="Sidebar/block_instructions"]
+offset_left = 64.0
+offset_top = 463.0
+offset_right = 251.0
+offset_bottom = 494.0
+theme = ExtResource("10_ot3g2")
+text = "to move blocks"
+
+[node name="Label3" type="Label" parent="Sidebar/block_instructions"]
+offset_left = 56.0
+offset_top = 576.0
+offset_right = 246.0
+offset_bottom = 607.0
+theme = ExtResource("10_ot3g2")
+text = "to rotate blocks"
+horizontal_alignment = 1
+
+[node name="keyboard_wasd_cluster" parent="Sidebar/block_instructions" instance=ExtResource("11_p3715")]
+position = Vector2(179, 385)
+scale = Vector2(0.5, 0.5)
+
+[node name="KeyboardROutline" type="Sprite2D" parent="Sidebar/block_instructions"]
+position = Vector2(151, 535)
+texture = ExtResource("12_jh5qb")
+
+[node name="block_instructions_fade_in" type="AnimationPlayer" parent="Sidebar/block_instructions"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_qf3gq")
+}
+autoplay = "init_hide"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sidebar/block_instructions"]
+offset_left = 25.0
+offset_top = 148.0
+offset_right = 283.0
+offset_bottom = 365.0
+theme = ExtResource("10_ot3g2")
+text = "Whenever you choose a topic, you'll create a block, and spend a bit of money from the richest 400 Americans."
+fit_content = true
+
+[node name="scroll_instructions" type="Node2D" parent="Sidebar"]
+
+[node name="MouseScrollVertical" type="Sprite2D" parent="Sidebar/scroll_instructions"]
+position = Vector2(38, 175)
+texture = ExtResource("14_as66l")
+
+[node name="Label4" type="Label" parent="Sidebar/scroll_instructions"]
+offset_left = 79.0
+offset_top = 140.0
+offset_right = 298.0
+offset_bottom = 239.0
+theme = ExtResource("10_ot3g2")
+text = "You can scroll
+up or down."
+
+[node name="scroll_instructions_fader" type="AnimationPlayer" parent="Sidebar/scroll_instructions"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_y7i5j")
+}
+autoplay = "init_hide"
 
 [node name="Camera" type="Node2D" parent="."]
 
@@ -470,6 +609,45 @@ text = "Click a topic below."
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[node name="Hotbar" type="PanelContainer" parent="UILayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -47.0
+offset_right = 47.0
+offset_bottom = -7.0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UILayer/Hotbar"]
+layout_mode = 2
+
+[node name="InfoButton" type="TextureButton" parent="UILayer/Hotbar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "More info and sources"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("13_xgknq")
+texture_pressed = ExtResource("13_xgknq")
+texture_hover = ExtResource("13_xgknq")
+texture_disabled = ExtResource("13_xgknq")
+texture_focused = ExtResource("13_xgknq")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Overlays" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="InfoOverlay" parent="UILayer/Overlays" instance=ExtResource("14_3pida")]
+unique_name_in_owner = true
+layout_mode = 1
+
 [node name="SplashLayer" type="CanvasLayer" parent="."]
 
 [node name="Splash" type="Node2D" parent="SplashLayer"]
@@ -536,143 +714,8 @@ libraries = {
 "": SubResource("AnimationLibrary_in24v")
 }
 
-[node name="Sidebar" type="Node2D" parent="."]
-
-[node name="PanelContainer" type="PanelContainer" parent="Sidebar"]
-offset_left = 446.0
-offset_top = 21.0
-offset_right = 901.0
-offset_bottom = 126.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7luns")
-
-[node name="MarginContainer" type="MarginContainer" parent="Sidebar/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="this_area_represents" type="Label" parent="Sidebar/PanelContainer/MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("10_ot3g2")
-text = "This area represents the wealth of
-the richest 400 Americans."
-
-[node name="PanelContainer2" type="PanelContainer" parent="Sidebar"]
-visible = false
-offset_left = 512.0
-offset_top = -101.0
-offset_right = 804.0
-offset_bottom = -30.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_7luns")
-
-[node name="MarginContainer" type="MarginContainer" parent="Sidebar/PanelContainer2"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="this_area_represents" type="Label" parent="Sidebar/PanelContainer2/MarginContainer"]
-layout_mode = 2
-theme = ExtResource("10_ot3g2")
-text = "Yup, this whole area."
-horizontal_alignment = 1
-
-[node name="FadeInLabel" parent="Sidebar" instance=ExtResource("13_h02hp")]
-offset_left = 25.0
-offset_top = -16.0
-offset_right = 25.0
-offset_bottom = -16.0
-
-[node name="Label" parent="Sidebar/FadeInLabel" index="2"]
-offset_right = 266.0
-offset_bottom = 115.0
-text = "Hi
-Multiline amiwrite
-what's up"
-
-[node name="block_instructions" type="Node2D" parent="Sidebar"]
-position = Vector2(0, 94)
-
-[node name="KeyboardArrowCluster" parent="Sidebar/block_instructions" instance=ExtResource("9_sbnu7")]
-position = Vector2(32, 383)
-scale = Vector2(0.5, 0.5)
-
-[node name="Label" type="Label" parent="Sidebar/block_instructions"]
-offset_left = 139.0
-offset_top = 396.0
-offset_right = 179.0
-offset_bottom = 427.0
-theme = ExtResource("10_ot3g2")
-text = "or"
-
-[node name="Label2" type="Label" parent="Sidebar/block_instructions"]
-offset_left = 64.0
-offset_top = 463.0
-offset_right = 251.0
-offset_bottom = 494.0
-theme = ExtResource("10_ot3g2")
-text = "to move blocks"
-
-[node name="Label3" type="Label" parent="Sidebar/block_instructions"]
-offset_left = 56.0
-offset_top = 576.0
-offset_right = 246.0
-offset_bottom = 607.0
-theme = ExtResource("10_ot3g2")
-text = "to rotate blocks"
-horizontal_alignment = 1
-
-[node name="keyboard_wasd_cluster" parent="Sidebar/block_instructions" instance=ExtResource("11_p3715")]
-position = Vector2(179, 385)
-scale = Vector2(0.5, 0.5)
-
-[node name="KeyboardROutline" type="Sprite2D" parent="Sidebar/block_instructions"]
-position = Vector2(151, 535)
-texture = ExtResource("12_jh5qb")
-
-[node name="block_instructions_fade_in" type="AnimationPlayer" parent="Sidebar/block_instructions"]
-unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_qf3gq")
-}
-autoplay = "init_hide"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Sidebar/block_instructions"]
-offset_left = 12.0
-offset_top = 170.0
-offset_right = 291.0
-offset_bottom = 356.0
-theme = ExtResource("10_ot3g2")
-text = "Whenever you choose a topic, you'll create a block, and spend a bit of money from the richest 400 Americans."
-fit_content = true
-
-[node name="scroll_instructions" type="Node2D" parent="Sidebar"]
-
-[node name="MouseScrollVertical" type="Sprite2D" parent="Sidebar/scroll_instructions"]
-position = Vector2(38, 190)
-texture = ExtResource("14_as66l")
-
-[node name="Label4" type="Label" parent="Sidebar/scroll_instructions"]
-offset_left = 79.0
-offset_top = 140.0
-offset_right = 298.0
-offset_bottom = 239.0
-theme = ExtResource("10_ot3g2")
-text = "You can scroll
-up or down."
-
-[node name="scroll_instructions_fader" type="AnimationPlayer" parent="Sidebar/scroll_instructions"]
-unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_y7i5j")
-}
-autoplay = "init_hide"
-
 [connection signal="meta_clicked" from="UILayer/LeftSideBar/MarginContainer/LeftSideBarText" to="." method="_on_left_side_bar_text_meta_clicked"]
+[connection signal="pressed" from="UILayer/Hotbar/HBoxContainer/InfoButton" to="." method="_on_info_button_pressed"]
 [connection signal="animation_finished" from="SplashLayer/Splash/HideSplash" to="SplashLayer/Splash" method="_on_hide_splash_animation_finished"]
 
 [editable path="Sidebar/FadeInLabel"]

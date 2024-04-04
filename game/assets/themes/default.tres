@@ -1,7 +1,39 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://yr4kjgxtyvuh"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://yr4kjgxtyvuh"]
 
 [ext_resource type="FontFile" uid="uid://c4gwrk6vad2vk" path="res://assets/fonts/LibreBaskerville-Regular.ttf" id="1_btdgw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6nisi"]
+bg_color = Color(0.211765, 0.211765, 0.211765, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0807833, 0.0807833, 0.0807833, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6man"]
+bg_color = Color(0.184314, 0.184314, 0.184314, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0807833, 0.0807833, 0.0807833, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrxmy"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 0.819608)
 
 [resource]
 default_font = ExtResource("1_btdgw")
 default_font_size = 24
+Button/styles/hover = SubResource("StyleBoxFlat_6nisi")
+Button/styles/normal = SubResource("StyleBoxFlat_t6man")
+Panel/styles/panel = SubResource("StyleBoxFlat_xrxmy")
