@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ca8bu6oaovpaw"]
+[gd_scene load_steps=33 format=3 uid="uid://ca8bu6oaovpaw"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_3vnwj"]
 [ext_resource type="Texture2D" uid="uid://7htmx1ae8i1d" path="res://assets/images/1x1_white.png" id="1_5gkvc"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://styu3vbul66p" path="res://scenes/UI/keyboard_wasd_cluster.tscn" id="11_p3715"]
 [ext_resource type="Texture2D" uid="uid://dph1rgxbgxdvp" path="res://assets/images/button_prompts/keyboard_r_outline.svg" id="12_jh5qb"]
 [ext_resource type="PackedScene" uid="uid://xdh2mkgj0fgq" path="res://scenes/UI/fade_in_label.tscn" id="13_h02hp"]
+[ext_resource type="Texture2D" uid="uid://b3uyomxlmgjes" path="res://assets/images/button_prompts/mouse_scroll_vertical.svg" id="14_as66l"]
 
 [sub_resource type="Animation" id="Animation_mhut5"]
 length = 0.001
@@ -198,11 +199,115 @@ _data = {
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7luns"]
-bg_color = Color(0.145098, 0.145098, 0.145098, 0.941176)
+bg_color = Color(0.145098, 0.145098, 0.145098, 0.819608)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id="Animation_26jns"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5aawt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l02r3"]
+resource_name = "init_hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qf3gq"]
+_data = {
+"RESET": SubResource("Animation_5aawt"),
+"fade_in": SubResource("Animation_26jns"),
+"init_hide": SubResource("Animation_l02r3")
+}
+
+[sub_resource type="Animation" id="Animation_jhx8k"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mrpbc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fu4ho"]
+resource_name = "init_hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y7i5j"]
+_data = {
+"RESET": SubResource("Animation_mrpbc"),
+"fade_in": SubResource("Animation_jhx8k"),
+"init_hide": SubResource("Animation_fu4ho")
+}
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3vnwj")
@@ -432,43 +537,6 @@ libraries = {
 
 [node name="Sidebar" type="Node2D" parent="."]
 
-[node name="KeyboardArrowCluster" parent="Sidebar" instance=ExtResource("9_sbnu7")]
-position = Vector2(32, 325)
-scale = Vector2(0.5, 0.5)
-
-[node name="Label" type="Label" parent="Sidebar"]
-offset_left = 139.0
-offset_top = 338.0
-offset_right = 179.0
-offset_bottom = 369.0
-theme = ExtResource("10_ot3g2")
-text = "or"
-
-[node name="Label2" type="Label" parent="Sidebar"]
-offset_left = 64.0
-offset_top = 409.0
-offset_right = 251.0
-offset_bottom = 440.0
-theme = ExtResource("10_ot3g2")
-text = "to move blocks"
-
-[node name="Label3" type="Label" parent="Sidebar"]
-offset_left = 56.0
-offset_top = 576.0
-offset_right = 246.0
-offset_bottom = 607.0
-theme = ExtResource("10_ot3g2")
-text = "to rotate blocks"
-horizontal_alignment = 1
-
-[node name="keyboard_wasd_cluster" parent="Sidebar" instance=ExtResource("11_p3715")]
-position = Vector2(179, 327)
-scale = Vector2(0.5, 0.5)
-
-[node name="KeyboardROutline" type="Sprite2D" parent="Sidebar"]
-position = Vector2(151, 535)
-texture = ExtResource("12_jh5qb")
-
 [node name="PanelContainer" type="PanelContainer" parent="Sidebar"]
 offset_left = 446.0
 offset_top = 695.0
@@ -522,6 +590,74 @@ offset_bottom = 115.0
 text = "Hi
 Multiline amiwrite
 what's up"
+
+[node name="block_instructions" type="Node2D" parent="Sidebar"]
+
+[node name="KeyboardArrowCluster" parent="Sidebar/block_instructions" instance=ExtResource("9_sbnu7")]
+position = Vector2(32, 325)
+scale = Vector2(0.5, 0.5)
+
+[node name="Label" type="Label" parent="Sidebar/block_instructions"]
+offset_left = 139.0
+offset_top = 338.0
+offset_right = 179.0
+offset_bottom = 369.0
+theme = ExtResource("10_ot3g2")
+text = "or"
+
+[node name="Label2" type="Label" parent="Sidebar/block_instructions"]
+offset_left = 64.0
+offset_top = 409.0
+offset_right = 251.0
+offset_bottom = 440.0
+theme = ExtResource("10_ot3g2")
+text = "to move blocks"
+
+[node name="Label3" type="Label" parent="Sidebar/block_instructions"]
+offset_left = 56.0
+offset_top = 576.0
+offset_right = 246.0
+offset_bottom = 607.0
+theme = ExtResource("10_ot3g2")
+text = "to rotate blocks"
+horizontal_alignment = 1
+
+[node name="keyboard_wasd_cluster" parent="Sidebar/block_instructions" instance=ExtResource("11_p3715")]
+position = Vector2(179, 327)
+scale = Vector2(0.5, 0.5)
+
+[node name="KeyboardROutline" type="Sprite2D" parent="Sidebar/block_instructions"]
+position = Vector2(151, 535)
+texture = ExtResource("12_jh5qb")
+
+[node name="block_instructions_fade_in" type="AnimationPlayer" parent="Sidebar/block_instructions"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_qf3gq")
+}
+autoplay = "init_hide"
+
+[node name="scroll_instructions" type="Node2D" parent="Sidebar"]
+
+[node name="MouseScrollVertical" type="Sprite2D" parent="Sidebar/scroll_instructions"]
+position = Vector2(38, 190)
+texture = ExtResource("14_as66l")
+
+[node name="Label4" type="Label" parent="Sidebar/scroll_instructions"]
+offset_left = 79.0
+offset_top = 140.0
+offset_right = 298.0
+offset_bottom = 239.0
+theme = ExtResource("10_ot3g2")
+text = "You can scroll
+up or down."
+
+[node name="scroll_instructions_fader" type="AnimationPlayer" parent="Sidebar/scroll_instructions"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_y7i5j")
+}
+autoplay = "init_hide"
 
 [connection signal="meta_clicked" from="UILayer/LeftSideBar/MarginContainer/LeftSideBarText" to="." method="_on_left_side_bar_text_meta_clicked"]
 [connection signal="animation_finished" from="SplashLayer/Splash/HideSplash" to="SplashLayer/Splash" method="_on_hide_splash_animation_finished"]

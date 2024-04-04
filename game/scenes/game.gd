@@ -1,25 +1,41 @@
 extends Node2D
 
-var cost_information: Array
+var cost_information: Array[TetroInfo]
 
 var rng := RandomNumberGenerator.new()
+@onready var top := %Top as Area2D
+@onready var bottom := %Bottom as StaticBody2D
+@onready var camera_destination := %CameraDestination as Marker2D
+@onready var main_camera := %MainCamera as Camera2D
+@onready var original_camera_destination := %OriginalCameraDestination as Marker2D
+@onready var spawn_location := %SpawnLocation as Marker2D
+@onready var original_spawn_location := %OriginalSpawnLocation as Marker2D
+@onready var block_instructions_fader := %block_instructions_fade_in as AnimationPlayer
+@onready var scroll_instructions_fader := %scroll_instructions_fader as AnimationPlayer
+@onready var tetro_choices := %tetro_choices as VBoxContainer
+@onready var tetrominos := %tetrominos as Node2D
 
+var have_block_instructions_faded_in := false
+var have_scroll_instructions_faded_in := false
 
 @onready var height_of_play_area: float = (Globals.top_400_wealth \
                  / 1000 # since we're working in thousands of dollars\
                  / Globals.thousands_of_dollars_per_pixel # divide by per pixel amount\
-                 / %Bottom.scale.x) # divide by size of area
+                 / bottom.scale.x) # divide by size of area
                 
 func _ready() -> void:
   read_cost_information()
   add_tetro_ui_item(); add_tetro_ui_item(); add_tetro_ui_item(); add_tetro_ui_item(); add_tetro_ui_item()
-  %Top.position.y = %Bottom.position.y - (height_of_play_area + 16)
+  top.position.y = bottom.position.y - (height_of_play_area + 16)
+
+func cost_info_to_resource(info: Dictionary) -> TetroInfo:
+  return TetroInfo.new(Vector2(1, 1), Color.WHITE, info.title, "", info.cost * 1_000_000)
 
 func read_cost_information() -> void:
   var file := FileAccess.open("res://assets/data/cost_information.json", FileAccess.READ)
   var text := file.get_as_text()
   var raw_cost_information: Array = JSON.parse_string(text)
-  cost_information = raw_cost_information.map(func(info: Dictionary) -> Dictionary: info.cost = info.cost * 1000000; return info)
+  cost_information.assign(raw_cost_information.map(cost_info_to_resource))
   file.close()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -33,49 +49,54 @@ var is_camera_locked := true
 func handle_scroll(event: InputEvent) -> void:
   #TODO do not hard-code the next line
   if event is InputEventMouseButton and event.is_pressed() and get_global_mouse_position().x < 1030:
-    if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-      %CameraDestination.position.y = %MainCamera.position.y - scroll_speed
+    var mouse_event := event as InputEventMouseButton
+    if mouse_event.button_index == MOUSE_BUTTON_WHEEL_UP:
+      camera_destination.position.y = main_camera.position.y - scroll_speed
       is_camera_locked = false
-    if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-      %CameraDestination.position.y = %MainCamera.position.y + scroll_speed
+    if mouse_event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+      camera_destination.position.y = main_camera.position.y + scroll_speed
       is_camera_locked = false
-  %CameraDestination.position.y = clamp(%CameraDestination.position.y,
-                                        %OriginalCameraDestination.position.y + desired_offset,
-                                        %OriginalCameraDestination.position.y)
-  if %CameraDestination.position.y == %OriginalCameraDestination.position.y + desired_offset and not has_leftsidebar_animation_played:
+  camera_destination.position.y = clamp(camera_destination.position.y,
+                                        original_camera_destination.position.y + desired_offset,
+                                        original_camera_destination.position.y)
+  if camera_destination.position.y == original_camera_destination.position.y + desired_offset and not has_leftsidebar_animation_played:
     is_camera_locked = true
   
 
 var tetro_choice_item := preload("res://scenes/tetrominos/tetro_choice_item.tscn")
 func add_tetro_ui_item() -> void:
   if cost_information.size() > 0:
-    var choice_item_instance := tetro_choice_item.instantiate()
-    %tetro_choices.add_child(choice_item_instance)
-    var tetromino_information: Dictionary = cost_information.pop_at(rng.randi_range(0, cost_information.size() - 1))
+    var choice_item_instance := tetro_choice_item.instantiate() as TetroChoiceItem
+    tetro_choices.add_child(choice_item_instance)
+    var tetromino_information: TetroInfo = cost_information.pop_at(rng.randi_range(0, cost_information.size() - 1))
     choice_item_instance.update_displayed_information(tetromino_information)
     choice_item_instance.selected.connect(ui_item_selected)
     
-func ui_item_selected(tetro_info: Dictionary, child: TetroChoiceItem) -> void:
-  %tetrominos.get_children().map(func(tet_child: Tetromino) -> void: tet_child.is_frozen = true)
+func ui_item_selected(tetro_info: TetroInfo, child: TetroChoiceItem) -> void:
+  tetrominos.get_children().map(func(tet_child: Tetromino) -> void: tet_child.is_frozen = true)
   spawn_tetromino(tetro_info)
   child.queue_free()
   add_tetro_ui_item()
 
 func is_tetromino_topped_out() -> bool:
-  return %Top.get_overlapping_bodies()\
+  return top.get_overlapping_bodies()\
       .any(func(body: Node) -> bool: return not body.is_in_group('wall'))
 
 
-func spawn_tetromino(tetro_info: Dictionary) -> void:
+func spawn_tetromino(tetro_info: TetroInfo) -> void:
   # const tetromino_scene = preload("res://scenes/tetrominos/tetromino_s.tscn")
-  var spawned_tetromino: Tetromino = load("res://scenes/tetrominos/" + tetro_info.sprite + ".tscn").instantiate()
+  var spawned_tetromino := (load("res://scenes/tetrominos/" + tetro_info.sprite + ".tscn") as PackedScene).instantiate() as Tetromino
   %tetrominos.add_child(spawned_tetromino)
-  spawned_tetromino.position = %SpawnLocation.position
+  spawned_tetromino.position = spawn_location.position
   spawned_tetromino.scale = Vector2(1, 1) * Globals.get_tetromino_scale(tetro_info.cost)
   spawned_tetromino.set_color(tetro_info.color)
   spawned_tetromino.set_tooltips(tetro_info.title)
 
   remaining_wealth -= tetro_info.cost * 1000
+
+  if not have_block_instructions_faded_in:
+    have_block_instructions_faded_in = true
+    block_instructions_fader.play("fade_in")
 
 func _process(_delta: float) -> void:
   move_upwards_as_tetrominos_fall()
@@ -86,19 +107,19 @@ func handle_disable_sidebar() -> void:
   var all_tetrominos_bottomed_out := %tetrominos.get_children()\
       .all(func(child: Tetromino) -> bool: return child.velocity.y == 0)
   var sidebar_disabled := is_tetromino_topped_out() or not all_tetrominos_bottomed_out
-  %tetro_choices.get_children().map(func(choice_item_child: TetroChoiceItem) -> void: choice_item_child.get_node("Button").disabled = sidebar_disabled)
+  tetro_choices.get_children().map(func(choice_item_child: TetroChoiceItem) -> void: choice_item_child.button.disabled = sidebar_disabled)
 
 @export var breaking_position := 10
 @export var game_movement_offset := 10
 @export var camera_move_speed := 0.1
 
-var highest_tetromino_y_position := 100_000_000
+var highest_tetromino_y_position := 100_000_000.0
 var desired_offset := 0.0
 var is_broken := false
 var has_leftsidebar_animation_played := false
 func move_upwards_as_tetrominos_fall() -> void:
   # find the highest tetromino (by center)
-  for tetromino in %tetrominos.get_children():
+  for tetromino: Tetromino in tetrominos.get_children():
     if tetromino.is_frozen and tetromino.position.y < highest_tetromino_y_position:
       highest_tetromino_y_position = tetromino.position.y
 
@@ -106,18 +127,22 @@ func move_upwards_as_tetrominos_fall() -> void:
   if highest_tetromino_y_position < breaking_position:
     is_broken = true
     desired_offset = highest_tetromino_y_position - game_movement_offset
-    desired_offset = max(desired_offset, %Top.position.y - %Top.scale.y / 2)
-    if not has_leftsidebar_animation_played and desired_offset == %Top.position.y - %Top.scale.y / 2:
-      %LeftSideBarAnimationPlayer.play("fade_left_texts")
-      %LeftSideBarEndText.visible = true
-      has_leftsidebar_animation_played = true
+    desired_offset = max(desired_offset, top.position.y - top.scale.y / 2)
+    #if not has_leftsidebar_animation_played and desired_offset == top.position.y - top.scale.y / 2:
+      #%LeftSideBarAnimationPlayer.play("fade_left_texts")
+      #%LeftSideBarEndText.visible = true
+      #has_leftsidebar_animation_played = true
 
-    %SpawnLocation.position.y = %OriginalSpawnLocation.position.y + desired_offset
+    spawn_location.position.y = original_spawn_location.position.y + desired_offset
     if is_camera_locked:
-      %CameraDestination.position.y = %OriginalCameraDestination.position.y + desired_offset
+      camera_destination.position.y = original_camera_destination.position.y + desired_offset
+
+    if not have_scroll_instructions_faded_in:
+      have_scroll_instructions_faded_in = true
+      scroll_instructions_fader.play("fade_in")
 
   var current_camera_move_speed := camera_move_speed if is_camera_locked else unlocked_camera_speed
-  %MainCamera.position = lerp(%MainCamera.position, %CameraDestination.position, current_camera_move_speed)
+  main_camera.position = lerp(main_camera.position, camera_destination.position, current_camera_move_speed)
 
 @onready var remaining_wealth := Globals.top_400_wealth
 @onready var original_leftsidebar_end_text: String = %LeftSideBarEndText.text
