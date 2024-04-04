@@ -542,6 +542,7 @@ offset_left = 446.0
 offset_top = 695.0
 offset_right = 901.0
 offset_bottom = 800.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7luns")
 
 [node name="MarginContainer" type="MarginContainer" parent="Sidebar/PanelContainer"]

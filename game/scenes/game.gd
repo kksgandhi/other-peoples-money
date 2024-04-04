@@ -84,15 +84,15 @@ func is_tetromino_topped_out() -> bool:
 
 
 func spawn_tetromino(tetro_info: TetroInfo) -> void:
-  # const tetromino_scene = preload("res://scenes/tetrominos/tetromino_s.tscn")
   var spawned_tetromino := (load("res://scenes/tetrominos/" + tetro_info.sprite + ".tscn") as PackedScene).instantiate() as Tetromino
   %tetrominos.add_child(spawned_tetromino)
   spawned_tetromino.position = spawn_location.position
   spawned_tetromino.scale = Vector2(1, 1) * Globals.get_tetromino_scale(tetro_info.cost)
   spawned_tetromino.set_color(tetro_info.color)
-  spawned_tetromino.set_tooltips(tetro_info.title)
+  var tooltip := tetro_info.title + " $" + Globals.comma_sep(tetro_info.cost) if Globals.hide_cost else tetro_info.title
+  spawned_tetromino.set_tooltips(tooltip)
 
-  remaining_wealth -= tetro_info.cost * 1000
+  remaining_wealth -= tetro_info.cost * 1_000
 
   if not have_block_instructions_faded_in:
     have_block_instructions_faded_in = true

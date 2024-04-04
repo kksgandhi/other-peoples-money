@@ -14,14 +14,23 @@ var colors: Array[String] = ["#77dd77", "#836953", "#89cff0", "#99c5c4", "#9aded
 
 func update_displayed_information(input_tetromino_information: TetroInfo) -> void:
   tetromino_information = input_tetromino_information
-  tetromino_icon.custom_minimum_size = tetromino_icon.texture.get_size() * Globals.get_tetromino_scale(input_tetromino_information.cost)
+
+  tetromino_icon.custom_minimum_size =\
+      tetromino_icon.texture.get_size()\
+      * Globals.get_tetromino_scale(input_tetromino_information.cost)\
+
+      if not Globals.hide_cost else Vector2.ZERO
+
   var tetromino_texture := tetromino_resources[rng.randi() % tetromino_resources.size()]
   tetromino_icon.texture = load("res://assets/images/" + tetromino_texture + ".png") as Texture
   tetromino_information.sprite = tetromino_texture
   tetromino_title.clear()
   tetromino_title.append_text(tetromino_information.title)
-  tetromino_title.append_text("\n$")
-  tetromino_title.append_text(Globals.comma_sep(tetromino_information.cost * 1000))
+  tetromino_title.append_text("\n")
+  if not Globals.hide_cost:
+    tetromino_title.append_text("$")
+    tetromino_title.append_text(Globals.comma_sep(tetromino_information.cost * 1000))
+
   var color_choice := colors[rng.randi() % colors.size()]
   tetromino_icon.modulate = Color(color_choice)
   tetromino_information.color = color_choice
