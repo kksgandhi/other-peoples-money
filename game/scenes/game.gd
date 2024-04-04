@@ -19,8 +19,7 @@ var have_block_instructions_faded_in := false
 var have_scroll_instructions_faded_in := false
 
 @onready var height_of_play_area: float = (Globals.top_400_wealth \
-                 / 1000 # since we're working in thousands of dollars\
-                 / Globals.thousands_of_dollars_per_pixel # divide by per pixel amount\
+                 / Globals.dollars_per_pixel # divide by per pixel amount\
                  / bottom.scale.x) # divide by size of area
                 
 func _ready() -> void:
@@ -29,7 +28,7 @@ func _ready() -> void:
   top.position.y = bottom.position.y - (height_of_play_area + 16)
 
 func cost_info_to_resource(info: Dictionary) -> TetroInfo:
-  return TetroInfo.new(Vector2(1, 1), Color.WHITE, info.title, "", info.cost * 1_000_000)
+  return TetroInfo.new(Vector2(1, 1), Color.WHITE, info.title, "", info.cost * 1_000_000_000)
 
 func read_cost_information() -> void:
   var file := FileAccess.open("res://assets/data/cost_information.json", FileAccess.READ)

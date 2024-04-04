@@ -1,13 +1,13 @@
 extends Node
 
-var thousands_of_dollars_per_pixel := 10_000.0 / 4.0
+var dollars_per_pixel := 10_000_000.0 / 4.0
 
 var top_400_wealth := 4_000_000_000_000.0
 
 var hide_cost := true
 
 func get_tetromino_scale(cost: float) -> float:
-  return sqrt(float(cost) / thousands_of_dollars_per_pixel / 4.0)
+  return sqrt(float(cost) / dollars_per_pixel / 4.0)
 
 func comma_sep(number: int) -> String:
     var string := str(number)
