@@ -15,6 +15,8 @@ var rng := RandomNumberGenerator.new()
 @onready var tetro_choices := %tetro_choices as VBoxContainer
 @onready var tetrominos := %tetrominos as Node2D
 @onready var info_overlay := %InfoOverlay as Overlay
+@onready var spending_overlay := %SpendingOverlay as Overlay
+@onready var spending_info := %SpendingInfo as SpendingInfo
 
 var have_block_instructions_faded_in := false
 var have_scroll_instructions_faded_in := false
@@ -71,6 +73,7 @@ func add_tetro_ui_item() -> void:
     var tetromino_information: TetroInfo = cost_information.pop_at(rng.randi_range(0, cost_information.size() - 1))
     choice_item_instance.update_displayed_information(tetromino_information)
     choice_item_instance.selected.connect(ui_item_selected)
+    choice_item_instance.selected.connect(spending_info.update)
     
 func ui_item_selected(tetro_info: TetroInfo, child: TetroChoiceItem) -> void:
   tetrominos.get_children().map(func(tet_child: Tetromino) -> void: tet_child.is_frozen = true)
@@ -164,3 +167,7 @@ func _on_left_side_bar_text_meta_clicked(meta: Variant) -> void:
 
 func _on_info_button_pressed() -> void:
   info_overlay.fade_in()
+
+
+func _on_spending_button_pressed() -> void:
+  spending_overlay.fade_in()
