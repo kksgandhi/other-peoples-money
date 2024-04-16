@@ -85,7 +85,6 @@ func is_tetromino_topped_out() -> bool:
   return top.get_overlapping_bodies()\
       .any(func(body: Node) -> bool: return not body.is_in_group('wall'))
 
-
 func spawn_tetromino(tetro_info: TetroInfo) -> void:
   var spawned_tetromino := (load("res://scenes/tetrominos/" + tetro_info.sprite + ".tscn") as PackedScene).instantiate() as Tetromino
   %tetrominos.add_child(spawned_tetromino)
