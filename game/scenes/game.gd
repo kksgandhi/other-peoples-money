@@ -50,7 +50,7 @@ func _unhandled_input(event: InputEvent) -> void:
 var is_camera_locked := true
 func handle_scroll(event: InputEvent) -> void:
   #TODO do not hard-code the next line
-  if event is InputEventMouseButton and event.is_pressed() and get_global_mouse_position().x < 1030:
+  if event is InputEventMouseButton and event.is_pressed() and get_global_mouse_position().x < 1030 and not spending_overlay.visible and not info_overlay.visible:
     var mouse_event := event as InputEventMouseButton
     if mouse_event.button_index == MOUSE_BUTTON_WHEEL_UP:
       camera_destination.position.y = main_camera.position.y - scroll_speed
