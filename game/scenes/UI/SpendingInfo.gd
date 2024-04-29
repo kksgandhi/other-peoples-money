@@ -11,7 +11,19 @@ func update(tetro_info: TetroInfo, child: TetroChoiceItem) -> void:
   tetro_infos.append(tetro_info)
   tetro_infos.sort_custom(sorter)
 
+  var total_cost: float = 0.0
+  for info in tetro_infos:
+    total_cost += info.cost
+
   text = ""
+
+  text += "You've spent $"
+  text += Globals.comma_sep(roundi(total_cost / 1_000_000_000.0))
+  text += " billion so far, "
+  text += str(snapped(total_cost / Globals.top_400_wealth, 0.01) * 100.0)
+  text += "% of the wealth of the richest 400. They each still have $"
+  text += Globals.comma_sep(roundi((Globals.top_400_wealth - total_cost) / 400 / 1_000_000_000.0))
+  text += " billion.\n\n"
   text += base_text
   text += "\n\n"
 

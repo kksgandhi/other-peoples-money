@@ -478,7 +478,7 @@ offset_top = 148.0
 offset_right = 283.0
 offset_bottom = 365.0
 theme = ExtResource("10_ot3g2")
-text = "Whenever you choose a topic, you'll create a block, and take some of the wealth. Hover over a block for more info."
+text = "Whenever you choose a topic, you'll create a block, and take some wealth. Hover over a block for more info."
 fit_content = true
 
 [node name="scroll_instructions" type="Node2D" parent="Sidebar"]
@@ -505,9 +505,9 @@ autoplay = "init_hide"
 
 [node name="FadeInLabel2" parent="Sidebar" instance=ExtResource("13_h02hp")]
 offset_left = 20.0
-offset_top = -1099.0
+offset_top = -1051.0
 offset_right = 20.0
-offset_bottom = -1099.0
+offset_bottom = -1051.0
 
 [node name="Label" parent="Sidebar/FadeInLabel2" index="2"]
 offset_right = 271.0
@@ -517,9 +517,9 @@ text = "The U.S. is 27th of 82 countries in social mobility (the ability of some
 
 [node name="FadeInLabel3" parent="Sidebar" instance=ExtResource("13_h02hp")]
 offset_left = 20.0
-offset_top = -730.0
+offset_top = -608.0
 offset_right = 20.0
-offset_bottom = -730.0
+offset_bottom = -608.0
 
 [node name="Label" parent="Sidebar/FadeInLabel3" index="2"]
 offset_right = 271.0
@@ -528,9 +528,9 @@ text = "Many rich folk do have day jobs. That said, most of their money is from 
 
 [node name="FadeInLabel4" parent="Sidebar" instance=ExtResource("13_h02hp")]
 offset_left = 20.0
-offset_top = -451.0
+offset_top = -266.0
 offset_right = 20.0
-offset_bottom = -451.0
+offset_bottom = -266.0
 
 [node name="Label" parent="Sidebar/FadeInLabel4" index="2"]
 offset_right = 270.0
@@ -2775,7 +2775,7 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Once you've chosen some topics, you'll see your spending here. Choose a topic on the right side of the main game."
 script = ExtResource("16_gfsir")
-base_text = "Eventually you'll run out of other people's money. In the meantime though, this is what you've managed to do:"
+base_text = "As you run out of other people's money, this is what you've managed to do:"
 
 [node name="SplashLayer" type="CanvasLayer" parent="."]
 
