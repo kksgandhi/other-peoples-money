@@ -29,7 +29,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrxmy"]
-bg_color = Color(0.145098, 0.145098, 0.145098, 0.819608)
+bg_color = Color(0.145098, 0.145098, 0.145098, 0.870588)
 
 [resource]
 default_font = ExtResource("1_btdgw")

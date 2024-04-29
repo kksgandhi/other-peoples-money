@@ -120,6 +120,8 @@ var highest_tetromino_y_position := 100_000_000.0
 var desired_offset := 0.0
 var is_broken := false
 var has_leftsidebar_animation_played := false
+var has_end_spending_info_been_shown := false
+
 func move_upwards_as_tetrominos_fall() -> void:
   # find the highest tetromino (by center)
   for tetromino: Tetromino in tetrominos.get_children():
@@ -130,7 +132,12 @@ func move_upwards_as_tetrominos_fall() -> void:
   if highest_tetromino_y_position < breaking_position:
     is_broken = true
     desired_offset = highest_tetromino_y_position - game_movement_offset
-    desired_offset = max(desired_offset, top.position.y - top.scale.y / 2)
+    #desired_offset = max(desired_offset, top.position.y - top.scale.y / 2)
+    if desired_offset < top.position.y - top.scale.y / 2:
+      desired_offset = top.position.y - top.scale.y / 2
+      if not has_end_spending_info_been_shown:
+        _on_spending_button_pressed()
+        has_end_spending_info_been_shown = true
     #if not has_leftsidebar_animation_played and desired_offset == top.position.y - top.scale.y / 2:
       #%LeftSideBarAnimationPlayer.play("fade_left_texts")
       #%LeftSideBarEndText.visible = true

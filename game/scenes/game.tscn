@@ -2775,7 +2775,7 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Once you've chosen some topics, you'll see your spending here. Choose a topic on the right side of the main game."
 script = ExtResource("16_gfsir")
-base_text = "As you run out of other people's money, this is what you've managed to do:"
+base_text = "As you run out of other people's money, this is what you've managed to do. Keep going, think you can squeeze a little more in?"
 
 [node name="SplashLayer" type="CanvasLayer" parent="."]
 
