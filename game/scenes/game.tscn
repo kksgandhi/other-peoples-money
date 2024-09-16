@@ -423,7 +423,7 @@ offset_bottom = -1417.0
 [node name="Label" parent="Sidebar/FadeInLabel" index="2"]
 offset_right = 278.0
 offset_bottom = 305.0
-text = "Of course, it's not as simple as taking money and then throwing it at our problems. But surely, with some thought, we could have a better system than we have now."
+text = "Fixing things isn't as simple as taking people's money and throwing it at problems. Solutions are hard, but at the least, we should be asking ourselves what we prioritize."
 
 [node name="block_instructions" type="Node2D" parent="Sidebar"]
 position = Vector2(0, 94)
@@ -524,7 +524,7 @@ offset_bottom = -608.0
 [node name="Label" parent="Sidebar/FadeInLabel3" index="2"]
 offset_right = 271.0
 offset_bottom = 292.0
-text = "Many rich folk do have day jobs. That said, most of their money is from stocks — passively getting money from companies they aren't involved in."
+text = "Many rich folk do have day jobs. That said, most of their money is from stocks — passively getting money from companies they are minimally involved in."
 
 [node name="FadeInLabel4" parent="Sidebar" instance=ExtResource("13_h02hp")]
 offset_left = 20.0
