@@ -32,5 +32,3 @@ func update(tetro_info: TetroInfo, child: TetroChoiceItem) -> void:
     text += "\n$"
     text += Globals.comma_sep(roundi(info.cost / 1_000_000.0))
     text += "M\n\n"
-
-

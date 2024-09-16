@@ -14,4 +14,3 @@ func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
   label.visible = true
   animation_player.play("fade_in")
   has_triggered = true
-
