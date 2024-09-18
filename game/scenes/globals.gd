@@ -6,6 +6,8 @@ var top_400_wealth := 4_000_000_000_000.0
 
 var hide_cost := true
 
+var hide_reflection_text := true
+
 func get_tetromino_scale(cost: float) -> float:
   return sqrt(float(cost) / dollars_per_pixel / 4.0)
 

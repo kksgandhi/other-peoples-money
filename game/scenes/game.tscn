@@ -2795,7 +2795,6 @@ stretch_mode = 1
 libraries = {
 "": SubResource("AnimationLibrary_cskx2")
 }
-autoplay = "show_labels"
 
 [node name="Labels" type="Node2D" parent="SplashLayer/Splash"]
 
