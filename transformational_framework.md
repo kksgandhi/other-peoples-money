@@ -1,0 +1,30 @@
+ - Flavor of Transformational Game
+   - Impact Game, trying to raise awareness about a societal issue, namely how cheap certain large projects are.
+ - Why is it important that your game transform players?
+   - Society doesn't take on large projects, often because we find it hard to do cost benefit analysis with really large numbers. We lump "expensive" (but worth it) projects together with truly expensive projects, even when there are actually orders of magnitude differences between the two.
+   - Similarly, people often aren't aware of the overwhelming wealth held by the rich, and what could be accomplished by raising taxes.
+   - Funding large projects are important since these projects are beneficial to society.
+ - Audience
+   - Someone who is roughly educated about income inequality and roughly interested in funding large projects via taxation, but doesn't fully understand the extent of inequality or what could be funded via taxation. Age and gender are irrelevant.
+   - This audience will be motivated to play the game due to their background interest in the topic, and this game will transform them with additional insight.
+ - Context
+   - They stumble on the game via social media and have a quick play session. For this reason, I don't think genre preferences are as relevant, since the game is short enough that players won't get bored from a preference standpoint specifically.
+ - How should players be different after playing your game?
+   - Disposition: Players more positively favor reasonably expensive large projects, possibly via taxation.
+   - Knowledge: Players better understand what an order of magnitude is, and how large projects that all seem "expensive" can still be separated by orders of magnitude.
+   - Behavior: Players will be more likely to logically reason about the expense of a project, rather than quickly assuming it is expensive.
+ - Why aren't your players already transformed?
+   - Complexity: Large numbers are difficult to comprehend.
+   - Unfamiliarity: People aren't aware of the specific costs of certain projects.
+     - Numbers are often shown in a vacuum. Someone may have seen the cost of a project, and may have seen stats about wealth held by the rich, but not in comparison.
+ - What is essential to include in your game?
+   - Key: Visualized comparisons between large numbers, e.g. the costs of certain projects, the wealth held by the rich.
+   - Peripheral: Discussion and further thought about the nature of inequality and taxation.
+ - Subject Matter Experts:
+   - Experts in Data Visualization and Economics (specifically wealth inequality and the nature of large projects) would be helpful. That said, this is a small, simple game made in a week, so it might be overkill to hire SMEs.
+ - What can you learn from what others have done?
+   - This game is inspired by [this game](https://mkorostoff.github.io/1-pixel-wealth/) and [this one](https://direkris.itch.io/you-are-jeff-bezos)
+   - I did a background review [here](https://kksgandhi.github.io/personal_site/Other_People's_Money_background_research.html)
+ - How will you measure your game's impact?
+   - Interviews with players during playtest sessions.
+   - Possibly a quantitative pre-test post-test study regarding attitude?

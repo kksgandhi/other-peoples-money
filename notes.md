@@ -5,6 +5,15 @@ TODO:
  - Improving the game's visuals
  - Playtesting
 
+Design possibilities:
+
+ - this area represents the wealth -> "yes, this entire area"
+ - add a gradient to the main area so that it's clear what's in the main area.
+ - adding women's health stuff, NIH stuff (nature article about women's health vs men's health). Historically black universities. Buying an Island, stupid Jeff Bezos stuff.
+ - Here's what you chose, here's what other people chose
+ - zooming out to see your whole stack.
+ - text fades out, rather than disappearing immediately
+
 Stretch Goals:
 
  - Getting the game working on mobile
