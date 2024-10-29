@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c7ehiibfu2wfs" path="res://scenes/walls/wall.tscn" id="3_r4ug3"]
 [ext_resource type="PackedScene" uid="uid://dcwfbqpcamdy7" path="res://scenes/walls/top.tscn" id="4_ut730"]
 [ext_resource type="Texture2D" uid="uid://dkrf3loockfsj" path="res://assets/images/noise.png" id="5_gbuh6"]
+[ext_resource type="StyleBox" uid="uid://7qk403g4khii" path="res://assets/themes/MainAreaTextPanel.tres" id="6_nb2vu"]
 [ext_resource type="Script" path="res://scenes/Splash.gd" id="6_ybfi8"]
 [ext_resource type="FontFile" uid="uid://c4gwrk6vad2vk" path="res://assets/fonts/LibreBaskerville-Regular.ttf" id="7_0lwrg"]
 [ext_resource type="FontFile" uid="uid://wlifu43k750l" path="res://assets/fonts/CormorantGaramond-Regular.ttf" id="8_xur25"]
@@ -18,13 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://b3uyomxlmgjes" path="res://assets/images/button_prompts/mouse_scroll_vertical.svg" id="14_as66l"]
 [ext_resource type="Texture2D" uid="uid://dc6hl8c7aj4yt" path="res://assets/images/dollar_symbol.png" id="14_f0ovq"]
 [ext_resource type="Script" path="res://scenes/UI/SpendingInfo.gd" id="16_gfsir"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7luns"]
-bg_color = Color(0.145098, 0.145098, 0.145098, 0.819608)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [sub_resource type="Animation" id="Animation_5aawt"]
 length = 0.001
@@ -377,7 +371,7 @@ offset_top = 21.0
 offset_right = 901.0
 offset_bottom = 126.0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7luns")
+theme_override_styles/panel = ExtResource("6_nb2vu")
 
 [node name="MarginContainer" type="MarginContainer" parent="Sidebar/ThisAreaRepresents"]
 layout_mode = 2
@@ -394,40 +388,19 @@ theme = ExtResource("10_ot3g2")
 text = "This area represents the wealth of
 the richest 400 Americans."
 
-[node name="YupThisWholeArea" type="PanelContainer" parent="Sidebar"]
-offset_left = 382.0
-offset_top = -156.0
-offset_right = 970.0
-offset_bottom = -51.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7luns")
+[node name="YesThisWholeArea" parent="Sidebar" instance=ExtResource("13_h02hp")]
+offset_left = 391.0
+offset_top = -139.0
+offset_right = 391.0
+offset_bottom = -139.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Sidebar/YupThisWholeArea"]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+[node name="Container" parent="Sidebar/YesThisWholeArea" index="2"]
+offset_right = 597.0
+offset_bottom = 96.0
 
-[node name="this_area_represents" type="Label" parent="Sidebar/YupThisWholeArea/MarginContainer"]
-layout_mode = 2
-theme = ExtResource("10_ot3g2")
-text = "Yup, this whole area is the wealth of just 400, 
-a group that could fit in a small concert hall."
-horizontal_alignment = 1
-
-[node name="FadeInLabel" parent="Sidebar" instance=ExtResource("13_h02hp")]
-offset_left = 20.0
-offset_top = -1417.0
-offset_right = 20.0
-offset_bottom = -1417.0
-is_reflective_text = true
-
-[node name="Label" parent="Sidebar/FadeInLabel" index="2"]
-offset_right = 278.0
-offset_bottom = 305.0
-text = "Fixing things isn't as simple as taking people's money and throwing it at problems. Solutions are hard, but at the least, we should be asking ourselves what we prioritize."
+[node name="Label" parent="Sidebar/YesThisWholeArea/Container/MarginContainer" index="0"]
+text = "Yup, this whole area, the wealth of just 400.
+A group that could fit in a small concert hall."
 
 [node name="block_instructions" type="Node2D" parent="Sidebar"]
 position = Vector2(0, 94)
@@ -506,43 +479,6 @@ libraries = {
 "": SubResource("AnimationLibrary_y7i5j")
 }
 autoplay = "init_hide"
-
-[node name="FadeInLabel2" parent="Sidebar" instance=ExtResource("13_h02hp")]
-offset_left = 20.0
-offset_top = -1051.0
-offset_right = 20.0
-offset_bottom = -1051.0
-is_reflective_text = true
-
-[node name="Label" parent="Sidebar/FadeInLabel2" index="2"]
-offset_right = 271.0
-offset_bottom = 467.0
-bbcode_enabled = true
-text = "The U.S. is 27th of 82 countries in social mobility (the ability of someone born poor to improve their status via hard work and intelligence). This is around the same ranking of Lithuania and Poland."
-
-[node name="FadeInLabel3" parent="Sidebar" instance=ExtResource("13_h02hp")]
-offset_left = 20.0
-offset_top = -608.0
-offset_right = 20.0
-offset_bottom = -608.0
-is_reflective_text = true
-
-[node name="Label" parent="Sidebar/FadeInLabel3" index="2"]
-offset_right = 271.0
-offset_bottom = 292.0
-text = "Many rich folk do have day jobs. That said, most of their money is from stocks — passively getting money from companies they are minimally involved in."
-
-[node name="FadeInLabel4" parent="Sidebar" instance=ExtResource("13_h02hp")]
-offset_left = 20.0
-offset_top = -266.0
-offset_right = 20.0
-offset_bottom = -266.0
-is_reflective_text = true
-
-[node name="Label" parent="Sidebar/FadeInLabel4" index="2"]
-offset_right = 270.0
-offset_bottom = 333.0
-text = "400 people isn't a lot; they could easily fit in a large room. If we expand out to the richest 1%, we get 42 trillion dollars — 32% of America's wealth. 4.8 trillion of that came during the pandemic."
 
 [node name="Camera" type="Node2D" parent="."]
 
@@ -2855,7 +2791,4 @@ libraries = {
 [connection signal="meta_clicked" from="UILayer/Overlays/InfoOverlay/PanelContainer/MarginContainer/RichTextLabel" to="." method="_on_left_side_bar_text_meta_clicked"]
 [connection signal="animation_finished" from="SplashLayer/Splash/HideSplash" to="SplashLayer/Splash" method="_on_hide_splash_animation_finished"]
 
-[editable path="Sidebar/FadeInLabel"]
-[editable path="Sidebar/FadeInLabel2"]
-[editable path="Sidebar/FadeInLabel3"]
-[editable path="Sidebar/FadeInLabel4"]
+[editable path="Sidebar/YesThisWholeArea"]
