@@ -138,6 +138,7 @@ func move_upwards_as_tetrominos_fall() -> void:
       if not has_end_spending_info_been_shown:
         _on_spending_button_pressed()
         has_end_spending_info_been_shown = true
+        camera_move_speed = camera_move_speed * 3 # TODO don't hardcode
     #if not has_leftsidebar_animation_played and desired_offset == top.position.y - top.scale.y / 2:
       #%LeftSideBarAnimationPlayer.play("fade_left_texts")
       #%LeftSideBarEndText.visible = true
