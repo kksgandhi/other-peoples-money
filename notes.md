@@ -10,6 +10,7 @@ Design possibilities:
  - this area represents the wealth -> "yes, this entire area"
  - add a gradient to the main area so that it's clear what's in the main area.
  - adding women's health stuff, NIH stuff (nature article about women's health vs men's health). Historically black universities. Buying an Island, stupid Jeff Bezos stuff.
+ - flip the money summary and the sidebar text. Have the money summary show up on the side, have the text show up as a debrief after the game is finished.
  - Here's what you chose, here's what other people chose
  - zooming out to see your whole stack.
  - text fades out, rather than disappearing immediately
@@ -67,6 +68,11 @@ Version 2:
  - Of 108 countries ranked, there are only 27 with a higher inequality than the U.S.
  - U.S. is 27th of 82 in social mobility
 
+Stretch Research Ideas
+----------------------
+
+ - does the backfire effect lead to transgressive play?
+ - Can we take some of the sidebar ideas and add visual metaphors for them? Make them gameful?
 
 Technical notes
 ---------------

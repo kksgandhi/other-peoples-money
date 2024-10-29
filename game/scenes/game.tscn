@@ -381,6 +381,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7luns")
 
 [node name="MarginContainer" type="MarginContainer" parent="Sidebar/ThisAreaRepresents"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -394,15 +395,16 @@ text = "This area represents the wealth of
 the richest 400 Americans."
 
 [node name="YupThisWholeArea" type="PanelContainer" parent="Sidebar"]
-visible = false
-offset_left = 512.0
-offset_top = -101.0
-offset_right = 804.0
-offset_bottom = -30.0
+offset_left = 382.0
+offset_top = -156.0
+offset_right = 970.0
+offset_bottom = -51.0
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7luns")
 
 [node name="MarginContainer" type="MarginContainer" parent="Sidebar/YupThisWholeArea"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -411,7 +413,8 @@ theme_override_constants/margin_bottom = 20
 [node name="this_area_represents" type="Label" parent="Sidebar/YupThisWholeArea/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("10_ot3g2")
-text = "Yup, this whole area."
+text = "Yup, this whole area is the wealth of just 400, 
+a group that could fit in a small concert hall."
 horizontal_alignment = 1
 
 [node name="FadeInLabel" parent="Sidebar" instance=ExtResource("13_h02hp")]
