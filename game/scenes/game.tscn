@@ -480,6 +480,92 @@ libraries = {
 }
 autoplay = "init_hide"
 
+[node name="Profit" parent="Sidebar" instance=ExtResource("13_h02hp")]
+offset_left = 392.0
+offset_top = -344.0
+offset_right = 392.0
+offset_bottom = -344.0
+
+[node name="Container" parent="Sidebar/Profit" index="2"]
+offset_right = 581.0
+offset_bottom = 128.0
+
+[node name="Label" parent="Sidebar/Profit/Container/MarginContainer" index="0"]
+text = "Some of this money is from work.
+Most is from profit — taking money from a company because you own a portion."
+
+[node name="BuyingACompany" parent="Sidebar" instance=ExtResource("13_h02hp")]
+offset_left = 406.0
+offset_top = -864.0
+offset_right = 406.0
+offset_bottom = -864.0
+
+[node name="Container" parent="Sidebar/BuyingACompany" index="2"]
+offset_left = -30.0
+offset_top = -38.0
+offset_right = 557.0
+offset_bottom = 151.0
+
+[node name="Label" parent="Sidebar/BuyingACompany/Container/MarginContainer" index="0"]
+text = "Instead, wealth is increasingly inherited. 
+
+If someone inherits wealth, buys a company, and contributes nothing to its founding or operation, do they deserve its profits?"
+
+[node name="SocialMobility" parent="Sidebar" instance=ExtResource("13_h02hp")]
+offset_left = 408.0
+offset_top = -552.0
+offset_right = 408.0
+offset_bottom = -552.0
+
+[node name="Container" parent="Sidebar/SocialMobility" index="2"]
+offset_left = -26.0
+offset_top = -56.0
+offset_right = 541.0
+offset_bottom = 130.0
+
+[node name="Label" parent="Sidebar/SocialMobility/Container/MarginContainer" index="0"]
+bbcode_enabled = true
+text = "Profit is the way to wealth. 
+
+America is far behind all its peers in terms of social mobility, the ability for someone to become wealthy through hard work."
+
+[node name="ItsHowItWorks" parent="Sidebar" instance=ExtResource("13_h02hp")]
+offset_left = 416.0
+offset_top = -1105.0
+offset_right = 416.0
+offset_bottom = -1105.0
+
+[node name="Container" parent="Sidebar/ItsHowItWorks" index="2"]
+offset_left = -26.0
+offset_top = -56.0
+offset_right = 541.0
+offset_bottom = 130.0
+
+[node name="Label" parent="Sidebar/ItsHowItWorks/Container/MarginContainer" index="0"]
+bbcode_enabled = true
+text = "\"That's just how it works\", right?
+But the economy isn't a part of the universe. It was designed by those in power.
+
+And we can redesign it."
+
+[node name="Priorities" parent="Sidebar" instance=ExtResource("13_h02hp")]
+offset_left = 432.0
+offset_top = -1401.0
+offset_right = 432.0
+offset_bottom = -1401.0
+
+[node name="Container" parent="Sidebar/Priorities" index="2"]
+offset_left = -26.0
+offset_top = 3.0
+offset_right = 449.0
+offset_bottom = 189.0
+
+[node name="Label" parent="Sidebar/Priorities/Container/MarginContainer" index="0"]
+bbcode_enabled = true
+text = "Money won't solve all our problems.
+
+But we can ask ourselves what we prioritize: the needs of the many, or the yachts of the few."
+
 [node name="Camera" type="Node2D" parent="."]
 
 [node name="MainCamera" type="Camera2D" parent="Camera"]
@@ -2792,3 +2878,8 @@ libraries = {
 [connection signal="animation_finished" from="SplashLayer/Splash/HideSplash" to="SplashLayer/Splash" method="_on_hide_splash_animation_finished"]
 
 [editable path="Sidebar/YesThisWholeArea"]
+[editable path="Sidebar/Profit"]
+[editable path="Sidebar/BuyingACompany"]
+[editable path="Sidebar/SocialMobility"]
+[editable path="Sidebar/ItsHowItWorks"]
+[editable path="Sidebar/Priorities"]
