@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ca8bu6oaovpaw"]
+[gd_scene load_steps=39 format=3 uid="uid://ca8bu6oaovpaw"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_3vnwj"]
 [ext_resource type="Texture2D" uid="uid://7htmx1ae8i1d" path="res://assets/images/1x1_white.png" id="1_5gkvc"]
@@ -19,6 +19,12 @@
 [ext_resource type="Texture2D" uid="uid://b3uyomxlmgjes" path="res://assets/images/button_prompts/mouse_scroll_vertical.svg" id="14_as66l"]
 [ext_resource type="Texture2D" uid="uid://dc6hl8c7aj4yt" path="res://assets/images/dollar_symbol.png" id="14_f0ovq"]
 [ext_resource type="Script" path="res://scenes/UI/SpendingInfo.gd" id="16_gfsir"]
+
+[sub_resource type="Gradient" id="Gradient_rx4ev"]
+colors = PackedColorArray(1, 1, 1, 0.356863, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_57v3k"]
+gradient = SubResource("Gradient_rx4ev")
 
 [sub_resource type="Animation" id="Animation_5aawt"]
 length = 0.001
@@ -358,6 +364,15 @@ texture = ExtResource("5_gbuh6")
 expand_mode = 1
 stretch_mode = 1
 metadata/_edit_lock_ = true
+
+[node name="BackgroundGradient" type="TextureRect" parent="Walls"]
+z_index = -3
+offset_left = 1030.0
+offset_top = -1477.0
+offset_right = 3313.0
+offset_bottom = -760.0
+rotation = 1.5708
+texture = SubResource("GradientTexture1D_57v3k")
 
 [node name="tetrominos" type="Node2D" parent="."]
 unique_name_in_owner = true
