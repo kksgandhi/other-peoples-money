@@ -371,6 +371,7 @@ offset_top = 21.0
 offset_right = 901.0
 offset_bottom = 126.0
 mouse_filter = 2
+theme = ExtResource("10_ot3g2")
 theme_override_styles/panel = ExtResource("6_nb2vu")
 
 [node name="MarginContainer" type="MarginContainer" parent="Sidebar/ThisAreaRepresents"]
@@ -381,10 +382,8 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="this_area_represents" type="Label" parent="Sidebar/ThisAreaRepresents/MarginContainer"]
-unique_name_in_owner = true
+[node name="RichTextLabel" type="RichTextLabel" parent="Sidebar/ThisAreaRepresents/MarginContainer"]
 layout_mode = 2
-theme = ExtResource("10_ot3g2")
 text = "This area represents the wealth of
 the richest 400 Americans."
 
@@ -393,6 +392,7 @@ offset_left = 391.0
 offset_top = -139.0
 offset_right = 391.0
 offset_bottom = -139.0
+non_reflective_override_text = "Yes, this whole area. The wealth of just 400."
 
 [node name="Container" parent="Sidebar/YesThisWholeArea" index="2"]
 offset_right = 597.0
@@ -485,6 +485,7 @@ offset_left = 392.0
 offset_top = -344.0
 offset_right = 392.0
 offset_bottom = -344.0
+is_reflective_text = true
 
 [node name="Container" parent="Sidebar/Profit" index="2"]
 offset_right = 581.0
@@ -499,12 +500,13 @@ offset_left = 406.0
 offset_top = -864.0
 offset_right = 406.0
 offset_bottom = -864.0
+is_reflective_text = true
 
 [node name="Container" parent="Sidebar/BuyingACompany" index="2"]
 offset_left = -30.0
 offset_top = -38.0
 offset_right = 557.0
-offset_bottom = 151.0
+offset_bottom = 168.0
 
 [node name="Label" parent="Sidebar/BuyingACompany/Container/MarginContainer" index="0"]
 text = "Instead, wealth is increasingly inherited. 
@@ -512,16 +514,17 @@ text = "Instead, wealth is increasingly inherited.
 If someone inherits wealth, buys a company, and contributes nothing to its founding or operation, do they deserve its profits?"
 
 [node name="SocialMobility" parent="Sidebar" instance=ExtResource("13_h02hp")]
-offset_left = 408.0
+offset_left = 392.0
 offset_top = -552.0
-offset_right = 408.0
+offset_right = 392.0
 offset_bottom = -552.0
+is_reflective_text = true
 
 [node name="Container" parent="Sidebar/SocialMobility" index="2"]
-offset_left = -26.0
+offset_left = -47.0
 offset_top = -56.0
-offset_right = 541.0
-offset_bottom = 130.0
+offset_right = 596.0
+offset_bottom = 137.0
 
 [node name="Label" parent="Sidebar/SocialMobility/Container/MarginContainer" index="0"]
 bbcode_enabled = true
@@ -534,12 +537,13 @@ offset_left = 416.0
 offset_top = -1105.0
 offset_right = 416.0
 offset_bottom = -1105.0
+is_reflective_text = true
 
 [node name="Container" parent="Sidebar/ItsHowItWorks" index="2"]
-offset_left = -26.0
+offset_left = -50.0
 offset_top = -56.0
-offset_right = 541.0
-offset_bottom = 130.0
+offset_right = 557.0
+offset_bottom = 167.0
 
 [node name="Label" parent="Sidebar/ItsHowItWorks/Container/MarginContainer" index="0"]
 bbcode_enabled = true
@@ -553,11 +557,12 @@ offset_left = 432.0
 offset_top = -1401.0
 offset_right = 432.0
 offset_bottom = -1401.0
+is_reflective_text = true
 
 [node name="Container" parent="Sidebar/Priorities" index="2"]
-offset_left = -26.0
-offset_top = 3.0
-offset_right = 449.0
+offset_left = -56.0
+offset_top = -20.0
+offset_right = 541.0
 offset_bottom = 189.0
 
 [node name="Label" parent="Sidebar/Priorities/Container/MarginContainer" index="0"]

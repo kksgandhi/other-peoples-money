@@ -7,7 +7,6 @@ TODO:
 
 Design possibilities:
 
- - this area represents the wealth -> "yes, this entire area"
  - add a gradient to the main area so that it's clear what's in the main area.
  - adding women's health stuff, NIH stuff (nature article about women's health vs men's health). Historically black universities. Buying an Island, stupid Jeff Bezos stuff.
  - flip the money summary and the sidebar text. Have the money summary show up on the side, have the text show up as a debrief after the game is finished.
@@ -24,12 +23,13 @@ Research Notes
 
 Research Question: How does "explicit text" affect the reflective play experience — where "explicit text" is text that touches on (or even directly spells out) the reflective goals of the game. Does text serve as an anchor aiding in reflection, or does it irritate or distract players from reflection they would have done otherwise? This question is too broad to answer in one study, but this study will provide evidence in a specific context.
 
-(Other words? Didactic messaging? Explicit messaging? Clear-Cut Communication?)
+(Other words? Bridging Moments? Didactic messaging? Explicit messaging? Clear-Cut Communication?)
 
 Ideal transformations (reflective goals):
 
- - Player has an increased understanding of income inequality and the costs of various initiatives (specifically how projects that all seem expensive can have large differences in actual costs).
- - Player is more willing to support increased program funding via taxation.
+ - Disposition: Players more positively favor reasonably expensive large projects, possibly via taxation.
+ - Knowledge: Players better understand what an order of magnitude is, and how large projects that all seem "expensive" can still be separated by orders of magnitude.
+ - Behavior: Players will be more likely to logically reason about the expense of a project, rather than quickly assuming it is expensive.
 
 Research Plan:
 
@@ -49,11 +49,9 @@ Playtest questions: (Ask Alexandra if she has any edugame specific playtest ques
  - Comparative Questions
    - How would you feel about <modified version of this game>
 
-Version 1:
+Two versions, one with minimal text, the other with all the quotes and things
 
- - Minimal instructions, e.g. this area represents the wealth, here are things you can spend their money on. 
-
-Version 2:
+Facts to include:
 
  - Include the Margaret Thatcher Quote at the beginning
  - What percent of the area is remaining?
