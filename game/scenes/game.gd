@@ -84,11 +84,17 @@ func ui_item_selected(tetro_info: TetroInfo, child: TetroChoiceItem) -> void:
 func is_tetromino_topped_out() -> bool:
   return top.get_overlapping_bodies()\
       .any(func(body: Node) -> bool: return not body.is_in_group('wall'))
-
+      
+var is_first_tetromino := true
 func spawn_tetromino(tetro_info: TetroInfo) -> void:
   var spawned_tetromino := (load("res://scenes/tetrominos/" + tetro_info.sprite + ".tscn") as PackedScene).instantiate() as Tetromino
   %tetrominos.add_child(spawned_tetromino)
   spawned_tetromino.position = spawn_location.position
+  # make the first tetromino take longer to fall, 
+  # that way players are more likely to look at the instructions
+  if is_first_tetromino:
+    is_first_tetromino = false
+    spawned_tetromino.position += Vector2.UP * 800
   spawned_tetromino.scale = Vector2(1, 1) * Globals.get_tetromino_scale(tetro_info.cost)
   spawned_tetromino.set_color(tetro_info.color)
   spawned_tetromino.tetro_info = tetro_info
