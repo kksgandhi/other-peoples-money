@@ -24,8 +24,9 @@ func update(tetro_info: TetroInfo, child: TetroChoiceItem) -> void:
   text += "% of the wealth of the richest 400. They each still have $"
   text += Globals.comma_sep(roundi((Globals.top_400_wealth - total_cost) / 400 / 1_000_000_000.0))
   text += " billion.\n\n"
-  text += base_text
-  text += "\n\n"
+  if not Globals.hide_reflection_text:
+    text += base_text
+    text += "\n\n"
 
   for info in tetro_infos:
     text += info.title
