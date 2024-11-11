@@ -1,12 +1,15 @@
  - Flavor of Transformational Game
    - Impact Game, trying to raise awareness about a societal issue, namely how cheap certain large projects are.
  - Why is it important that your game transform players?
-   - Society doesn't take on large projects, often because we find it hard to do cost benefit analysis with really large numbers. We lump "expensive" (but worth it) projects together with truly expensive projects, even when there are actually orders of magnitude differences between the two.
+   - There are many large projects (that the game references) that we haven't undertaken as a society, even though these projects would be massively beneficial to society (e.g. the clean air act saves an estimated 230,000 lives a year, not to mention hundreds of billions of dollars in economic benefits). People often balk at these projects because people find it hard to do cost benefit analysis with really large numbers. We lump "expensive" (but worth it) projects together with truly expensive projects, even when there are actually orders of magnitude differences between the two.
    - Similarly, people often aren't aware of the overwhelming wealth held by the rich, and what could be accomplished by raising taxes.
-   - Funding large projects are important since these projects are beneficial to society.
  - Audience
-   - Someone who is roughly educated about income inequality and roughly interested in funding large projects via taxation, but doesn't fully understand the extent of inequality or what could be funded via taxation. Age and gender are irrelevant.
+   - An American who is roughly educated about income inequality and roughly interested in funding large projects via taxation, but doesn't fully understand the extent of inequality or what could be funded via taxation. Age and gender are irrelevant.
    - This audience will be motivated to play the game due to their background interest in the topic, and this game will transform them with additional insight.
+   - Does this audience exist? There is evidence showing:
+     - People are bad at visualizing large numbers
+     - People drastically underestimate the wealth that the rich have. This is true of both liberals and conservatives. When people are informed, they become more likely to support taxing the rich.
+     - Also, I think we can assume that a perceived lack of funding is a major reason people don't support megaprojects (funding which could come from the rich).
  - Context
    - They stumble on the game via social media and have a quick play session. For this reason, I don't think genre preferences are as relevant, since the game is short enough that players won't get bored from a preference standpoint specifically.
  - How should players be different after playing your game?

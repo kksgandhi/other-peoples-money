@@ -1,9 +1,6 @@
 TODO:
 
- - Lower the loading time by loading the game during the intro cutscene (Maybe by using placeholders or background loading?)
- - Adding a lot of text (and making a version without all that text)
- - Improving the game's visuals
- - Playtesting
+ - add music
 
 Design possibilities:
 
@@ -47,8 +44,10 @@ Playtest questions: (Ask Alexandra if she has any edugame specific playtest ques
    - What kind of emotions or feelings did you feel / notice as you played?
  - Reflective Questions
    - Is there anything for which your attitude changed?
+   - Is there something new you feel like you learned?
    - Are there actions you took previously, that you'd change after the playing of this game.
  - Comparative Questions
+   - Was the text annoying?
    - How would you feel about <modified version of this game>
 
 Two versions, one with minimal text, the other with all the quotes and things

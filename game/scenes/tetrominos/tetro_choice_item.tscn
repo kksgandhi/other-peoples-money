@@ -4,12 +4,13 @@
 [ext_resource type="Script" path="res://scenes/tetrominos/tetro_choice_item.gd" id="1_coqgn"]
 [ext_resource type="FontFile" uid="uid://c4gwrk6vad2vk" path="res://assets/fonts/LibreBaskerville-Regular.ttf" id="2_bwm5c"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kp2v7"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rftj"]
 bg_color = Color(0, 0, 0, 0.556863)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kp2v7"]
+
 [node name="tetro_choice_item" type="PanelContainer"]
+focus_mode = 2
 script = ExtResource("1_coqgn")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -42,7 +43,7 @@ stretch_mode = 5
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_kp2v7")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_3rftj")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kp2v7")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

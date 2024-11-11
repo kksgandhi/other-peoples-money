@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://ca8bu6oaovpaw"]
+[gd_scene load_steps=40 format=3 uid="uid://ca8bu6oaovpaw"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_3vnwj"]
 [ext_resource type="Texture2D" uid="uid://7htmx1ae8i1d" path="res://assets/images/1x1_white.png" id="1_5gkvc"]
@@ -13,6 +13,7 @@
 [ext_resource type="Theme" uid="uid://yr4kjgxtyvuh" path="res://assets/themes/default.tres" id="10_ot3g2"]
 [ext_resource type="PackedScene" uid="uid://styu3vbul66p" path="res://scenes/UI/keyboard_wasd_cluster.tscn" id="11_p3715"]
 [ext_resource type="Texture2D" uid="uid://dph1rgxbgxdvp" path="res://assets/images/button_prompts/keyboard_r_outline.svg" id="12_jh5qb"]
+[ext_resource type="Script" path="res://scenes/tetrominos/tetro_choices.gd" id="13_511xo"]
 [ext_resource type="PackedScene" uid="uid://xdh2mkgj0fgq" path="res://scenes/UI/fade_in_label.tscn" id="13_h02hp"]
 [ext_resource type="Texture2D" uid="uid://brf7as8eunp3j" path="res://assets/images/info.png" id="13_xgknq"]
 [ext_resource type="PackedScene" uid="uid://dm2hjtjr0yr6e" path="res://scenes/UI/overlay.tscn" id="14_3pida"]
@@ -384,7 +385,7 @@ position = Vector2(0, 1)
 offset_left = 446.0
 offset_top = 21.0
 offset_right = 901.0
-offset_bottom = 126.0
+offset_bottom = 159.0
 mouse_filter = 2
 theme = ExtResource("10_ot3g2")
 theme_override_styles/panel = ExtResource("6_nb2vu")
@@ -618,6 +619,7 @@ offset_left = 1072.0
 offset_top = 120.0
 offset_right = 1408.0
 offset_bottom = 778.0
+follow_focus = true
 
 [node name="MarginContainer" type="MarginContainer" parent="UILayer/TetroScroll"]
 layout_mode = 2
@@ -629,6 +631,7 @@ theme_override_constants/margin_bottom = 10
 [node name="tetro_choices" type="VBoxContainer" parent="UILayer/TetroScroll/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+script = ExtResource("13_511xo")
 
 [node name="LeftSideBar" type="PanelContainer" parent="UILayer"]
 unique_name_in_owner = true

@@ -2,3 +2,4 @@
 .godot/
 exports/*
 *.pdf
+non_gh_notes/*
