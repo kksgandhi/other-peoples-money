@@ -21,7 +21,7 @@
 [ext_resource type="Script" path="res://scenes/UI/SpendingInfo.gd" id="16_gfsir"]
 
 [sub_resource type="Gradient" id="Gradient_rx4ev"]
-colors = PackedColorArray(1, 1, 1, 0.356863, 0, 0, 0, 0)
+colors = PackedColorArray(0.956863, 0.815686, 0.247059, 0.356863, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_57v3k"]
 gradient = SubResource("Gradient_rx4ev")
@@ -511,9 +511,9 @@ text = "Some of this money is from work.
 Most is from profit — taking money from a company because you own a portion."
 
 [node name="BuyingACompany" parent="Sidebar" instance=ExtResource("13_h02hp")]
-offset_left = 406.0
+offset_left = 424.0
 offset_top = -864.0
-offset_right = 406.0
+offset_right = 424.0
 offset_bottom = -864.0
 is_reflective_text = true
 
@@ -529,9 +529,9 @@ text = "Instead, wealth is increasingly inherited.
 If someone inherits wealth, buys a company, and contributes nothing to its founding or operation, do they deserve its profits?"
 
 [node name="SocialMobility" parent="Sidebar" instance=ExtResource("13_h02hp")]
-offset_left = 392.0
+offset_left = 439.0
 offset_top = -552.0
-offset_right = 392.0
+offset_right = 439.0
 offset_bottom = -552.0
 is_reflective_text = true
 
@@ -548,16 +548,16 @@ text = "Profit is the way to wealth.
 America is far behind all its peers in terms of social mobility, the ability for someone to become wealthy through hard work."
 
 [node name="ItsHowItWorks" parent="Sidebar" instance=ExtResource("13_h02hp")]
-offset_left = 416.0
+offset_left = 449.0
 offset_top = -1105.0
-offset_right = 416.0
+offset_right = 449.0
 offset_bottom = -1105.0
 is_reflective_text = true
 
 [node name="Container" parent="Sidebar/ItsHowItWorks" index="2"]
 offset_left = -50.0
 offset_top = -56.0
-offset_right = 557.0
+offset_right = 550.0
 offset_bottom = 167.0
 
 [node name="Label" parent="Sidebar/ItsHowItWorks/Container/MarginContainer" index="0"]
@@ -568,16 +568,16 @@ But the economy isn't a part of the universe. It was designed by those in power.
 And we can redesign it."
 
 [node name="Priorities" parent="Sidebar" instance=ExtResource("13_h02hp")]
-offset_left = 432.0
+offset_left = 457.0
 offset_top = -1401.0
-offset_right = 432.0
+offset_right = 457.0
 offset_bottom = -1401.0
 is_reflective_text = true
 
 [node name="Container" parent="Sidebar/Priorities" index="2"]
 offset_left = -56.0
 offset_top = -20.0
-offset_right = 541.0
+offset_right = 456.0
 offset_bottom = 189.0
 
 [node name="Label" parent="Sidebar/Priorities/Container/MarginContainer" index="0"]

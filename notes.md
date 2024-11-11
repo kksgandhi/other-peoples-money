@@ -7,9 +7,7 @@ TODO:
 
 Design possibilities:
 
- - add a gradient to the main area so that it's clear what's in the main area.
  - adding women's health stuff, NIH stuff (nature article about women's health vs men's health). Historically black universities. Buying an Island, stupid Jeff Bezos stuff.
- - flip the money summary and the sidebar text. Have the money summary show up on the side, have the text show up as a debrief after the game is finished.
  - Here's what you chose, here's what other people chose
  - zooming out to see your whole stack.
  - text fades out, rather than disappearing immediately
@@ -17,6 +15,10 @@ Design possibilities:
 Stretch Goals:
 
  - Getting the game working on mobile
+
+Research:
+
+Does my target audience exist? Why don't people want to tax the rich? Why don't people approve of large projects.
 
 Research Notes
 --------------
