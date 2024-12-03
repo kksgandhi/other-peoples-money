@@ -2858,7 +2858,7 @@ offset_right = 1070.0
 offset_bottom = 348.0
 theme_override_fonts/font = ExtResource("8_xur25")
 theme_override_font_sizes/font_size = 48
-text = "\"The problem with socialism is that you eventually run out of other people's money.\"
+text = "\"The problem with socialism is that eventually you run out of other people's money.\"
 
 — Margaret Thatcher"
 horizontal_alignment = 1

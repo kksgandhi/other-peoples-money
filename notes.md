@@ -1,6 +1,8 @@
 TODO:
 
  - add music
+ - Add a bottom
+ - click on tetrominos for sources
 
 Design possibilities:
 
@@ -20,9 +22,7 @@ Does my target audience exist? Why don't people want to tax the rich? Why don't 
 Research Notes
 --------------
 
-Research Question: How does "explicit text" affect the reflective play experience — where "explicit text" is text that touches on (or even directly spells out) the reflective goals of the game. Does text serve as an anchor aiding in reflection, or does it irritate or distract players from reflection they would have done otherwise? This question is too broad to answer in one study, but this study will provide evidence in a specific context.
-
-(Other words? Bridging Moments? Didactic messaging? Explicit messaging? Clear-Cut Communication?)
+Research Question: How do "bridging moments" affect the reflective play experience — where "bridging moments" are moments that touch on (or even directly spell out) the reflective goals of the game. Do these moments serve as an anchor aiding in reflection, or do they irritate or distract players from reflection they would have done otherwise? This question is too broad to answer in one study, but this study will provide evidence in a specific context.
 
 Ideal transformations (reflective goals):
 
@@ -34,12 +34,15 @@ Research Plan:
 
  - Do 5ish playtests to polish the game, and as a pilot.
  - Do 7ish playtests of each version and talk about the differences.
+ - Do MTurk testing?
+ - Do naturalistic testing?
 
 Playtest questions: (Ask Alexandra if she has any edugame specific playtest questions)
 
  - Standard Questions
    - Think aloud during the playing of the game
-   - Describe this game
+   - How would you describe this game?
+   - Were there any confusions with the controls?
    - What could have been explained better or earlier when I was teaching the game?
    - What kind of emotions or feelings did you feel / notice as you played?
  - Reflective Questions
@@ -48,7 +51,7 @@ Playtest questions: (Ask Alexandra if she has any edugame specific playtest ques
    - Are there actions you took previously, that you'd change after the playing of this game.
  - Comparative Questions
    - Was the text annoying?
-   - How would you feel about <modified version of this game>
+   - How would you feel about the other version of this game? 
 
 Two versions, one with minimal text, the other with all the quotes and things
 
@@ -67,6 +70,8 @@ Facts to include:
  - Of 108 countries ranked, there are only 27 with a higher inequality than the U.S.
  - U.S. is 27th of 82 in social mobility
 
+See your notes on other people's money background research.
+
 Stretch Research Ideas
 ----------------------
 
@@ -80,15 +85,3 @@ Screen is 1440 x 810
 
 in game I use 1000 dollars as the base currency which in retrospect was a stupid decision
 in the json the units are billions of dollars (this might have actually been changed though...)
-
-Archived Design Notes
----------------------
-
- - Players stop early
-   - Give them something to care about, such as filling the screen fully. A percentage, perhaps?
-   - Break player expectations early and often?
- - The seminar players focused a lot on the gameplay and tetris aspects.
-   - Lean harder into tetris? make pieces come automatically?
-   - The tetris aspects confuse people, they think they need to clear lines. Any way to break that confusion?
- - Text
-   - One piece of relevant text at a time.
