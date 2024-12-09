@@ -9,17 +9,7 @@ Written in Godot4.
 Sources and discussion
 ----------------------
 
-This game is meant to be illustrative, not a rigorous accounting of costs. Here are some issues with the numbers used in this game:
-
- - Not adjusted for inflation, though I try to make the sources as recent as possible.
- - Does not account for costs at scale (e.g. making 8.1B doses of coronavirus vaccine would require the creation of new factories, extraction of various resources at a never before seen scale.)
- - Does not account for distribution and secondary costs.
- - Some projects are hard to estimate costs for (since they have never been done, like a moon base)
- - Some projects talk only about building cost, but not the maintenance costs.
-
-On the other hand, there are benefits that we aren't accounting for either. Many initiatives put money directly back into the economy (e.g. paying teacher salaries), and even the ones that don't have extremely positive returns on investment (e.g. every dollar invested into clean water provides a $6.08 return).
-
-Sources, compiled in 2024:
+These sources were compiled in 2024. At the end of the list I have some discussion around the process of researching these numbers.
 
  - Supportive Housing
    - [This article](https://www.globalgiving.org/learn/how-much-would-it-cost-to-end-homelessness-in-america/) claims it costs $12,800 per person per year, and that there are 580,000 people experiencing homelessness, so that's all 7.424 billion.
@@ -76,3 +66,13 @@ Sources, compiled in 2024:
  - [Doctors without borders](https://www.msf.org/reports-and-finances)
  - [Fukishima Disaster](https://www.scientificamerican.com/article/clearing-the-radioactive-rubble-heap-that-was-fukushima-daiichi-7-years-on/)
  - [Number of medical students enrolled](https://www.aamc.org/news/nation-s-medical-schools-grow-more-diverse) and [cost of medical school](https://educationdata.org/average-cost-of-medical-school)
+
+My goal with this research was to be illustrative, but not necessarily to have a rigorous accounting of costs. Here are some things to think about as your read the sources:
+
+ - The costs are not adjusted for inflation, though I try to make the sources as recent as possible.
+ - It does not account for costs at scale (e.g. making 8.1B doses of coronavirus vaccine would require the creation of new factories, extraction of various resources at a never before seen scale.)
+ - It does not account for distribution and secondary costs.
+ - Some projects are hard to estimate costs for (since they have never been done, like a moon base)
+ - Some projects talk only about building cost, but not the maintenance costs.
+
+On the other hand, there are benefits that we aren't accounting for either. Many initiatives put money directly back into the economy (e.g. paying teacher salaries), and even the ones that don't have extremely positive returns on investment (e.g. every dollar invested into clean water provides a $6.08 return).

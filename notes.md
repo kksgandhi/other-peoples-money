@@ -1,7 +1,6 @@
 TODO:
 
  - add music
- - Add a bottom
  - click on tetrominos for sources
 
 Design possibilities:

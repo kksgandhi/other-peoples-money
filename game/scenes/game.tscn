@@ -772,7 +772,7 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="UILayer/Overlays/InfoOverlay/PanelContainer/MarginContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "Sources and discussion can be found [i][url=https://github.com/kksgandhi/other-peoples-money]here[/url][/i].
+text = "[b]Want sources for the topics in this game? Click [/b][i][url=https://github.com/kksgandhi/other-peoples-money?tab=readme-ov-file#sources-and-discussion]here[/url][/i].
 
 This game is inspired by [i][url=https://mkorostoff.github.io/1-pixel-wealth/]this game[/url][/i], which is much more educational, and [i][url=https://direkris.itch.io/you-are-jeff-bezos]this game[/url][/i], which is much funnier.
 
