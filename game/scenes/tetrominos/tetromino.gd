@@ -1,6 +1,7 @@
 class_name Tetromino
 extends CharacterBody2D
 
+signal is_clicked
 
 func _process(delta: float) -> void:
   handle_movement()
@@ -42,4 +43,11 @@ func set_color(color: Color) -> void:
   %Sprite2D.modulate = Color(color)
   
 func set_tooltips(text: String) -> void:
-  $Tooltips.get_children().map(func(child: Node) -> void: child.tooltip_text = str(text))
+  for child: Control in $Tooltips.get_children():
+    child.tooltip_text = str(text)
+    child.gui_input.connect(handle_mouse_event)
+    child.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+    
+func handle_mouse_event(event: InputEvent) -> void:
+  if event is InputEventMouseButton and event.pressed:
+    is_clicked.emit()

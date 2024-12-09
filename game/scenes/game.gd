@@ -98,6 +98,7 @@ func spawn_tetromino(tetro_info: TetroInfo) -> void:
   spawned_tetromino.scale = Vector2(1, 1) * Globals.get_tetromino_scale(tetro_info.cost)
   spawned_tetromino.set_color(tetro_info.color)
   spawned_tetromino.tetro_info = tetro_info
+  spawned_tetromino.is_clicked.connect(func() -> void: info_overlay.fade_in())
   var tooltip := tetro_info.title + " $" + Globals.comma_sep(tetro_info.cost) if Globals.hide_cost else tetro_info.title
   spawned_tetromino.set_tooltips(tooltip)
 
