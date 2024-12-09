@@ -23,7 +23,7 @@ var have_scroll_instructions_faded_in := false
 
 @onready var height_of_play_area: float = (Globals.top_400_wealth \
                  / Globals.dollars_per_pixel # divide by per pixel amount\
-                 / bottom.scale.x) # divide by size of area
+                 / (bottom.scale.x * 8)) # divide by the width of the play area. We multiply by 8: the default sprite is already scaled by 8, so the "scale" value is off by a factor of 8.
                 
 func _ready() -> void:
   read_cost_information()

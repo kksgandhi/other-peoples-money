@@ -342,7 +342,7 @@ scale = Vector2(2, 10000)
 [node name="Bottom" parent="Walls" instance=ExtResource("3_r4ug3")]
 unique_name_in_owner = true
 position = Vector2(670, 818)
-scale = Vector2(700, 2)
+scale = Vector2(88, 2)
 
 [node name="LeftWall" parent="Walls" instance=ExtResource("3_r4ug3")]
 unique_name_in_owner = true
@@ -591,15 +591,15 @@ But we can ask ourselves what we prioritize: the needs of the many, or the yacht
 
 [node name="MainCamera" type="Camera2D" parent="Camera"]
 unique_name_in_owner = true
-position = Vector2(720, 405)
+position = Vector2(720, 420)
 
 [node name="CameraDestination" type="Marker2D" parent="Camera"]
 unique_name_in_owner = true
-position = Vector2(720, 405)
+position = Vector2(720, 420)
 
 [node name="OriginalCameraDestination" type="Marker2D" parent="Camera"]
 unique_name_in_owner = true
-position = Vector2(720, 405)
+position = Vector2(720, 420)
 
 [node name="SpawnLocations" type="Node2D" parent="."]
 
