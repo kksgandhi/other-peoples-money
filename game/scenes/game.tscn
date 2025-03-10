@@ -2805,7 +2805,7 @@ offset_top = 148.0
 offset_right = 283.0
 offset_bottom = 365.0
 theme = ExtResource("10_ot3g2")
-text = "Whenever you choose a topic, you'll create a block, and take some wealth. Hover over a block for more info."
+text = "Whenever you choose a topic, you'll create a block and take some wealth. Hover over a block for more info."
 fit_content = true
 
 [node name="scroll_instructions" type="Node2D" parent="UILayer"]
