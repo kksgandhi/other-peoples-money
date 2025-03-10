@@ -17,6 +17,7 @@ var rng := RandomNumberGenerator.new()
 @onready var info_overlay := %InfoOverlay as Overlay
 @onready var spending_overlay := %SpendingOverlay as Overlay
 @onready var spending_info := %SpendingInfo as SpendingInfo
+@onready var sidebar_top_label := %sidebar_top_label as Label
 
 var have_block_instructions_faded_in := false
 var have_scroll_instructions_faded_in := false
@@ -108,16 +109,28 @@ func spawn_tetromino(tetro_info: TetroInfo) -> void:
     have_block_instructions_faded_in = true
     block_instructions_fader.play("fade_in")
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
   move_upwards_as_tetrominos_fall()
-  handle_disable_sidebar()
+  handle_disable_sidebar(delta)
   handle_leftsidebar_end_message()
 
-func handle_disable_sidebar() -> void:
+var sidebar_disabled_time := 0.0
+func handle_disable_sidebar(delta: float) -> void:
   var all_tetrominos_bottomed_out := %tetrominos.get_children()\
       .all(func(child: Tetromino) -> bool: return child.velocity.y == 0)
   var sidebar_disabled := is_tetromino_topped_out() or not all_tetrominos_bottomed_out
   tetro_choices.get_children().map(func(choice_item_child: TetroChoiceItem) -> void: choice_item_child.button.disabled = sidebar_disabled)
+  if sidebar_disabled:
+    sidebar_disabled_time += delta
+    if sidebar_disabled_time > 6:
+      if is_tetromino_topped_out():
+        sidebar_top_label.text = "You've reached the top.\n Can you do more, or is this it?"
+      if not all_tetrominos_bottomed_out:
+        sidebar_top_label.text = "A block is stuck. Try rotating."
+
+  else:
+    sidebar_disabled_time = 0
+    sidebar_top_label.text = "Choose a topic below."
 
 @export var breaking_position := 10
 @export var game_movement_offset := 10
