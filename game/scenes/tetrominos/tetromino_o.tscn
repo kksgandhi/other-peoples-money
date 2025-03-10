@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkthq68hv6rf6"]
 
-[ext_resource type="Script" path="res://scenes/tetrominos/tetromino.gd" id="1_d28pt"]
+[ext_resource type="Script" uid="uid://b61cg18f387q6" path="res://scenes/tetrominos/tetromino.gd" id="1_d28pt"]
 [ext_resource type="Texture2D" uid="uid://bx3q7xfyqtxp4" path="res://assets/images/tetromino_o.png" id="2_3gyfh"]
 
 [node name="Sprite2D" type="CharacterBody2D"]

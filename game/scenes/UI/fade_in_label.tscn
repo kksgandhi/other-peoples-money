@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://xdh2mkgj0fgq"]
 
-[ext_resource type="Script" path="res://scenes/UI/fade_in_label.gd" id="1_rsl2v"]
+[ext_resource type="Script" uid="uid://dj8dhtqc7m4kj" path="res://scenes/UI/fade_in_label.gd" id="1_rsl2v"]
 [ext_resource type="StyleBox" uid="uid://7qk403g4khii" path="res://assets/themes/MainAreaTextPanel.tres" id="2_52ui4"]
 [ext_resource type="Theme" uid="uid://yr4kjgxtyvuh" path="res://assets/themes/default.tres" id="2_ngfi7"]
 
@@ -61,8 +61,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vdvod"]
 _data = {
-"RESET": SubResource("Animation_qcfey"),
-"fade_in": SubResource("Animation_7enxw")
+&"RESET": SubResource("Animation_qcfey"),
+&"fade_in": SubResource("Animation_7enxw")
 }
 
 [node name="FadeInLabel" type="Control"]

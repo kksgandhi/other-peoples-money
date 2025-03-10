@@ -1,25 +1,25 @@
 [gd_scene load_steps=40 format=3 uid="uid://ca8bu6oaovpaw"]
 
-[ext_resource type="Script" path="res://scenes/game.gd" id="1_3vnwj"]
+[ext_resource type="Script" uid="uid://dfbagos3tjek0" path="res://scenes/game.gd" id="1_3vnwj"]
 [ext_resource type="Texture2D" uid="uid://7htmx1ae8i1d" path="res://assets/images/1x1_white.png" id="1_5gkvc"]
 [ext_resource type="PackedScene" uid="uid://c7ehiibfu2wfs" path="res://scenes/walls/wall.tscn" id="3_r4ug3"]
 [ext_resource type="PackedScene" uid="uid://dcwfbqpcamdy7" path="res://scenes/walls/top.tscn" id="4_ut730"]
 [ext_resource type="Texture2D" uid="uid://dkrf3loockfsj" path="res://assets/images/noise.png" id="5_gbuh6"]
 [ext_resource type="StyleBox" uid="uid://7qk403g4khii" path="res://assets/themes/MainAreaTextPanel.tres" id="6_nb2vu"]
-[ext_resource type="Script" path="res://scenes/Splash.gd" id="6_ybfi8"]
+[ext_resource type="Script" uid="uid://deutcs6t8mm5f" path="res://scenes/Splash.gd" id="6_ybfi8"]
 [ext_resource type="FontFile" uid="uid://c4gwrk6vad2vk" path="res://assets/fonts/LibreBaskerville-Regular.ttf" id="7_0lwrg"]
 [ext_resource type="FontFile" uid="uid://wlifu43k750l" path="res://assets/fonts/CormorantGaramond-Regular.ttf" id="8_xur25"]
 [ext_resource type="PackedScene" uid="uid://c3eccsdtu0fop" path="res://scenes/UI/keyboard_arrow_cluster.tscn" id="9_sbnu7"]
 [ext_resource type="Theme" uid="uid://yr4kjgxtyvuh" path="res://assets/themes/default.tres" id="10_ot3g2"]
 [ext_resource type="PackedScene" uid="uid://styu3vbul66p" path="res://scenes/UI/keyboard_wasd_cluster.tscn" id="11_p3715"]
 [ext_resource type="Texture2D" uid="uid://dph1rgxbgxdvp" path="res://assets/images/button_prompts/keyboard_r_outline.svg" id="12_jh5qb"]
-[ext_resource type="Script" path="res://scenes/tetrominos/tetro_choices.gd" id="13_511xo"]
+[ext_resource type="Script" uid="uid://ca4wvfa50th3j" path="res://scenes/tetrominos/tetro_choices.gd" id="13_511xo"]
 [ext_resource type="PackedScene" uid="uid://xdh2mkgj0fgq" path="res://scenes/UI/fade_in_label.tscn" id="13_h02hp"]
 [ext_resource type="Texture2D" uid="uid://brf7as8eunp3j" path="res://assets/images/info.png" id="13_xgknq"]
 [ext_resource type="PackedScene" uid="uid://dm2hjtjr0yr6e" path="res://scenes/UI/overlay.tscn" id="14_3pida"]
 [ext_resource type="Texture2D" uid="uid://b3uyomxlmgjes" path="res://assets/images/button_prompts/mouse_scroll_vertical.svg" id="14_as66l"]
 [ext_resource type="Texture2D" uid="uid://dc6hl8c7aj4yt" path="res://assets/images/dollar_symbol.png" id="14_f0ovq"]
-[ext_resource type="Script" path="res://scenes/UI/SpendingInfo.gd" id="16_gfsir"]
+[ext_resource type="Script" uid="uid://cj6c11to6qk1i" path="res://scenes/UI/SpendingInfo.gd" id="16_gfsir"]
 
 [sub_resource type="Gradient" id="Gradient_rx4ev"]
 colors = PackedColorArray(0.956863, 0.815686, 0.247059, 0.356863, 0, 0, 0, 0)
@@ -84,8 +84,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_twwo8"]
 _data = {
-"RESET": SubResource("Animation_mhut5"),
-"fade_left_texts": SubResource("Animation_iqrlk")
+&"RESET": SubResource("Animation_mhut5"),
+&"fade_left_texts": SubResource("Animation_iqrlk")
 }
 
 [sub_resource type="Animation" id="Animation_5aawt"]
@@ -136,9 +136,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qf3gq"]
 _data = {
-"RESET": SubResource("Animation_5aawt"),
-"fade_in": SubResource("Animation_26jns"),
-"init_hide": SubResource("Animation_l02r3")
+&"RESET": SubResource("Animation_5aawt"),
+&"fade_in": SubResource("Animation_26jns"),
+&"init_hide": SubResource("Animation_l02r3")
 }
 
 [sub_resource type="Animation" id="Animation_mrpbc"]
@@ -188,9 +188,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y7i5j"]
 _data = {
-"RESET": SubResource("Animation_mrpbc"),
-"fade_in": SubResource("Animation_jhx8k"),
-"init_hide": SubResource("Animation_fu4ho")
+&"RESET": SubResource("Animation_mrpbc"),
+&"fade_in": SubResource("Animation_jhx8k"),
+&"init_hide": SubResource("Animation_fu4ho")
 }
 
 [sub_resource type="Animation" id="Animation_tfus2"]
@@ -274,8 +274,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cskx2"]
 _data = {
-"RESET": SubResource("Animation_tfus2"),
-"show_labels": SubResource("Animation_ojmdf")
+&"RESET": SubResource("Animation_tfus2"),
+&"show_labels": SubResource("Animation_ojmdf")
 }
 
 [sub_resource type="Animation" id="Animation_bfxbb"]
@@ -311,8 +311,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_in24v"]
 _data = {
-"RESET": SubResource("Animation_bfxbb"),
-"hide_splash": SubResource("Animation_cnlll")
+&"RESET": SubResource("Animation_bfxbb"),
+&"hide_splash": SubResource("Animation_cnlll")
 }
 
 [node name="Game" type="Node2D"]
@@ -604,7 +604,7 @@ fit_content = true
 [node name="LeftSideBarAnimationPlayer" type="AnimationPlayer" parent="UILayer/LeftSideBar/MarginContainer/LeftSideBarEndText"]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_twwo8")
+&"": SubResource("AnimationLibrary_twwo8")
 }
 
 [node name="sidebar_top_label" type="Label" parent="UILayer"]
@@ -2795,7 +2795,7 @@ texture = ExtResource("12_jh5qb")
 [node name="block_instructions_fade_in" type="AnimationPlayer" parent="UILayer/block_instructions"]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_qf3gq")
+&"": SubResource("AnimationLibrary_qf3gq")
 }
 autoplay = "init_hide"
 
@@ -2827,7 +2827,7 @@ up or down."
 [node name="scroll_instructions_fader" type="AnimationPlayer" parent="UILayer/scroll_instructions"]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_y7i5j")
+&"": SubResource("AnimationLibrary_y7i5j")
 }
 autoplay = "init_hide"
 
@@ -2847,7 +2847,7 @@ stretch_mode = 1
 
 [node name="ShowLabels" type="AnimationPlayer" parent="SplashLayer/Splash"]
 libraries = {
-"": SubResource("AnimationLibrary_cskx2")
+&"": SubResource("AnimationLibrary_cskx2")
 }
 
 [node name="Labels" type="Node2D" parent="SplashLayer/Splash"]
@@ -2893,7 +2893,7 @@ autowrap_mode = 3
 
 [node name="HideSplash" type="AnimationPlayer" parent="SplashLayer/Splash"]
 libraries = {
-"": SubResource("AnimationLibrary_in24v")
+&"": SubResource("AnimationLibrary_in24v")
 }
 
 [connection signal="meta_clicked" from="UILayer/LeftSideBar/MarginContainer/LeftSideBarText" to="." method="_on_left_side_bar_text_meta_clicked"]

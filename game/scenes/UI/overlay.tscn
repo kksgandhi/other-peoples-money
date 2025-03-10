@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dm2hjtjr0yr6e"]
 
 [ext_resource type="Theme" uid="uid://yr4kjgxtyvuh" path="res://assets/themes/default.tres" id="1_ocyve"]
-[ext_resource type="Script" path="res://scenes/UI/overlay.gd" id="2_wsjq0"]
+[ext_resource type="Script" uid="uid://c1frerqyd1cyh" path="res://scenes/UI/overlay.gd" id="2_wsjq0"]
 
 [sub_resource type="Animation" id="Animation_uo6wr"]
 length = 0.001
@@ -86,9 +86,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qwb44"]
 _data = {
-"RESET": SubResource("Animation_uo6wr"),
-"fade_in": SubResource("Animation_n5rsk"),
-"fade_out": SubResource("Animation_2igeb")
+&"RESET": SubResource("Animation_uo6wr"),
+&"fade_in": SubResource("Animation_n5rsk"),
+&"fade_out": SubResource("Animation_2igeb")
 }
 
 [node name="Overlay" type="Panel" node_paths=PackedStringArray("animator")]

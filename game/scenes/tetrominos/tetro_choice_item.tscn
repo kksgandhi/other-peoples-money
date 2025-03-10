@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d055puxa3jh8x"]
 
 [ext_resource type="Texture2D" uid="uid://beehqq0r8soe2" path="res://assets/images/tetromino_s.png" id="1_06jwx"]
-[ext_resource type="Script" path="res://scenes/tetrominos/tetro_choice_item.gd" id="1_coqgn"]
+[ext_resource type="Script" uid="uid://20ktsbdrhkvn" path="res://scenes/tetrominos/tetro_choice_item.gd" id="1_coqgn"]
 [ext_resource type="FontFile" uid="uid://c4gwrk6vad2vk" path="res://assets/fonts/LibreBaskerville-Regular.ttf" id="2_bwm5c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rftj"]
