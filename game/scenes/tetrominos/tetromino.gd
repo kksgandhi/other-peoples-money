@@ -49,5 +49,9 @@ func set_tooltips(text: String) -> void:
     child.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
     
 func handle_mouse_event(event: InputEvent) -> void:
-  if event is InputEventMouseButton and event.pressed:
-    is_clicked.emit()
+  if event is InputEventMouseButton:
+    var mouse_event := event as InputEventMouseButton
+    var is_pressed := mouse_event.pressed
+    var correct_button := mouse_event.button_index == MOUSE_BUTTON_LEFT or mouse_event.button_index == MOUSE_BUTTON_RIGHT
+    if is_pressed and correct_button:
+      is_clicked.emit()
