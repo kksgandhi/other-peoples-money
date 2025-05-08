@@ -30,6 +30,8 @@ func _ready() -> void:
   read_cost_information()
   add_tetro_ui_item(); add_tetro_ui_item(); add_tetro_ui_item(); add_tetro_ui_item(); add_tetro_ui_item()
   top.position.y = bottom.position.y - (height_of_play_area + 16)
+  if Globals.is_mobile:
+    scroll_speed = scroll_speed / 10
 
 func cost_info_to_resource(info: Dictionary) -> TetroInfo:
   return TetroInfo.new(Vector2(1, 1), Color.WHITE, info.title, "", info.cost * 1_000_000_000)
@@ -51,12 +53,19 @@ func _unhandled_input(event: InputEvent) -> void:
 var is_camera_locked := true
 func handle_scroll(event: InputEvent) -> void:
   #TODO do not hard-code the next line
-  if event is InputEventMouseButton and event.is_pressed() and get_global_mouse_position().x < 1030 and not spending_overlay.visible and not info_overlay.visible:
+  var desktop_scroll := event is InputEventMouseButton and event.is_pressed() and get_global_mouse_position().x < 1030
+  var overlay_visible := spending_overlay.visible or info_overlay.visible
+  var mobile_up := event.is_action_pressed("mobile_up")
+  var mobile_down := event.is_action_pressed("mobile_down")
+  var mobile_scroll := mobile_up or mobile_down
+  if (desktop_scroll or mobile_scroll) and not overlay_visible:
     var mouse_event := event as InputEventMouseButton
-    if mouse_event.button_index == MOUSE_BUTTON_WHEEL_UP:
+    var up := mobile_up or (not mobile_scroll and mouse_event.button_index == MOUSE_BUTTON_WHEEL_UP)
+    var down := mobile_down or (not mobile_scroll and mouse_event.button_index == MOUSE_BUTTON_WHEEL_DOWN)
+    if up:
       camera_destination.position.y = main_camera.position.y - scroll_speed
       is_camera_locked = false
-    if mouse_event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+    if down:
       camera_destination.position.y = main_camera.position.y + scroll_speed
       is_camera_locked = false
   camera_destination.position.y = clamp(camera_destination.position.y,
