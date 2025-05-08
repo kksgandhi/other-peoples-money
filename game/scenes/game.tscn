@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://ca8bu6oaovpaw"]
+[gd_scene load_steps=46 format=3 uid="uid://ca8bu6oaovpaw"]
 
 [ext_resource type="Script" uid="uid://dfbagos3tjek0" path="res://scenes/game.gd" id="1_3vnwj"]
 [ext_resource type="Texture2D" uid="uid://7htmx1ae8i1d" path="res://assets/images/1x1_white.png" id="1_5gkvc"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dc6hl8c7aj4yt" path="res://assets/images/dollar_symbol.png" id="14_f0ovq"]
 [ext_resource type="Script" uid="uid://dfam70uhdxu6w" path="res://scenes/UI/sidebar_instructions.gd" id="15_5newe"]
 [ext_resource type="Script" uid="uid://cj6c11to6qk1i" path="res://scenes/UI/SpendingInfo.gd" id="16_gfsir"]
+[ext_resource type="Script" uid="uid://bks7kir5kk4mh" path="res://scenes/UI/mobile_button.gd" id="20_bhx41"]
 [ext_resource type="Texture2D" uid="uid://rhaud71sposm" path="res://assets/images/button_prompts/keyboard_arrow_down_outline.svg" id="20_pl11u"]
 [ext_resource type="Texture2D" uid="uid://c4h7rgnnxatmn" path="res://assets/images/button_prompts/keyboard_arrow_left_outline.svg" id="21_bhx41"]
 [ext_resource type="Texture2D" uid="uid://oxn2xbvgnk4o" path="res://assets/images/button_prompts/keyboard_arrow_up_outline.svg" id="22_qnb83"]
@@ -2872,20 +2873,36 @@ theme = ExtResource("10_ot3g2")
 text = "Whenever you choose a topic, you'll create a block and take some wealth. Tap a block for more info."
 fit_content = true
 
-[node name="KeyboardROutline" type="Sprite2D" parent="UILayer/mobile_instructions/block_instructions"]
-position = Vector2(153.2, 414.2)
+[node name="KeyboardROutline" type="TextureButton" parent="UILayer/mobile_instructions/block_instructions"]
+offset_left = 97.0
+offset_top = 369.0
+offset_right = 161.0
+offset_bottom = 433.0
 scale = Vector2(1.6, 1.6)
-texture = ExtResource("12_jh5qb")
+texture_normal = ExtResource("12_jh5qb")
+script = ExtResource("20_bhx41")
 
-[node name="KeyboardArrowLeftOutline" type="Sprite2D" parent="UILayer/mobile_instructions/block_instructions"]
-position = Vector2(63.2, 414.2)
+[node name="KeyboardArrowLeftOutline" type="TextureButton" parent="UILayer/mobile_instructions/block_instructions"]
+offset_left = 7.0
+offset_top = 369.0
+offset_right = 71.0
+offset_bottom = 433.0
 scale = Vector2(1.6, 1.6)
-texture = ExtResource("21_bhx41")
+action_mode = 0
+texture_normal = ExtResource("21_bhx41")
+script = ExtResource("20_bhx41")
+buttonType = 3
 
-[node name="KeyboardArrowRightOutline" type="Sprite2D" parent="UILayer/mobile_instructions/block_instructions"]
-position = Vector2(243.2, 414.2)
+[node name="KeyboardArrowRightOutline" type="TextureButton" parent="UILayer/mobile_instructions/block_instructions"]
+offset_left = 187.0
+offset_top = 369.0
+offset_right = 251.0
+offset_bottom = 433.0
 scale = Vector2(1.6, 1.6)
-texture = ExtResource("23_sww3w")
+action_mode = 0
+texture_normal = ExtResource("23_sww3w")
+script = ExtResource("20_bhx41")
+buttonType = 4
 
 [node name="scroll_instructions" type="Node2D" parent="UILayer/mobile_instructions"]
 position = Vector2(0, 1)
@@ -2905,15 +2922,27 @@ libraries = {
 }
 autoplay = "init_hide"
 
-[node name="KeyboardArrowDownOutline" type="Sprite2D" parent="UILayer/mobile_instructions/scroll_instructions"]
-position = Vector2(153.2, 598.2)
+[node name="KeyboardArrowDownOutline" type="TextureButton" parent="UILayer/mobile_instructions/scroll_instructions"]
+offset_left = 97.0
+offset_top = 553.0
+offset_right = 161.0
+offset_bottom = 617.0
 scale = Vector2(1.6, 1.6)
-texture = ExtResource("20_pl11u")
+action_mode = 0
+texture_normal = ExtResource("20_pl11u")
+script = ExtResource("20_bhx41")
+buttonType = 2
 
-[node name="KeyboardArrowUpOutline" type="Sprite2D" parent="UILayer/mobile_instructions/scroll_instructions"]
-position = Vector2(153.2, 418.2)
+[node name="KeyboardArrowUpOutline" type="TextureButton" parent="UILayer/mobile_instructions/scroll_instructions"]
+offset_left = 97.0
+offset_top = 373.0
+offset_right = 161.0
+offset_bottom = 437.0
 scale = Vector2(1.6, 1.6)
-texture = ExtResource("22_qnb83")
+action_mode = 0
+texture_normal = ExtResource("22_qnb83")
+script = ExtResource("20_bhx41")
+buttonType = 1
 
 [node name="SplashLayer" type="CanvasLayer" parent="."]
 
