@@ -33,6 +33,7 @@ gdscript/warnings/unsafe_call_argument=1
 window/size/viewport_width=1440
 window/size/viewport_height=810
 window/stretch/mode="canvas_items"
+window/handheld/orientation=4
 
 [dotnet]
 
