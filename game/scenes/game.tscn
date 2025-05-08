@@ -667,7 +667,195 @@ texture_normal = ExtResource("14_f0ovq")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Overlays" type="Control" parent="UILayer"]
+[node name="desktop_instructions" type="Node2D" parent="UILayer"]
+visible = false
+script = ExtResource("15_5newe")
+
+[node name="block_instructions" type="Node2D" parent="UILayer/desktop_instructions"]
+position = Vector2(0, 95)
+
+[node name="KeyboardArrowCluster" parent="UILayer/desktop_instructions/block_instructions" instance=ExtResource("9_sbnu7")]
+position = Vector2(32, 383)
+scale = Vector2(0.5, 0.5)
+
+[node name="Label" type="Label" parent="UILayer/desktop_instructions/block_instructions"]
+offset_left = 139.0
+offset_top = 396.0
+offset_right = 179.0
+offset_bottom = 427.0
+theme = ExtResource("10_ot3g2")
+text = "or"
+
+[node name="Label2" type="Label" parent="UILayer/desktop_instructions/block_instructions"]
+offset_left = 64.0
+offset_top = 463.0
+offset_right = 251.0
+offset_bottom = 494.0
+theme = ExtResource("10_ot3g2")
+text = "to move blocks"
+
+[node name="Label3" type="Label" parent="UILayer/desktop_instructions/block_instructions"]
+offset_left = 56.0
+offset_top = 576.0
+offset_right = 246.0
+offset_bottom = 607.0
+theme = ExtResource("10_ot3g2")
+text = "to rotate blocks"
+horizontal_alignment = 1
+
+[node name="keyboard_wasd_cluster" parent="UILayer/desktop_instructions/block_instructions" instance=ExtResource("11_p3715")]
+position = Vector2(179, 385)
+scale = Vector2(0.5, 0.5)
+
+[node name="KeyboardROutline" type="Sprite2D" parent="UILayer/desktop_instructions/block_instructions"]
+position = Vector2(151, 535)
+texture = ExtResource("12_jh5qb")
+
+[node name="block_instructions_fade_in" type="AnimationPlayer" parent="UILayer/desktop_instructions/block_instructions"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_qf3gq")
+}
+autoplay = "init_hide"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UILayer/desktop_instructions/block_instructions"]
+offset_left = 25.0
+offset_top = 148.0
+offset_right = 283.0
+offset_bottom = 365.0
+theme = ExtResource("10_ot3g2")
+text = "Whenever you choose a topic, you'll create a block and take some wealth. Hover over a block for more info."
+fit_content = true
+
+[node name="scroll_instructions" type="Node2D" parent="UILayer/desktop_instructions"]
+position = Vector2(0, 1)
+
+[node name="MouseScrollVertical" type="Sprite2D" parent="UILayer/desktop_instructions/scroll_instructions"]
+position = Vector2(38, 175)
+texture = ExtResource("14_as66l")
+
+[node name="Label4" type="Label" parent="UILayer/desktop_instructions/scroll_instructions"]
+offset_left = 79.0
+offset_top = 140.0
+offset_right = 298.0
+offset_bottom = 239.0
+theme = ExtResource("10_ot3g2")
+text = "You can scroll
+up or down."
+
+[node name="scroll_instructions_fader" type="AnimationPlayer" parent="UILayer/desktop_instructions/scroll_instructions"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_y7i5j")
+}
+autoplay = "init_hide"
+
+[node name="mobile_instructions" type="Node2D" parent="UILayer"]
+script = ExtResource("15_5newe")
+mobile_instructions = true
+
+[node name="block_instructions" type="Node2D" parent="UILayer/mobile_instructions"]
+position = Vector2(0, 95)
+
+[node name="Label" type="Label" parent="UILayer/mobile_instructions/block_instructions"]
+offset_left = 32.0
+offset_top = 197.0
+offset_right = 242.0
+offset_bottom = 262.0
+theme = ExtResource("10_ot3g2")
+text = "You can move 
+and rotate blocks"
+
+[node name="mobile_block_instructions_fade_in" type="AnimationPlayer" parent="UILayer/mobile_instructions/block_instructions"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_qf3gq")
+}
+autoplay = "init_hide"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UILayer/mobile_instructions/block_instructions"]
+offset_left = 25.0
+offset_top = -53.0
+offset_right = 283.0
+offset_bottom = 164.0
+theme = ExtResource("10_ot3g2")
+text = "Whenever you choose a topic, you'll create a block and take some wealth. Tap a block for more info."
+fit_content = true
+
+[node name="KeyboardROutline" type="TextureButton" parent="UILayer/mobile_instructions/block_instructions"]
+offset_left = 97.0
+offset_top = 369.0
+offset_right = 161.0
+offset_bottom = 433.0
+scale = Vector2(1.6, 1.6)
+texture_normal = ExtResource("12_jh5qb")
+script = ExtResource("20_bhx41")
+
+[node name="KeyboardArrowLeftOutline" type="TextureButton" parent="UILayer/mobile_instructions/block_instructions"]
+offset_left = 7.0
+offset_top = 369.0
+offset_right = 71.0
+offset_bottom = 433.0
+scale = Vector2(1.6, 1.6)
+action_mode = 0
+texture_normal = ExtResource("21_bhx41")
+script = ExtResource("20_bhx41")
+buttonType = 3
+
+[node name="KeyboardArrowRightOutline" type="TextureButton" parent="UILayer/mobile_instructions/block_instructions"]
+offset_left = 187.0
+offset_top = 369.0
+offset_right = 251.0
+offset_bottom = 433.0
+scale = Vector2(1.6, 1.6)
+action_mode = 0
+texture_normal = ExtResource("23_sww3w")
+script = ExtResource("20_bhx41")
+buttonType = 4
+
+[node name="scroll_instructions" type="Node2D" parent="UILayer/mobile_instructions"]
+position = Vector2(0, 1)
+
+[node name="Label4" type="Label" parent="UILayer/mobile_instructions/scroll_instructions"]
+offset_left = 12.0
+offset_top = 670.0
+offset_right = 286.0
+offset_bottom = 769.0
+theme = ExtResource("10_ot3g2")
+text = "Or scroll up and down"
+
+[node name="mobile_scroll_instructions_fader" type="AnimationPlayer" parent="UILayer/mobile_instructions/scroll_instructions"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_y7i5j")
+}
+autoplay = "init_hide"
+
+[node name="KeyboardArrowDownOutline" type="TextureButton" parent="UILayer/mobile_instructions/scroll_instructions"]
+offset_left = 97.0
+offset_top = 553.0
+offset_right = 161.0
+offset_bottom = 617.0
+scale = Vector2(1.6, 1.6)
+action_mode = 0
+texture_normal = ExtResource("20_pl11u")
+script = ExtResource("20_bhx41")
+buttonType = 2
+
+[node name="KeyboardArrowUpOutline" type="TextureButton" parent="UILayer/mobile_instructions/scroll_instructions"]
+offset_left = 97.0
+offset_top = 373.0
+offset_right = 161.0
+offset_bottom = 437.0
+scale = Vector2(1.6, 1.6)
+action_mode = 0
+texture_normal = ExtResource("22_qnb83")
+script = ExtResource("20_bhx41")
+buttonType = 1
+
+[node name="SplashLayer" type="CanvasLayer" parent="."]
+
+[node name="Overlays" type="Control" parent="SplashLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -677,11 +865,11 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="InfoOverlay" parent="UILayer/Overlays" instance=ExtResource("14_3pida")]
+[node name="InfoOverlay" parent="SplashLayer/Overlays" instance=ExtResource("14_3pida")]
 unique_name_in_owner = true
 layout_mode = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="UILayer/Overlays/InfoOverlay"]
+[node name="PanelContainer" type="PanelContainer" parent="SplashLayer/Overlays/InfoOverlay"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -695,10 +883,10 @@ offset_bottom = 247.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="UILayer/Overlays/InfoOverlay/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="SplashLayer/Overlays/InfoOverlay/PanelContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UILayer/Overlays/InfoOverlay/PanelContainer/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="SplashLayer/Overlays/InfoOverlay/PanelContainer/MarginContainer"]
 layout_mode = 2
 bbcode_enabled = true
 text = "[b]Want sources for the topics in this game? Click [/b][i][url=https://github.com/kksgandhi/other-peoples-money?tab=readme-ov-file#sources-and-discussion]here[/url][/i].
@@ -2730,11 +2918,11 @@ License: Zlib
     misrepresented as being the original software.
  3. This notice may not be removed or altered from any source distribution."
 
-[node name="SpendingOverlay" parent="UILayer/Overlays" instance=ExtResource("14_3pida")]
+[node name="SpendingOverlay" parent="SplashLayer/Overlays" instance=ExtResource("14_3pida")]
 unique_name_in_owner = true
 layout_mode = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="UILayer/Overlays/SpendingOverlay"]
+[node name="PanelContainer" type="PanelContainer" parent="SplashLayer/Overlays/SpendingOverlay"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2748,203 +2936,15 @@ offset_bottom = 253.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="UILayer/Overlays/SpendingOverlay/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="SplashLayer/Overlays/SpendingOverlay/PanelContainer"]
 layout_mode = 2
 
-[node name="SpendingInfo" type="RichTextLabel" parent="UILayer/Overlays/SpendingOverlay/PanelContainer/MarginContainer"]
+[node name="SpendingInfo" type="RichTextLabel" parent="SplashLayer/Overlays/SpendingOverlay/PanelContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Once you've chosen some topics, you'll see your spending here. Choose a topic on the right side of the main game."
 script = ExtResource("16_gfsir")
 base_text = "As you run out of other people's money, this is what you've managed to do. Keep going, think you can squeeze a little more in?"
-
-[node name="desktop_instructions" type="Node2D" parent="UILayer"]
-visible = false
-script = ExtResource("15_5newe")
-
-[node name="block_instructions" type="Node2D" parent="UILayer/desktop_instructions"]
-position = Vector2(0, 95)
-
-[node name="KeyboardArrowCluster" parent="UILayer/desktop_instructions/block_instructions" instance=ExtResource("9_sbnu7")]
-position = Vector2(32, 383)
-scale = Vector2(0.5, 0.5)
-
-[node name="Label" type="Label" parent="UILayer/desktop_instructions/block_instructions"]
-offset_left = 139.0
-offset_top = 396.0
-offset_right = 179.0
-offset_bottom = 427.0
-theme = ExtResource("10_ot3g2")
-text = "or"
-
-[node name="Label2" type="Label" parent="UILayer/desktop_instructions/block_instructions"]
-offset_left = 64.0
-offset_top = 463.0
-offset_right = 251.0
-offset_bottom = 494.0
-theme = ExtResource("10_ot3g2")
-text = "to move blocks"
-
-[node name="Label3" type="Label" parent="UILayer/desktop_instructions/block_instructions"]
-offset_left = 56.0
-offset_top = 576.0
-offset_right = 246.0
-offset_bottom = 607.0
-theme = ExtResource("10_ot3g2")
-text = "to rotate blocks"
-horizontal_alignment = 1
-
-[node name="keyboard_wasd_cluster" parent="UILayer/desktop_instructions/block_instructions" instance=ExtResource("11_p3715")]
-position = Vector2(179, 385)
-scale = Vector2(0.5, 0.5)
-
-[node name="KeyboardROutline" type="Sprite2D" parent="UILayer/desktop_instructions/block_instructions"]
-position = Vector2(151, 535)
-texture = ExtResource("12_jh5qb")
-
-[node name="block_instructions_fade_in" type="AnimationPlayer" parent="UILayer/desktop_instructions/block_instructions"]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_qf3gq")
-}
-autoplay = "init_hide"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UILayer/desktop_instructions/block_instructions"]
-offset_left = 25.0
-offset_top = 148.0
-offset_right = 283.0
-offset_bottom = 365.0
-theme = ExtResource("10_ot3g2")
-text = "Whenever you choose a topic, you'll create a block and take some wealth. Hover over a block for more info."
-fit_content = true
-
-[node name="scroll_instructions" type="Node2D" parent="UILayer/desktop_instructions"]
-position = Vector2(0, 1)
-
-[node name="MouseScrollVertical" type="Sprite2D" parent="UILayer/desktop_instructions/scroll_instructions"]
-position = Vector2(38, 175)
-texture = ExtResource("14_as66l")
-
-[node name="Label4" type="Label" parent="UILayer/desktop_instructions/scroll_instructions"]
-offset_left = 79.0
-offset_top = 140.0
-offset_right = 298.0
-offset_bottom = 239.0
-theme = ExtResource("10_ot3g2")
-text = "You can scroll
-up or down."
-
-[node name="scroll_instructions_fader" type="AnimationPlayer" parent="UILayer/desktop_instructions/scroll_instructions"]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_y7i5j")
-}
-autoplay = "init_hide"
-
-[node name="mobile_instructions" type="Node2D" parent="UILayer"]
-script = ExtResource("15_5newe")
-mobile_instructions = true
-
-[node name="block_instructions" type="Node2D" parent="UILayer/mobile_instructions"]
-position = Vector2(0, 95)
-
-[node name="Label" type="Label" parent="UILayer/mobile_instructions/block_instructions"]
-offset_left = 32.0
-offset_top = 197.0
-offset_right = 242.0
-offset_bottom = 262.0
-theme = ExtResource("10_ot3g2")
-text = "You can move 
-and rotate blocks"
-
-[node name="mobile_block_instructions_fade_in" type="AnimationPlayer" parent="UILayer/mobile_instructions/block_instructions"]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_qf3gq")
-}
-autoplay = "init_hide"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UILayer/mobile_instructions/block_instructions"]
-offset_left = 25.0
-offset_top = -53.0
-offset_right = 283.0
-offset_bottom = 164.0
-theme = ExtResource("10_ot3g2")
-text = "Whenever you choose a topic, you'll create a block and take some wealth. Tap a block for more info."
-fit_content = true
-
-[node name="KeyboardROutline" type="TextureButton" parent="UILayer/mobile_instructions/block_instructions"]
-offset_left = 97.0
-offset_top = 369.0
-offset_right = 161.0
-offset_bottom = 433.0
-scale = Vector2(1.6, 1.6)
-texture_normal = ExtResource("12_jh5qb")
-script = ExtResource("20_bhx41")
-
-[node name="KeyboardArrowLeftOutline" type="TextureButton" parent="UILayer/mobile_instructions/block_instructions"]
-offset_left = 7.0
-offset_top = 369.0
-offset_right = 71.0
-offset_bottom = 433.0
-scale = Vector2(1.6, 1.6)
-action_mode = 0
-texture_normal = ExtResource("21_bhx41")
-script = ExtResource("20_bhx41")
-buttonType = 3
-
-[node name="KeyboardArrowRightOutline" type="TextureButton" parent="UILayer/mobile_instructions/block_instructions"]
-offset_left = 187.0
-offset_top = 369.0
-offset_right = 251.0
-offset_bottom = 433.0
-scale = Vector2(1.6, 1.6)
-action_mode = 0
-texture_normal = ExtResource("23_sww3w")
-script = ExtResource("20_bhx41")
-buttonType = 4
-
-[node name="scroll_instructions" type="Node2D" parent="UILayer/mobile_instructions"]
-position = Vector2(0, 1)
-
-[node name="Label4" type="Label" parent="UILayer/mobile_instructions/scroll_instructions"]
-offset_left = 12.0
-offset_top = 670.0
-offset_right = 286.0
-offset_bottom = 769.0
-theme = ExtResource("10_ot3g2")
-text = "Or scroll up and down"
-
-[node name="mobile_scroll_instructions_fader" type="AnimationPlayer" parent="UILayer/mobile_instructions/scroll_instructions"]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_y7i5j")
-}
-autoplay = "init_hide"
-
-[node name="KeyboardArrowDownOutline" type="TextureButton" parent="UILayer/mobile_instructions/scroll_instructions"]
-offset_left = 97.0
-offset_top = 553.0
-offset_right = 161.0
-offset_bottom = 617.0
-scale = Vector2(1.6, 1.6)
-action_mode = 0
-texture_normal = ExtResource("20_pl11u")
-script = ExtResource("20_bhx41")
-buttonType = 2
-
-[node name="KeyboardArrowUpOutline" type="TextureButton" parent="UILayer/mobile_instructions/scroll_instructions"]
-offset_left = 97.0
-offset_top = 373.0
-offset_right = 161.0
-offset_bottom = 437.0
-scale = Vector2(1.6, 1.6)
-action_mode = 0
-texture_normal = ExtResource("22_qnb83")
-script = ExtResource("20_bhx41")
-buttonType = 1
-
-[node name="SplashLayer" type="CanvasLayer" parent="."]
 
 [node name="Splash" type="Node2D" parent="SplashLayer"]
 visible = false
@@ -3012,7 +3012,7 @@ libraries = {
 [connection signal="meta_clicked" from="UILayer/LeftSideBar/MarginContainer/LeftSideBarText" to="." method="_on_left_side_bar_text_meta_clicked"]
 [connection signal="pressed" from="UILayer/Hotbar/MarginContainer/HBoxContainer/InfoButton" to="." method="_on_info_button_pressed"]
 [connection signal="pressed" from="UILayer/Hotbar/MarginContainer/HBoxContainer/SpendingButton" to="." method="_on_spending_button_pressed"]
-[connection signal="meta_clicked" from="UILayer/Overlays/InfoOverlay/PanelContainer/MarginContainer/RichTextLabel" to="." method="_on_left_side_bar_text_meta_clicked"]
+[connection signal="meta_clicked" from="SplashLayer/Overlays/InfoOverlay/PanelContainer/MarginContainer/RichTextLabel" to="." method="_on_left_side_bar_text_meta_clicked"]
 [connection signal="animation_finished" from="SplashLayer/Splash/HideSplash" to="SplashLayer/Splash" method="_on_hide_splash_animation_finished"]
 
 [editable path="Sidebar/YesThisWholeArea"]
