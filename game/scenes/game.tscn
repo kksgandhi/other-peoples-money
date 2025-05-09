@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://ca8bu6oaovpaw"]
+[gd_scene load_steps=52 format=3 uid="uid://ca8bu6oaovpaw"]
 
 [ext_resource type="Script" uid="uid://dfbagos3tjek0" path="res://scenes/game.gd" id="1_3vnwj"]
 [ext_resource type="Texture2D" uid="uid://7htmx1ae8i1d" path="res://assets/images/1x1_white.png" id="1_5gkvc"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://rhaud71sposm" path="res://assets/images/button_prompts/keyboard_arrow_down_outline.svg" id="20_pl11u"]
 [ext_resource type="Texture2D" uid="uid://c4h7rgnnxatmn" path="res://assets/images/button_prompts/keyboard_arrow_left_outline.svg" id="21_bhx41"]
 [ext_resource type="Texture2D" uid="uid://oxn2xbvgnk4o" path="res://assets/images/button_prompts/keyboard_arrow_up_outline.svg" id="22_qnb83"]
+[ext_resource type="Script" uid="uid://bb421714se7bo" path="res://scenes/UI/mobile_tetro_info_box.gd" id="23_qnb83"]
 [ext_resource type="Texture2D" uid="uid://dxn3y5g5kkhm1" path="res://assets/images/button_prompts/keyboard_arrow_right_outline.svg" id="23_sww3w"]
 
 [sub_resource type="Gradient" id="Gradient_rx4ev"]
@@ -199,6 +200,67 @@ _data = {
 &"init_hide": SubResource("Animation_fu4ho")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnb83"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 0.945098)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Animation" id="Animation_qnb83"]
+resource_name = "display"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 3.46667, 5),
+"transitions": PackedFloat32Array(0.594604, 1, 0.594604, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sww3w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_suyxu"]
+resource_name = "redisplay"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.76667, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_suyxu"]
+_data = {
+&"RESET": SubResource("Animation_sww3w"),
+&"display": SubResource("Animation_qnb83"),
+&"redisplay": SubResource("Animation_suyxu")
+}
+
 [sub_resource type="Animation" id="Animation_tfus2"]
 length = 0.001
 tracks/0/type = "value"
@@ -321,8 +383,9 @@ _data = {
 &"hide_splash": SubResource("Animation_cnlll")
 }
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("mobile_info_tetro_box")]
 script = ExtResource("1_3vnwj")
+mobile_info_tetro_box = NodePath("UILayer/MobileTetroInfoBox")
 unlocked_camera_speed = 0.1
 breaking_position = 500
 game_movement_offset = 600
@@ -380,6 +443,7 @@ offset_right = 3313.0
 offset_bottom = -760.0
 rotation = 1.5708
 texture = SubResource("GradientTexture1D_57v3k")
+metadata/_edit_lock_ = true
 
 [node name="tetrominos" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -852,6 +916,31 @@ action_mode = 0
 texture_normal = ExtResource("22_qnb83")
 script = ExtResource("20_bhx41")
 buttonType = 1
+
+[node name="MobileTetroInfoBox" type="PanelContainer" parent="UILayer" node_paths=PackedStringArray("label", "animator")]
+modulate = Color(1, 1, 1, 0)
+offset_left = 370.0
+offset_top = 120.0
+offset_right = 966.0
+offset_bottom = 160.0
+theme = ExtResource("10_ot3g2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_qnb83")
+script = ExtResource("23_qnb83")
+label = NodePath("MarginContainer/RichTextLabel")
+animator = NodePath("AnimationPlayer")
+
+[node name="MarginContainer" type="MarginContainer" parent="UILayer/MobileTetroInfoBox"]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UILayer/MobileTetroInfoBox/MarginContainer"]
+layout_mode = 2
+fit_content = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UILayer/MobileTetroInfoBox"]
+libraries = {
+&"": SubResource("AnimationLibrary_suyxu")
+}
 
 [node name="SplashLayer" type="CanvasLayer" parent="."]
 

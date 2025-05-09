@@ -18,6 +18,7 @@ var rng := RandomNumberGenerator.new()
 @onready var spending_overlay := %SpendingOverlay as Overlay
 @onready var spending_info := %SpendingInfo as SpendingInfo
 @onready var sidebar_top_label := %sidebar_top_label as Label
+@export var mobile_info_tetro_box: MobileInfoTetroBox
 
 var have_block_instructions_faded_in := false
 var have_scroll_instructions_faded_in := false
@@ -108,7 +109,7 @@ func spawn_tetromino(tetro_info: TetroInfo) -> void:
   spawned_tetromino.scale = Vector2(1, 1) * Globals.get_tetromino_scale(tetro_info.cost)
   spawned_tetromino.set_color(tetro_info.color)
   spawned_tetromino.tetro_info = tetro_info
-  spawned_tetromino.is_clicked.connect(func() -> void: info_overlay.fade_in())
+  spawned_tetromino.is_clicked.connect(func() -> void: handle_tetromino_clicked(tetro_info))
   var tooltip := tetro_info.title + " $" + Globals.comma_sep(tetro_info.cost) if Globals.hide_cost else tetro_info.title
   spawned_tetromino.set_tooltips(tooltip)
 
@@ -117,6 +118,12 @@ func spawn_tetromino(tetro_info: TetroInfo) -> void:
   if not have_block_instructions_faded_in:
     have_block_instructions_faded_in = true
     block_instructions_fader.play("fade_in")
+
+func handle_tetromino_clicked(tetro_info: TetroInfo) -> void:
+  if Globals.is_mobile:
+    mobile_info_tetro_box.display(tetro_info)
+  else:
+    info_overlay.fade_in()
 
 func _process(delta: float) -> void:
   move_upwards_as_tetrominos_fall()
