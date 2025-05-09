@@ -8,7 +8,7 @@ var hide_cost := true
 
 var hide_reflection_text := false
 
-var debug_mobile := false
+var debug_mobile := true
 var is_mobile := debug_mobile or OS.has_feature("web_android") or OS.has_feature("web_ios")
 
 func get_tetromino_scale(cost: float) -> float:

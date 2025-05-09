@@ -31,7 +31,7 @@ func _ready() -> void:
   add_tetro_ui_item(); add_tetro_ui_item(); add_tetro_ui_item(); add_tetro_ui_item(); add_tetro_ui_item()
   top.position.y = bottom.position.y - (height_of_play_area + 16)
   if Globals.is_mobile:
-    scroll_speed = scroll_speed / 10
+    scroll_speed = scroll_speed / 7
 
 func cost_info_to_resource(info: Dictionary) -> TetroInfo:
   return TetroInfo.new(Vector2(1, 1), Color.WHITE, info.title, "", info.cost * 1_000_000_000)
