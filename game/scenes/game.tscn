@@ -655,7 +655,7 @@ Use Arrow keys or WASD to move them around as they fall. Use R to rotate them. H
 
 
 
-I put this game together in a week, which means the numbers are, admittedly, not that well researched. In addition, this game is a rip-off of [url=https://mkorostoff.github.io/1-pixel-wealth/]this game[/url], which is much more educational, and [url=https://direkris.itch.io/you-are-jeff-bezos]this game[/url], which is much funnier."
+I put this game together in a week, which means the numbers are, admittedly, not that well researched. In addition, this game is a rip-off of [url=https://eattherichtextformat.github.io/1-pixel-wealth/]this game[/url], which is much more educational, and [url=https://direkris.itch.io/you-are-jeff-bezos]this game[/url], which is much funnier."
 fit_content = true
 
 [node name="LeftSideBarEndText" type="RichTextLabel" parent="UILayer/LeftSideBar/MarginContainer"]
