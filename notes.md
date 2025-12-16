@@ -11,7 +11,9 @@ Design possibilities:
 
 Stretch Goals:
 
- - Getting the game working on mobile
+ - resizing the window so it fits the screen perhaps?
+ - cross out selected items and have them fade away, so there's more feedback about what you've selected
+ - just remove the tetris aspects of it. 
 
 Research:
 
@@ -19,6 +21,8 @@ Does my target audience exist? Why don't people want to tax the rich? Why don't 
 
 Research Notes
 --------------
+
+Other research notes available here: (https://docs.google.com/document/d/1Nu_GAeSATjAhb0AxaclJsTSHpY6ueWsXv0kpYa3g_kA/edit?tab=t.0)
 
 Research Question: How do "bridging moments" affect the reflective play experience — where "bridging moments" are moments that touch on (or even directly spell out) the reflective goals of the game. Do these moments serve as an anchor aiding in reflection, or do they irritate or distract players from reflection they would have done otherwise? This question is too broad to answer in one study, but this study will provide evidence in a specific context.
 
