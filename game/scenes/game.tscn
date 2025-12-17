@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://ca8bu6oaovpaw"]
+[gd_scene load_steps=56 format=3 uid="uid://ca8bu6oaovpaw"]
 
 [ext_resource type="Script" uid="uid://dfbagos3tjek0" path="res://scenes/game.gd" id="1_3vnwj"]
 [ext_resource type="Texture2D" uid="uid://7htmx1ae8i1d" path="res://assets/images/1x1_white.png" id="1_5gkvc"]
@@ -302,7 +302,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_ojmdf"]
 resource_name = "show_labels"
-length = 6.0
+length = 7.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -310,7 +310,7 @@ tracks/0/path = NodePath("Labels/Label:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(1.5666667, 2.9666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -322,7 +322,7 @@ tracks/1/path = NodePath("Labels/Label2:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 4, 6),
+"times": PackedFloat32Array(0, 5.4666667, 7.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -334,7 +334,7 @@ tracks/2/path = NodePath("Labels/Label3:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 5, 6),
+"times": PackedFloat32Array(0, 6.1666665, 7.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -381,6 +381,58 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_bfxbb"),
 &"hide_splash": SubResource("Animation_cnlll")
+}
+
+[sub_resource type="Animation" id="Animation_qouja"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("research_introduction:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wljb1"]
+resource_name = "hide_research"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("research_introduction:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.40000004),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sgl2t"]
+resource_name = "show_research"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("research_introduction:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v2yb1"]
+_data = {
+&"RESET": SubResource("Animation_qouja"),
+&"hide_research": SubResource("Animation_wljb1"),
+&"show_research": SubResource("Animation_sgl2t")
 }
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("mobile_info_tetro_box")]
@@ -3035,9 +3087,14 @@ text = "Once you've chosen some topics, you'll see your spending here. Choose a 
 script = ExtResource("16_gfsir")
 base_text = "As you run out of other people's money, this is what you've managed to do. Keep going, think you can squeeze a little more in?"
 
-[node name="Splash" type="Node2D" parent="SplashLayer"]
+[node name="Splash" type="Node2D" parent="SplashLayer" node_paths=PackedStringArray("show_labels", "hide_splash", "research_animator", "research_label", "research_id_text_edit")]
 visible = false
 script = ExtResource("6_ybfi8")
+show_labels = NodePath("ShowLabels")
+hide_splash = NodePath("HideSplash")
+research_animator = NodePath("ResearchAnimator")
+research_label = NodePath("research_introduction/ResearchPleasePaste")
+research_id_text_edit = NodePath("research_introduction/ResearchIDTextEdit")
 
 [node name="Noise" type="TextureRect" parent="SplashLayer/Splash"]
 offset_left = -345.0
@@ -3098,11 +3155,49 @@ libraries = {
 &"": SubResource("AnimationLibrary_in24v")
 }
 
+[node name="research_introduction" type="Node2D" parent="SplashLayer/Splash"]
+modulate = Color(1, 1, 1, 0)
+
+[node name="ResearchPleasePaste" type="Label" parent="SplashLayer/Splash/research_introduction"]
+offset_left = 370.0
+offset_top = 100.0
+offset_right = 1070.0
+offset_bottom = 348.0
+theme = ExtResource("10_ot3g2")
+theme_override_fonts/font = ExtResource("8_xur25")
+theme_override_font_sizes/font_size = 48
+text = "Please paste in your research id string"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ResearchIDTextEdit" type="TextEdit" parent="SplashLayer/Splash/research_introduction"]
+offset_left = 370.0
+offset_top = 208.0
+offset_right = 1080.0
+offset_bottom = 313.0
+theme = ExtResource("10_ot3g2")
+placeholder_text = "Paste here"
+
+[node name="ResearchContinueButton" type="Button" parent="SplashLayer/Splash/research_introduction"]
+offset_left = 628.0
+offset_top = 374.0
+offset_right = 786.0
+offset_bottom = 469.0
+theme = ExtResource("10_ot3g2")
+text = "Continue"
+
+[node name="ResearchAnimator" type="AnimationPlayer" parent="SplashLayer/Splash"]
+libraries = {
+&"": SubResource("AnimationLibrary_v2yb1")
+}
+
 [connection signal="meta_clicked" from="UILayer/LeftSideBar/MarginContainer/LeftSideBarText" to="." method="_on_left_side_bar_text_meta_clicked"]
 [connection signal="pressed" from="UILayer/Hotbar/MarginContainer/HBoxContainer/InfoButton" to="." method="_on_info_button_pressed"]
 [connection signal="pressed" from="UILayer/Hotbar/MarginContainer/HBoxContainer/SpendingButton" to="." method="_on_spending_button_pressed"]
 [connection signal="meta_clicked" from="SplashLayer/Overlays/InfoOverlay/PanelContainer/MarginContainer/RichTextLabel" to="." method="_on_left_side_bar_text_meta_clicked"]
+[connection signal="animation_finished" from="SplashLayer/Splash/ShowLabels" to="SplashLayer/Splash" method="_on_show_labels_animation_finished"]
 [connection signal="animation_finished" from="SplashLayer/Splash/HideSplash" to="SplashLayer/Splash" method="_on_hide_splash_animation_finished"]
+[connection signal="pressed" from="SplashLayer/Splash/research_introduction/ResearchContinueButton" to="SplashLayer/Splash" method="_on_research_continue_button_pressed"]
 
 [editable path="Sidebar/YesThisWholeArea"]
 [editable path="Sidebar/Profit"]

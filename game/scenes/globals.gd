@@ -6,10 +6,14 @@ var top_400_wealth := 4_000_000_000_000.0
 
 var hide_cost := true
 
-var hide_reflection_text := false
+var hide_reflection_text := true
 
 var debug_mobile := false
 var is_mobile := debug_mobile or OS.has_feature("web_android") or OS.has_feature("web_ios")
+
+var research_telemetry := true
+
+var research_id := ""
 
 func get_tetromino_scale(cost: float) -> float:
   return sqrt(float(cost) / dollars_per_pixel / 4.0)
